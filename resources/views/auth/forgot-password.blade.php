@@ -13,7 +13,7 @@
     <link rel="icon" sizes="16x16" href="assets/img/favicon.png">
 
     <!-- Title -->
-    <title> - Personal Blog HTML Template </title>
+    <title>  - Personal Blog HTML Template </title>
     
     <!-- Font Google -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&amp;display=swap" rel="stylesheet">
@@ -25,9 +25,8 @@
     <link rel="stylesheet" href="{{asset('assets/css/owl.carousel.css')}}">
     
     <!-- main style -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/custom.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/custom.css')}}">
 </head>
 <style>
     .form .form-element .password-policies {
@@ -47,6 +46,10 @@
   overflow:hidden;
   transition: height 300ms ease-in-out,
               opacity 300ms ease-in-out;
+}
+.dark .newslettre-form .form-control, .dark .widget-form .form-control, .dark .search-form input {
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 .form .form-element .password-policies.active {
   opacity:1;
@@ -68,7 +71,7 @@
   color: green;
   width:67px;
   height:40px;
-  top:3s8px;
+  top:48px;
   right:2px;
   border-radius:50%;
   text-align:center;
@@ -105,21 +108,17 @@ i.far.fa-envelope.email_address{
 }
 
 
-.form .form-element .toggle-password.active i.fa-eye {
+.form .form-group .toggle-password.active i.fa-eye {
   display:none;
 }
-.form .form-element .toggle-password.active i.fa-eye-slash {
+.form .form-group  .toggle-password.active i.fa-eye-slash {
   display:inline;
 }
-.form .form-element .toggle-password i.fa-eye-slash {
+.form .form-group  .toggle-password i.fa-eye-slash {
   display:none;
 }
-
-.dark .newslettre-form .form-control, .dark .widget-form .form-control, .dark .search-form input {
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
 </style>
+
 <body>  
     <!--loading -->
     <div class="loading">
@@ -205,7 +204,7 @@ i.far.fa-envelope.email_address{
                     </li>
     
                     <li class="nav-item dropdown">
-                        <a class="nav-link active dropdown-toggle" href="#" data-toggle="dropdown">Pages </a>
+                        <a class="nav-link  active dropdown-toggle" href="#" data-toggle="dropdown">Pages </a>
                         <ul class="dropdown-menu fade-up">
                             <li>
                                 <a class="dropdown-item" href="about.html"> About </a>
@@ -214,10 +213,10 @@ i.far.fa-envelope.email_address{
                                 <a class="dropdown-item" href="author.html"> author </a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="login.html"> Login </a>
+                                <a class="dropdown-item active " href="login.html"> Login </a>
                             </li>
                             <li>
-                                <a class="dropdown-item active " href="register.html"> Sign up </a>
+                                <a class="dropdown-item " href="register.html"> Sign up </a>
                             </li>
                             <li>
                                 <a class="dropdown-item " href="page404.html"> Page 404 </a>
@@ -276,163 +275,85 @@ i.far.fa-envelope.email_address{
     </nav>
     <!--/-->
 
-    <!--register-->
+  
+
+    <!--Login-->
     <section class="section pt-55 mb-50">
-        <div class="container-fluid">
-            <div class="sign widget">
+        <div class="container">
+             {{-- Session Start --}}
+   @if(session('status'))
+   <div class="alert alert-success" role="alert">
+       {{ session('status') }}
+   </div>
+  {{-- Session Start --}}
+   @endif
+            <div class="sign widget ">
                 <div class="section-title">
-                    <h5>Sign up</h5>
+                    <h5>Reset Password</h5>
                 </div>
-                
-                
-                <form id="" method="POST" action="{{route('register')}}" class="sign-form widget-form" >                               
+                <form action="{{route('password.request')}}" class="sign-form widget-form " method="post">
                     @csrf
+                    <div class="form-group">
+                        <input style="font-size: 18px; font-weight:bold;" type="email" class="form-control @error('email') is-invalid @enderror" autocomplete="off" id="email" placeholder="Jhon@gmail.com" name="email" required="">
+                        
+                        @error('email')
+                        <span class="invalid-feedback is-invalid" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
 
-
-                    @error('email')
-                    <div class="alert alert-danger" role="alert">
-                       {{$message}}
-                      </div>
-                     @enderror
-
-
-                     @error('name')
-                     <div class="alert alert-danger" role="alert">
-                        {{$message}}
-                       </div>
-                      @enderror
-
-
-                      @error('password')
-                      <div class="alert alert-danger" role="alert">
-                         {{$message}}
+                    </div>
+                   
+                    <div class="sign-controls form-group">
+                        <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="rememberMe">
+                            <label class="custom-control-label" for="rememberMe">Remember Me</label>
                         </div>
-                       @enderror
-
-
-                            <div class="form-group row">
-                                    <div class="col-12 form-group mb-25">
-                                        <label for="username">Full Name</label>
-                                        <input style="font-size: 18px; font-weight:bold;" autocomplete="off" placeholder="Enter your Full Name" required autofocus class="form-control @error('name') is-invalid @enderror" type="text" id="name" required="" name="name" value="{{old('name')}}" >
-                                      
-                                    </div>
-                            </div>
-
-                       
-
-
-
-                            <div class="form-group row">
-                                <div class="col-12 form-group mb-25">
-                                    <label for="emailaddress">Email address</label>
-                                    <input style="font-size: 18px; font-weight:bold;" autocomplete="off" class="form-control @error('email') is-invalid @enderror" type="email" id="email"  name="email" value="{{ old('email') }}" required  placeholder="example@gmail.com" >
-                                   
-                                  
-
-
-                                </div>
-                              
-                            </div>
-                        
-
-
-                       
-                       
-
-                            <div class="form-group row form">
-                                
-                                <div class="col-12 form-element mb-25">
-                                    <a href="" class="text-muted float-right"><small>Forgot your Password</small></a>
-                                    <label for="password">Password</label>
-                                    <input style="font-size: 18px; font-weight:bold;" id="password-field" autocomplete="off" class="form-control @error('password') is-invalid @enderror" type="password" id="password"  name="password" required autocomplete="new-password" placeholder="Type your password" >
-                                
-                                 
-
-
-
-                                    <div class="toggle-password">
-                                        <i class="fa fa-eye"></i>
-                                        <i class="fa fa-eye-slash"></i>
-                                    </div>
-                                   
-                                    <div class="password-policies">
-                                        <div class="policy-length">
-                                          8 Characters
-                                        </div>
-                                        <div class="policy-number">
-                                          Contains Number
-                                        </div>
-                                        <div class="policy-uppercase">
-                                          Contains Uppercase
-                                        </div>
-                                        <div class="policy-special">
-                                          Contains Special Characters
-                                        </div>
-                                     </div>
-                                 </div>
-
-                                  
-                            </div>
-
-
-
-
-                            <div class="form-group row">
-                                <div class="col-12 form-group mb-25">
-                                    <a href="{{route('password.request')}}" class="text-muted float-right"><small>Forgot your Password</small></a>
-                                    <label for="password">Confirm Password</label>
-                                    <input style="font-size: 18px; font-weight:bold;" id="password-field" autocomplete="off" id="password-confirmation" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Enter your password again" >
-                                </div>
-                            </div>    
-
-                            <div class="form-group">
-                                <button name="reset" id="reset" type="submit" class="btn-custom">Update</button>
-                            </div>
-
-                            <p class="form-group text-center">Have an account? <a href="{{route('login')}}" class="btn-link">Login</a> </p>
-
-                        
+                        <a href="#" class="btn-link  ml-auto">Forgot Password?</a>
+                    </div>
+                    <div class="form-group">
+                        <button name="reset" type="submit" value="Reset" class="btn-custom" >Reset Password</button>
+                    </div>
                     
-                </form>
+                    <p class="form-group text-center">Don't have an account? <a href="register.html" class="btn-link">Create One</a> </p>
 
-                <div class="social-media" style="text-align: center; padding-top: 3rem;">
-                    <ul class="list-inline">
-                        <li>
-                            <a href="#" class="color-facebook">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="color-instagram">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="color-twitter">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="color-youtube">
-                                <i class="fab fa-youtube"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="color-pinterest">
-                                <i class="fab fa-pinterest"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="color-google">
-                              <i class="fas fa-envelope"></i>
-                            </a>
-                        </li>
-                       
-                    </ul>
-                </div>
+                </form>
+                                <div class="social-media" style="text-align: center; padding-top: 3rem;">
+                                    <ul class="list-inline">
+                                        <li>
+                                            <a href="#" class="color-facebook">
+                                                <i class="fab fa-facebook-f"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="color-instagram">
+                                                <i class="fab fa-instagram"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="color-twitter">
+                                                <i class="fab fa-twitter"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="color-youtube">
+                                                <i class="fab fa-youtube"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="color-pinterest">
+                                                <i class="fab fa-pinterest"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="color-google">
+                                              <i class="fas fa-envelope"></i>
+                                            </a>
+                                        </li>
+                                       
+                                    </ul>
+                                </div>
             </div> 
-               
-           
         </div>
     </section>        
 
@@ -541,62 +462,8 @@ i.far.fa-envelope.email_address{
             </script>
 
 
-<script>
-    function _id(name){
-  return document.getElementById(name);
-}
-function _class(name){
-  return document.getElementsByClassName(name);
-}
-_class("toggle-password")[0].addEventListener("click",function(){
-  _class("toggle-password")[0].classList.toggle("active");
-  if(_id("password-field").getAttribute("type") == "password"){
-    _id("password-field").setAttribute("type","text");
-  } else {
-    _id("password-field").setAttribute("type","password");
-  }
-});
-
-_id("password-field").addEventListener("focus",function(){
-  _class("password-policies")[0].classList.add("active");
-});
-_id("password-field").addEventListener("blur",function(){
-  _class("password-policies")[0].classList.remove("active");
-});
-
-_id("password-field").addEventListener("keyup",function(){
-  let password = _id("password-field").value;
-  
-  if(/[A-Z]/.test(password)){
-    _class("policy-uppercase")[0].classList.add("active");
-  } else {
-    _class("policy-uppercase")[0].classList.remove("active");
-  }
-  
-  if(/[0-9]/.test(password)){
-    _class("policy-number")[0].classList.add("active");
-  } else {
-    _class("policy-number")[0].classList.remove("active");
-  }
-  
-  if(/[^A-Za-z0-9]/.test(password)){
-    _class("policy-special")[0].classList.add("active");
-  } else {
-    _class("policy-special")[0].classList.remove("active");
-  }
-  
-  if(password.length > 7){
-    _class("policy-length")[0].classList.add("active");
-  } else {
-    _class("policy-length")[0].classList.remove("active");
-  }
-});
-</script>
-
-
-
-
 
 </body>
+
 
 </html>
