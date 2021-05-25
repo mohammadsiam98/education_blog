@@ -19,5 +19,5 @@ Route::get('/', function () {
 
 Route::get('/home', function () {
    dd(\Illuminate\Support\Facades\Auth::user());
-});
+})->middleware(['auth','verified']);
 
