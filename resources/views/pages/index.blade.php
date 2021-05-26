@@ -193,7 +193,7 @@
                     <div class="row">
                         <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
                             <div class="hero-content">
-                                <a href="blog-grid.html" class="categorie">travel</a>
+                               
                                 <h2>
                                     <a href="post-default.html">10 Best and Most Beautiful Places to Visit in Italy </a>
                                 </h2>
@@ -205,13 +205,16 @@
                                                 <img src="assets/img/author/1.jpg" alt="">
                                             </a>
                                         </li>
-                                        <li>
-                                            <a href="author.html">David Smith</a>
-                                        </li>
                                         <li class="dot"></li>
-                                        <li>January 15, 2021</li>
+                                        <li>little description</li>
                                         <li class="dot"></li>
-                                        <li>10 Min Reads</li>
+                                        <li>little description</li>
+                                        <li class="dot"></li>
+                                        <li>little description</li>
+                                       
+                                        
+                                      
+                                       
                                     </ul>
                                 </div>
                             </div>
