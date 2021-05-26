@@ -644,6 +644,17 @@ ul {
   background-color: #bd081c;
 }
 
+.color-google {
+  background-color: #CE3C2F;
+}
+.color-linkedin{
+  background-color:  #2867B2;
+}
+
+.color-github{
+  background-color:  #212529;
+}
+
 /*margin-bottom*/
 .mb-100 {
   margin-bottom: 100px;

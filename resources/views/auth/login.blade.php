@@ -238,30 +238,7 @@ i.far.fa-envelope.email_address{
                         <div class="slider round"></div>
                     </label>
                 </div>
-                <div class="social-icones">
-                    <ul class="list-inline">
-                        <li>
-                            <a href="#">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fab fa-youtube"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+                
     
                 <div class="search-icon">
                     <i class="icon_search"></i>
@@ -324,43 +301,45 @@ i.far.fa-envelope.email_address{
                     </div>
                     
                     <p class="form-group text-center">Don't have an account? <a href="register.html" class="btn-link">Create One</a> </p>
+                    <div class="social-media" style="text-align: center; padding-top: 3rem;">
+                        <ul class="list-inline">
+                            <li>
+                                <a href="{{route('loginWithFacebook')}}" class="color-facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </li>
+                          
+                            <li>
+                                <a href="#" class="color-twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </li>
+                           
+                            
+                            <li>
+                                <a href="{{route('loginWithGoogle')}}" class="color-google">
+                                    <i class="fab fa-google"></i>
+                                </a>
+                            </li>
 
+                            <li>
+                                <a href="{{route('loginWithGithub')}}" class="color-github">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="{{route('loginWithLinkedin')}}" class="color-linkedin">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </li>
+
+
+                           
+                        </ul>
+                    </div>
                 </form>
-                                <div class="social-media" style="text-align: center; padding-top: 3rem;">
-                                    <ul class="list-inline">
-                                        <li>
-                                            <a href="#" class="color-facebook">
-                                                <i class="fab fa-facebook-f"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="color-instagram">
-                                                <i class="fab fa-instagram"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="color-twitter">
-                                                <i class="fab fa-twitter"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="color-youtube">
-                                                <i class="fab fa-youtube"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="color-pinterest">
-                                                <i class="fab fa-pinterest"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="color-google">
-                                              <i class="fas fa-envelope"></i>
-                                            </a>
-                                        </li>
-                                       
-                                    </ul>
-                                </div>
+                                
             </div> 
         </div>
     </section>        
