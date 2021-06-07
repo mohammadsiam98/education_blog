@@ -30,10 +30,14 @@
     <link href="{{asset('anotherassets/libs/datatables/buttons.bootstrap4.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('anotherassets/libs/datatables/responsive.bootstrap4.css')}}" rel="stylesheet" type="text/css" />
 
-    
+     <!-- App css -->
+     <link href="{{asset('anotherassets/libs/custombox/custombox.min.css')}}" rel="stylesheet" type="text/css" >
+     <link href="{{asset('anotherassets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" id="bootstrap-stylesheet" />
+     <link href="{{asset('anotherassets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
+     <link href="{{asset('anotherassets/css/app.min.css')}}" rel="stylesheet" type="text/css"  id="app-stylesheet" />
 
 
-    <link href="{{asset('anotherassets/libs/bootstrap-tagsinput/bootstrap-tagsinput.css')}}" rel="stylesheet" />
+        <link href="{{asset('anotherassets/libs/bootstrap-tagsinput/bootstrap-tagsinput.css')}}" rel="stylesheet" />
         <link href="{{asset('anotherassets/libs/switchery/switchery.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{asset('anotherassets/libs/select2/select2.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{asset('anotherassets/libs/bootstrap-select/bootstrap-select.min.css')}}" rel="stylesheet" type="text/css" />
@@ -62,19 +66,7 @@
                     </li>
                 </ul>
 
-                <!-- LOGO -->
-                <div class="logo-box">
-                    <a href="{{route('admin.dashboard')}}" class="logo text-center">
-                        <span class="logo-lg">
-                            <img src="{{asset('anotherassets/images/logo-light.png')}}" alt="" height="25">
-                            <!-- <span class="logo-lg-text-light">UBold</span> -->
-                        </span>
-                        <span class="logo-sm">
-                            <!-- <span class="logo-sm-text-dark">U</span> -->
-                            <img src="{{asset('anotherassets/images/logo-sm.png')}}" alt="" height="28">
-                        </span>
-                    </a>
-                </div>
+               
 
                 <ul class="list-unstyled topnav-menu topnav-menu-left m-0">
                     <li>
@@ -159,6 +151,24 @@
                                 </ul>
                             </li>
 
+
+                            <li>
+                                <a href="javascript: void(0);">
+                                    <i class="fe-box"></i>
+                                    <span style="font-size: 20px;">  Blog </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+
+                                <ul class="nav-second-level" aria-expanded="false">
+                                   
+                                    <li><a href="{{route('admin.blogs.create')}}">Create</a></li>
+                                    <li><a href="{{route('admin.blogs.list')}}">List</a></li>
+                                    <li><a href="{{route('admin.blogs.restoreList')}}">Restore</a></li>
+                                </ul>
+                            </li>
+
+                            
+
                            
 
                             
@@ -213,63 +223,65 @@
             
 
 
+           
+
             <script src="{{asset('anotherassets/libs/sweetalert2/sweetalert2.min.js')}}"></script>
 
             <script src="{{asset('anotherassets/js/pages/sweet-alerts.init.js')}}"></script>
- 
-        <!-- Vendor js -->
-        <script src="{{asset('anotherassets/js/vendor.min.js')}}"></script>
-
-        <!--C3 Chart-->
-        <script src="{{asset('anotherassets/libs/d3/d3.min.js')}}"></script>
-        <script src="{{asset('anotherassets/libs/c3/c3.min.js')}}"></script>
-
-        <script src="{{asset('anotherassets/libs/echarts/echarts.min.js')}}"></script>
-
-        <script src="{{asset('anotherassets/js/pages/dashboard.init.js')}}"></script>
-
-         <!-- Vendor js -->
-         <script src="{{asset('anotherassets/js/vendor.min.js')}}"></script>
-
-         <!-- plugin js -->
-         <script src="{{asset('anotherassets/libs/switchery/switchery.min.js')}}"></script>
-         <script src="{{asset('anotherassets/libs/moment/moment.min.js')}}"></script>
-         <script src="{{asset('anotherassets/libs/jquery-ui/jquery-ui.min.js')}}"></script>
-         <script src="{{asset('anotherassets/libs/fullcalendar/fullcalendar.min.js')}}"></script>
-        
-         <!-- Calendar init -->
-         <script src="{{asset('anotherassets/js/pages/calendar.init.js')}}"></script>
-
-
-          <!-- Required datatable js -->
-        <script src="{{asset('anotherassets/libs/datatables/jquery.dataTables.min.js')}}"></script>
-        <script src="{{asset('anotherassets/libs/datatables/dataTables.bootstrap4.min.js')}}"></script>
-        <!-- Buttons examples -->
-        <script src="{{asset('anotherassets/libs/datatables/dataTables.buttons.min.js')}}"></script>
-        <script src="{{asset('anotherassets/libs/datatables/buttons.bootstrap4.min.js')}}"></script>
-        <script src="{{asset('anotherassets/libs/jszip/jszip.min.js')}}"></script>
-        <script src="{{asset('anotherassets/libs/pdfmake/pdfmake.min.js')}}"></script>
-        <script src="{{asset('anotherassets/libs/pdfmake/vfs_fonts.js')}}"></script>
-        <script src="{{asset('anotherassets/libs/datatables/buttons.html5.min.js')}}"></script>
-        <script src="{{asset('anotherassets/libs/datatables/buttons.print.min.js')}}"></script>
-        <script src="{{asset('anotherassets/libs/datatables/buttons.colVis.js')}}"></script>
-
-        <!-- Responsive examples -->
-        <script src="{{asset('anotherassets/libs/datatables/dataTables.responsive.min.js')}}"></script>
-        <script src="{{asset('anotherassets/libs/datatables/responsive.bootstrap4.min.js')}}"></script>
-
-        <!-- Datatables init -->
-        <script src="{{asset('anotherassets/js/pages/datatables.init.js')}}"></script>
-
-        <!-- App js -->
-        <script src="{{asset('anotherassets/js/app.min.js')}}"></script>
-
-
-        
-        <script src="{{asset('anotherassets/libs/switchery/switchery.min.js')}}"></script>
-        <script src="{{asset('anotherassets/libs/bootstrap-tagsinput/bootstrap-tagsinput.min.js')}}"></script>
-        <script src="{{asset('anotherassets/libs/select2/select2.min.js')}}"></script>
-        <script src="{{asset('anotherassets/libs/jquery-mockjax/jquery.mockjax.min.js')}}"></script>
+     
+            <!-- Vendor js -->
+            <script src="{{asset('anotherassets/js/vendor.min.js')}}"></script>
+    
+            <!--C3 Chart-->
+            <script src="{{asset('anotherassets/libs/d3/d3.min.js')}}"></script>
+            <script src="{{asset('anotherassets/libs/c3/c3.min.js')}}"></script>
+    
+            <script src="{{asset('anotherassets/libs/echarts/echarts.min.js')}}"></script>
+    
+            <script src="{{asset('anotherassets/js/pages/dashboard.init.js')}}"></script>
+    
+             <!-- Vendor js -->
+             <script src="{{asset('anotherassets/js/vendor.min.js')}}"></script>
+    
+             <!-- plugin js -->
+             <script src="{{asset('anotherassets/libs/switchery/switchery.min.js')}}"></script>
+             <script src="{{asset('anotherassets/libs/moment/moment.min.js')}}"></script>
+             <script src="{{asset('anotherassets/libs/jquery-ui/jquery-ui.min.js')}}"></script>
+             <script src="{{asset('anotherassets/libs/fullcalendar/fullcalendar.min.js')}}"></script>
+            
+             <!-- Calendar init -->
+             <script src="{{asset('anotherassets/js/pages/calendar.init.js')}}"></script>
+    
+    
+              <!-- Required datatable js -->
+            <script src="{{asset('anotherassets/libs/datatables/jquery.dataTables.min.js')}}"></script>
+            <script src="{{asset('anotherassets/libs/datatables/dataTables.bootstrap4.min.js')}}"></script>
+            <!-- Buttons examples -->
+            <script src="{{asset('anotherassets/libs/datatables/dataTables.buttons.min.js')}}"></script>
+            <script src="{{asset('anotherassets/libs/datatables/buttons.bootstrap4.min.js')}}"></script>
+            <script src="{{asset('anotherassets/libs/jszip/jszip.min.js')}}"></script>
+            <script src="{{asset('anotherassets/libs/pdfmake/pdfmake.min.js')}}"></script>
+            <script src="{{asset('anotherassets/libs/pdfmake/vfs_fonts.js')}}"></script>
+            <script src="{{asset('anotherassets/libs/datatables/buttons.html5.min.js')}}"></script>
+            <script src="{{asset('anotherassets/libs/datatables/buttons.print.min.js')}}"></script>
+            <script src="{{asset('anotherassets/libs/datatables/buttons.colVis.js')}}"></script>
+    
+            <!-- Responsive examples -->
+            <script src="{{asset('anotherassets/libs/datatables/dataTables.responsive.min.js')}}"></script>
+            <script src="{{asset('anotherassets/libs/datatables/responsive.bootstrap4.min.js')}}"></script>
+    
+            <!-- Datatables init -->
+            <script src="{{asset('anotherassets/js/pages/datatables.init.js')}}"></script>
+    
+            <!-- App js -->
+            <script src="{{asset('anotherassets/js/app.min.js')}}"></script>
+    
+    
+            
+            <script src="{{asset('anotherassets/libs/switchery/switchery.min.js')}}"></script>
+            <script src="{{asset('anotherassets/libs/bootstrap-tagsinput/bootstrap-tagsinput.min.js')}}"></script>
+            <script src="{{asset('anotherassets/libs/select2/select2.min.js')}}"></script>
+            <script src="{{asset('anotherassets/libs/jquery-mockjax/jquery.mockjax.min.js')}}"></script>
        
     </body>
 </html>

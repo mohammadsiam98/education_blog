@@ -19,14 +19,14 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&amp;display=swap" rel="stylesheet">
     
     <!-- CSS Plugins -->
-    <link rel="stylesheet" href="assets/css/all.css">
-    <link rel="stylesheet" href="assets/css/elegant-font-icons.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/owl.carousel.css">
+    <link rel="stylesheet" href="{{asset('assets/css/all.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/elegant-font-icons.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/owl.carousel.css')}}">
     
     <!-- main style -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/custom.css')}}">
 </head>
 
 <body> 
@@ -213,21 +213,22 @@
             <div class="row">
                 <div class="col-lg-8 mt-30">
                     <div class="row">
+                         
+                        @foreach($blogs as $blog)
                         <div class="col-lg-6 col-md-6">
                             <!--Post-1-->
                             <div class="post-card">
                                 <div class="post-card-image">
                                     <a href="post-default.html">
-                                        <img src="assets/img/blog/7.jpg" alt="">
+                                        <img src="{{url($blog->image)}}" alt="">
                                     </a>
                                 </div>
                                 <div class="post-card-content">
-                                    <a href="blog-grid.html" class="categorie">Food</a>
+                                    <a href="blog-grid.html" class="categorie">{{$blog->category}}</a>
                                     <h5>
-                                        <a href="post-default.html">7 Dinner Recipes for a Date Night at Home</a>
+                                        <a href="post-default.html">{{$blog->title}}</a>
                                     </h5>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                         Odit quam atque ipsa laborum sunt distinctio...</p>
+                                    <p></p>
                                     <div class="post-card-info">
                                         <ul class="list-inline">
                                             <li>
@@ -239,245 +240,15 @@
                                                 <a href="author.html">David Smith</a>
                                             </li>
                                             <li class="dot"></li>
-                                            <li>January 15, 2021</li>
+                                            <li>{{$blog->created_at}}</li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                             <!--/-->
                         </div>
-                        <div class="col-lg-6 col-md-6">
-                            <!--Post-2-->
-                            <div class="post-card">
-                                <div class="post-card-image">
-                                    <a href="post-default.html">
-                                        <img src="assets/img/blog/1.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="post-card-content">
-                                    <a href="blog-grid.html" class="categorie">Food</a>
-                                    <h5>
-                                        <a href="post-default.html">Enjoy My Favourite Molten Chocolate Cake</a>
-                                    </h5>
-
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit quam atque ipsa laborum sunt distinctio...</p>
-                                    <div class="post-card-info">
-                                        <ul class="list-inline">
-                                            <li>
-                                                <a href="author.html">
-                                                    <img src="assets/img/author/1.jpg" alt="">
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="author.html">David Smith</a>
-                                            </li>
-                                            <li class="dot"></li>
-                                            <li>January 15, 2021</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/-->
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <!--Post-3-->
-                            <div class="post-card">
-                                <div class="post-card-image">
-                                    <a href="post-default.html">
-                                        <img src="assets/img/blog/3.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="post-card-content">
-                                    <a href="blog-grid.html" class="categorie">Food</a>
-                                    <h5>
-                                        <a href="post-default.html">Lemony Olive Oil Banana Fruit's Salad</a>
-                                    </h5>
-
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit quam atque ipsa laborum sunt distinctio...</p>
-                    
-                                    <div class="post-card-info">
-                                        <ul class="list-inline">
-                                            <li>
-                                                <a href="author.html">
-                                                    <img src="assets/img/author/1.jpg" alt="">
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="author.html">David Smith</a>
-                                            </li>
-                                            <li class="dot"></li>
-                                            <li>January 15, 2021</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/-->
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <!--Post-4-->
-                            <div class="post-card">
-                                <div class="post-card-image">
-                                    <a href="post-default.html">
-                                        <img src="assets/img/blog/10.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="post-card-content">
-                                    <a href="blog-grid.html" class="categorie">Food</a>
-                                    <h5>
-                                        <a href="post-default.html">7 Dinner Recipes for a Date Night at Home</a>
-                                    </h5>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit quam atque ipsa laborum sunt distinctio...</p>
-                    
-                                    <div class="post-card-info">
-                                        <ul class="list-inline">
-                                            <li>
-                                                <a href="author.html">
-                                                    <img src="assets/img/author/1.jpg" alt="">
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="author.html">David Smith</a>
-                                            </li>
-                                            <li class="dot"></li>
-                                            <li>January 15, 2021</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/-->
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <!--Post-5-->
-                            <div class="post-card">
-                                <div class="post-card-image">
-                                    <a href="post-default.html">
-                                        <img src="assets/img/blog/4.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="post-card-content">
-                                    <a href="blog-grid.html" class="categorie">Food</a>
-                                    <h5>
-                                        <a href="post-default.html">How To Make Morocco's Bread In Five Steps?</a>
-                                    </h5>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit quam atque ipsa laborum sunt distinctio...</p>
-                    
-                                    <div class="post-card-info">
-                                        <ul class="list-inline">
-                                            <li>
-                                                <a href="author.html">
-                                                    <img src="assets/img/author/1.jpg" alt="">
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="author.html">David Smith</a>
-                                            </li>
-                                            <li class="dot"></li>
-                                            <li>January 15, 2021</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/-->
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <!--Post-6-->
-                            <div class="post-card">
-                                <div class="post-card-image">
-                                    <a href="post-default.html">
-                                        <img src="assets/img/blog/7.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="post-card-content">
-                                    <a href="blog-grid.html" class="categorie">Food</a>
-                                    <h5>
-                                        <a href="post-default.html">how to make a Healthy Sandwich for Kids at home?</a>
-                                    </h5>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit quam atque ipsa laborum sunt distinctio...</p>
-                    
-                                    <div class="post-card-info">
-                                        <ul class="list-inline">
-                                            <li>
-                                                <a href="author.html">
-                                                    <img src="assets/img/author/1.jpg" alt="">
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="author.html">David Smith</a>
-                                            </li>
-                                            <li class="dot"></li>
-                                            <li>January 15, 2021</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/-->
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <!--Post-7-->
-                            <div class="post-card">
-                                <div class="post-card-image">
-                                    <a href="post-default.html">
-                                        <img src="assets/img/blog/5.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="post-card-content">
-                                    <a href="blog-grid.html" class="categorie">Food</a>
-                                    <h5>
-                                        <a href="post-default.html">How To Make Burger And French Fries At Home?</a>
-                                    </h5>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit quam atque ipsa laborum sunt distinctio...</p>
-                    
-                                    <div class="post-card-info">
-                                        <ul class="list-inline">
-                                            <li>
-                                                <a href="author.html">
-                                                    <img src="assets/img/author/1.jpg" alt="">
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="author.html">David Smith</a>
-                                            </li>
-                                            <li class="dot"></li>
-                                            <li>January 15, 2021</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/-->
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <!--Post-8-->
-                            <div class="post-card">
-                                <div class="post-card-image">
-                                    <a href="post-default.html">
-                                        <img src="assets/img/blog/9.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="post-card-content">
-                                    <a href="blog-grid.html" class="categorie">Food</a>
-                                    <h5>
-                                        <a href="post-default.html">How To Prepare A Royal Healthy Breakfast At Home</a>
-                                    </h5>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit quam atque ipsa laborum sunt distinctio...</p>
-                    
-                                    <div class="post-card-info">
-                                        <ul class="list-inline">
-                                            <li>
-                                                <a href="author.html">
-                                                    <img src="assets/img/author/1.jpg" alt="">
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="author.html">David Smith</a>
-                                            </li>
-                                            <li class="dot"></li>
-                                            <li>January 15, 2021</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/-->
-                        </div>
+                        @endforeach
+                      
 
                         <!--pagination-->
                         <div class="col-lg-12">
@@ -767,14 +538,14 @@
   
   
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="assets/js/jquery-3.5.0.min.js"></script>
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="{{asset('assets/js/jquery-3.5.0.min.js')}}"></script>
+    <script src="{{asset('assets/js/popper.min.js')}}"></script>
+    <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
     
     <!-- JS Plugins  -->
-    <script src="assets/js/ajax-contact.js"></script>
-    <script src="assets/js/owl.carousel.min.js"></script>
-    <script src="assets/js/switch.js"></script>
+    <script src="{{asset('assets/js/ajax-contact.js')}}"></script>
+    <script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
+    <script src="{{asset('assets/js/switch.js')}}"></script>
     
     <!-- JS main  -->
     <script src="assets/js/main.js"></script>
@@ -782,5 +553,4 @@
 
 </body>
 
-<!-- Mirrored from noonpost.netlify.app/html/template/blog-grid.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 21 May 2021 04:14:35 GMT -->
 </html>

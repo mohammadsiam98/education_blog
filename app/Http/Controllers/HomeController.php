@@ -19,17 +19,20 @@ class HomeController extends Controller
     // {
     //     return view('home');
     // }
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
 
     public function dashboard()
     {
         return view('pages.dashboard');
     }
+    public function index()
+    {
+        return view('pages.dashboard');
+    }
 
 
-    
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
 }

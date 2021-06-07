@@ -14,16 +14,16 @@
 
     <!-- Title -->
     <title> - Personal Blog HTML Template </title>
-    
+
     <!-- Font Google -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&amp;display=swap" rel="stylesheet">
-    
+
     <!-- CSS Plugins -->
     <link rel="stylesheet" href="{{asset('assets/css/all.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/elegant-font-icons.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/owl.carousel.css')}}">
-    
+
     <!-- main style -->
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/custom.css')}}">
@@ -35,7 +35,7 @@
         <div class="circle"></div>
     </div>
     <!--/-->
-
+    
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container-fluid">
@@ -76,13 +76,13 @@
                     </li>
     
                     <li class="nav-item dropdown">
-                        <a class="nav-link  dropdown-toggle" href="blog-grid.html" data-toggle="dropdown"> Blog </a>
+                        <a class="nav-link  dropdown-toggle active" href="blog-grid.html" data-toggle="dropdown"> Blog </a>
                         <ul class="dropdown-menu fade-up">
                             <li>
                                 <a class="dropdown-item" href="blog-grid.html"> Blog grid</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="blog-masonry.html"> Blog masonry </a>
+                                <a class="dropdown-item active" href="blog-masonry.html"> Blog masonry </a>
                             </li>
                             <li>
                                 <a class="dropdown-item " href="blog-list.html"> Blog list </a>
@@ -134,9 +134,8 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="contact.html"> Contact </a>
+                        <a class="nav-link" href="contact.html"> Contact </a>
                     </li>
-                 
                 </ul>
             </div>
             <!--/-->
@@ -186,121 +185,170 @@
     </nav>
     <!--/-->
 
-    <!--contact us-->
-    <section class="section pt-50">
+    <!--Categorie-->
+    <section class="categorie-section">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title">
-                        <h5>Contact us</h5>
+                <div class="col-lg-8">
+                    <div class="categorie-title">
+                        <small>
+                            <a href="index.html">Home</a>
+                            <span class="arrow_carrot-right"></span> Startups
+                        </small>
+                        <h3>Category : <span>How To</span> </h3>
                     </div>
                 </div>
             </div>
-            
-            <div class="row mb-20">
-                <div class="col-lg-8 mt-30">
-                    <div class="contact">
-                        <div class="google-map">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3104.5761533072873!2d-78.19644468515456!3d38.91080675375955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b5c5dc680d0b2b%3A0x1e9ff0b6bb7a2f87!2s1000%20Proctor%20Ln%2C%20Front%20Royal%2C%20VA%2022630%2C%20%C3%89tats-Unis!5e0!3m2!1sfr!2sma!4v1578068093888!5m2!1sfr!2sma"
-                                allowfullscreen="">
-                            </iframe>
+        </div>
+    </section><!--/-->
+
+    <!--mansory-layout-->
+    <section class="masonry-layout col2-layout mt-30">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-8 mt--10 ">
+                    <!--cards-->
+                    <div class="card-columns">
+                        <!--Post-Start-->
+                        @foreach($blogs_howto as $law)
+
+                        <div class="card">
+                            <div class="post-card">
+                            <div class="post-card-image">
+                                <a href="{{route('allpost' , [$law->id,$law->category])}}">
+                                    <img src="{{url($law->image)}}" alt="">
+                                </a>
+                            </div>
+                            <div class="post-card-content">
+                                <a href="blog-grid.html" class="categorie">{{$law->category}}</a>  
+                                <h5><a href="post-default.html">{{$law->title}}</a> </h5>
+                                <p>{{$law->highlightedText}}
+                                </p>
+                                <div class="post-card-info">
+                                    <ul class="list-inline">
+                                        <li><a href="author.html"><img src="assets/img/author/1.jpg" alt=""></a></li>
+                                        <li>
+                                            <a href="author.html">David Smith</a>
+                                        </li>
+                                        <li class="dot"></li>
+                                        <li>January 15, 2021</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            </div><!--/-->
                         </div>
-                        <form action="https://noonpost.netlify.app/html/template/assets/php/mail.php" class="widget-form contact_form " method="POST" id="main_contact_form">
-                            <h6>Feel free to contact any time.</h6>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, repudiandae.</p>
-                            <div class="alert alert-success contact_msg" style="display: none" role="alert">
-                                Your message was sent successfully.
-                            </div>
-                            <div class="form-group">
-                                <input type="text" name="name" id="name" class="form-control" placeholder="Your Name*" required="required">
-                            </div>
+                        <!-- Post-End-->
+
+                        @endforeach
                         
-                            <div class="form-group">
-                                <input type="email" name="email" id="email" class="form-control" placeholder="Your Email*" required="required">
-                            </div>
-                        
-                            <div class="form-group">
-                                <input type="text" name="subject" id="subject" class="form-control" placeholder="Your Subject*" required="required">
-                            </div>
-                        
-                            <div class="form-group">
-                                <textarea name="message" id="message" cols="30" rows="5" class="form-control" placeholder="Your Message*" required="required"></textarea>
-                            </div>
-                        
-                            <button type="submit" name="submit" class="btn-custom">Send Message</button>
-                        </form>
-                    </div> 
+                       
+                    </div>
+
+                        <!--pagination-->
+                        <div class="pagination mt-30">
+                            @if ($blogs_howto->lastPage() >1)
+                            <ul class="list-inline">
+                                <li class="{{$blogs_howto->currentPage() == 1 ? 'disabled' : ''}}"><a class="" href="{{$blogs_howto->url(1)}}"><i class="arrow_carrot-2left"></i></a>
+                                    @for($i=1; $i<=$blogs_howto->lastPage();$i++)
+                                    <li class="siam {{$blogs_howto->currentPage() == $i ? 'current' : ''}}">
+                                      <a class='page-numbers' href='{{$blogs_howto->url($i)}}'>{{$i}}</a></li>
+                                    @endfor
+                                    <li class="{{$blogs_howto->currentPage() == $blogs_howto->lastPage() ? 'disabled' : '' }}"><a class="disabled" href="{{$blogs_howto->url($blogs_howto->currentPage() +1 )}}"><i class="arrow_carrot-2right"></i></a></li>
+                               
+                            </ul> 
+                            @endif
+                        </div><!--/-->
+
+
+
+                    
                 </div>
                 <div class="col-lg-4 max-width">
-                <!--widget-latest-posts-->
-                <div class="widget ">
-                    <div class="section-title">
-                        <h5>Latest Posts</h5>
+                    <!--widget-latest-posts-->
+                    <div class="widget ">
+                        <div class="section-title">
+                            <h5>Latest Posts</h5>
+                        </div>
+                        <ul class="widget-latest-posts">
+                            @if (count($relatedposts)>0)
+                            @foreach($relatedposts as $recentpost)
+                            <li class="last-post">
+                                <div class="image">
+                                    <a href="{{route('allpost',[$recentpost->id,$recentpost->category])}}">
+                                        <img src="{{url($recentpost->image)}}" alt="">
+                                    </a>
+                                </div>
+                                <div class="nb">1</div>
+                                <div class="content">
+                                    <p><a href="post-default.html">{{$recentpost->title}}</a></p>
+                                    <small><span class="icon_clock_alt"></span>{{$recentpost->created_at->format('d.m.Y')}}</small>
+                                </div>
+                            </li>
+                            @endforeach
+                            @endif
+                           
+                        </ul>
                     </div>
-                    <ul class="widget-latest-posts">
-                        <li class="last-post">
-                            <div class="image">
-                                <a href="post-default.html">
-                                    <img src="assets/img/latest/1.jpg" alt="...">
-                                </a>
-                            </div>
-                            <div class="nb">1</div>
-                            <div class="content">
-                                <p>
-                                    <a href="post-default.html">5 Things I Wish I Knew Before Traveling to Malaysia</a>
-                                </p>
-                                <small>
-                                    <span class="icon_clock_alt"></span> January 15, 2021</small>
-                            </div>
-                        </li>
-                        <li class="last-post">
-                            <div class="image">
-                                <a href="post-default.html">
-                                    <img src="assets/img/latest/2.jpg" alt="...">
-                                </a>
-                            </div>
-                            <div class="nb">2</div>
-                            <div class="content">
-                                <p>
-                                    <a href="post-default.html">Everything you need to know about visiting the Amazon.</a>
-                                </p>
-                                <small>
-                                    <span class="icon_clock_alt"></span> January 15, 2021</small>
-                            </div>
-                        </li>
-                        <li class="last-post">
-                            <div class="image">
-                                <a href="post-default.html">
-                                    <img src="assets/img/latest/3.jpg" alt="...">
-                                </a>
-                            </div>
-                            <div class="nb">3</div>
-                            <div class="content">
-                                <p>
-                                    <a href="post-default.html">How to spend interesting vacation after hard work?</a>
-                                </p>
-                                <small>
-                                    <span class="icon_clock_alt"></span> January 15, 2021</small>
-                            </div>
-                        </li>
-                        <li class="last-post">
-                            <div class="image">
-                                <a href="post-default.html">
-                                    <img src="assets/img/latest/4.jpg" alt="...">
-                                </a>
-                            </div>
-                            <div class="nb">4</div>
-                            <div class="content">
-                                <p>
-                                    <a href="post-default.html">10 Best and Most Beautiful Places to Visit in Italy</a>
-                                </p>
-                                <small>
-                                    <span class="icon_clock_alt"></span> January 15, 2021</small>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <!--/-->
+                    <!--/-->
+                    
+                    <!--widget-categories-->
+                    <div class="widget">
+                        <div class="section-title">
+                            <h5>Categories</h5>
+                        </div>
+                        <ul class="widget-categories">
+                           
+                            <li>
+                                <a href="{{route('health')}}" class="categorie">Health & Wealth </a>
+                                <span class="ml-auto">{{$categoryhealthCount}} Posts</span>
+                            </li>
+                            <li>
+                                <a href="{{route('brandstories')}}" class="categorie">Brand Stories</a>
+                                <span class="ml-auto">{{$categorybrandstoriesCount}} Posts</span>
+                            </li>
+                            <li>
+                                <a href="{{route('startups')}}" class="categorie">Startups</a>
+                                <span class="ml-auto">{{$categorystartupsCount}} Posts</span>
+                            </li>
+                            <li>
+                                <a href="{{route('travel')}}" class="categorie">Travel</a>
+                                <span class="ml-auto">{{$categorytravelCount}} Posts</span>
+                            </li>
+                            <li>
+                                <a href="{{route('review')}}" class="categorie">Review</a>
+                                <span class="ml-auto">{{$categoryreviewCount}} Posts</span>
+                            </li>
+                            <li>
+                                <a href="{{route('howto')}}" class="categorie">HowTo</a>
+                                <span class="ml-auto">{{$categoryhowtoCount}} Posts</span>
+                            </li>
+                            
+                            
+                            <li>
+                                <a href="{{route('lifestyle')}}" class="categorie">Lifestyle</a>
+                                <span class="ml-auto">{{$categorylifestyleCount}} Posts</span>
+                            </li>
+                            <li>
+                                <a href="{{route('education')}}" class="categorie">Education</a>
+                                <span class="ml-auto">{{$categoryeducationCount}} Posts</span>
+                            </li>
+                            
+                            <li>
+                                <a href="{{route('food')}}" class="categorie">Food</a>
+                                <span class="ml-auto">{{$categoryfoodCount}} Posts</span>
+                            </li>
+                            <li>
+                                <a href="{{route('career')}}" class="categorie">Career</a>
+                                <span class="ml-auto">{{$categorycareerCount}} Posts</span>
+                            </li>
+                            <li>
+                                <a href="{{route('law')}}" class="categorie">Law</a>
+                                <span class="ml-auto">{{$categorylawCount}} Posts</span>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                    <!--/-->
                     
                     <!--widget-instagram-->
                     <div class="widget">
@@ -342,12 +390,53 @@
                     
                     </div>
                     <!--/-->
+                    <!--widget-tags-->
+                    <div class="widget">
+                        <div class="section-title">
+                            <h5>Tags</h5>
+                        </div>
+                        <div class="widget-tags">
+                            <ul class="list-inline">
+                                <li>
+                                    <a href="blog-grid.html">Travel</a>
+                                </li>
+                                <li>
+                                    <a href="blog-grid.html">Nature</a>
+                                </li>
+                                <li>
+                                    <a href="blog-grid.html">tips</a>
+                                </li>
+                                <li>
+                                    <a href="blog-grid.html">forest</a>
+                                </li>
+                                <li>
+                                    <a href="blog-grid.html">beach</a>
+                                </li>
+                                <li>
+                                    <a href="blog-grid.html">fashion</a>
+                                </li>
+                                <li>
+                                    <a href="blog-grid.html">livestyle</a>
+                                </li>
+                                <li>
+                                    <a href="blog-grid.html">healty</a>
+                                </li>
+                                <li>
+                                    <a href="blog-grid.html">food</a>
+                                </li>
+                                <li>
+                                    <a href="blog-grid.html">breakfast</a>
+                                </li>
+                    
+                            </ul>
+                        </div>
+                    </div>
+                    <!--/-->
                 </div>
             </div>
-           
         </div>
-    </section>        
-
+    </section><!--/-->
+    
     <!--newslettre-->
     <section class="newslettre">
         <div class="container-fluid">
@@ -394,7 +483,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="copyright">
-                        <p>© Copyright 2021 <a href="#">AssiaGroupe</a>, All rights reserved.</p>
+                        <p>© Copyright 2021
+                            <a href="#">AssiaGroupe</a>, All rights reserved.</p>
                     </div>
                     <div class="back">
                         <a href="#" class="back-top">
@@ -421,7 +511,8 @@
         </div>
     </div>
     <!--/-->
-  
+
+   
   
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="{{asset('assets/js/jquery-3.5.0.min.js')}}"></script>
@@ -438,5 +529,6 @@
 
 
 </body>
+
 
 </html>

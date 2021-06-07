@@ -19,14 +19,14 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&amp;display=swap" rel="stylesheet">
 
     <!-- CSS Plugins -->
-    <link rel="stylesheet" href="assets/css/all.css">
-    <link rel="stylesheet" href="assets/css/elegant-font-icons.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/owl.carousel.css">
+    <link rel="stylesheet" href="{{asset('assets/css/all.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/elegant-font-icons.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/owl.carousel.css')}}">
 
     <!-- main style -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/custom.css')}}">
 </head>
 
 <body>
@@ -193,7 +193,7 @@
                     <div class="row">
                         <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
                             <div class="hero-content">
-                               
+                                <a href="blog-grid.html" class="categorie">travel</a>
                                 <h2>
                                     <a href="post-default.html">10 Best and Most Beautiful Places to Visit in Italy </a>
                                 </h2>
@@ -205,16 +205,13 @@
                                                 <img src="assets/img/author/1.jpg" alt="">
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="author.html">David Smith</a>
+                                        </li>
                                         <li class="dot"></li>
-                                        <li>little description</li>
+                                        <li>January 15, 2021</li>
                                         <li class="dot"></li>
-                                        <li>little description</li>
-                                        <li class="dot"></li>
-                                        <li>little description</li>
-                                       
-                                        
-                                      
-                                       
+                                        <li>10 Min Reads</li>
                                     </ul>
                                 </div>
                             </div>
@@ -279,330 +276,44 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card-columns">
+                        @foreach($blogs as $blog)
                         <!--Post-1-->
                         <div class="card">
                             <div class="post-card">
                                 <div class="post-card-image">
-                                    <a href="post-default.html">
-                                    <img src="assets/img/blog/20.jpg" alt="">
+                                    <a href="{{route('allpost' , [$blog->id,$blog->category])}}">
+                                    <img src="{{url($blog->image)}}" alt="">
                                     </a>
                                     
                                 </div>
                                 <div class="post-card-content">
-                                    <a href="blog-grid.html" class="categorie"> Travel</a>
+                                    <a href="blog-grid.html" class="categorie">{{$blog->category}}</a>
                                     <h5>
-                                        <a href="post-default.html">Rodrigues Island: When I Found a Paradise Next to Paradise</a>
+                                        <a href="post-default.html">{{$blog->title}}</a>
                                     </h5>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit quam atque ipsa laborum sunt
-                                        distinctio...
+                                    <p>{{$blog->highlightedText}}
                                     </p>
                                     <div class="post-card-info">
                                         <ul class="list-inline">
-                                            <li>
+                                            {{-- <li>
                                                 <a href="author.html">
-                                                    <img src="assets/img/author/1.jpg" alt="">
+                                                    <img src="#" alt="">
                                                 </a>
-                                            </li>
+                                            </li> --}}
                                             <li>
-                                                <a href="author.html">David Smith</a>
+                                                <a href="author.html">Admin</a>
                                             </li>
                                             <li class="dot"></li>
-                                            <li>January 15, 2021</li>
+                                            <li>{{$blog->created_at->format('d.m.Y')}}</li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <!--/-->
+                        @endforeach
     
-                        <!--Post-2-->
-                        <div class="card">
-                            <div class="post-card">
-                                <div class="post-card-image">
-                                    <a href="post-default.html">
-                                     <img src="assets/img/blog/21.jpg" alt="">
-                                    </a>
-                                   
-                                </div>
-                                <div class="post-card-content">
-                                    <a href="blog-grid.html" class="categorie">Travel</a>
-                                    <h5>
-                                        <a href="post-default.html">The Best Cities to Travel Alone in the USA</a>
-                                    </h5>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit quam atque ipsa laborum sunt
-                                        distinctio...
-                                    </p>
-                                    <div class="post-card-info">
-                                        <ul class="list-inline">
-                                            <li>
-                                                <a href="author.html">
-                                                    <img src="assets/img/author/1.jpg" alt="">
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="author.html">David Smith</a>
-                                            </li>
-                                            <li class="dot"></li>
-                                            <li>January 15, 2021</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--/-->
-    
-                        <!--Post-3-->
-                        <div class="card">
-                            <div class="post-card">
-                                <div class="post-card-image">
-                                    <a href="post-default.html">
-                                    <img src="assets/img/blog/24.jpg" alt="">
-                                    </a>
-                                    
-                                </div>
-                                <div class="post-card-content">
-                                    <a href="blog-grid.html" class="categorie">Food</a>
-                                    <h5>
-                                        <a href="post-default.html">Enjoy My Favourite Molten Chocolate Cake</a>
-                                    </h5>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit quam atque ipsa laborum sunt
-                                        distinctio...
-                                    </p>
-                                    <div class="post-card-info">
-                                        <ul class="list-inline">
-                                            <li>
-                                                <a href="author.html">
-                                                    <img src="assets/img/author/1.jpg" alt="">
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="author.html">David Smith</a>
-                                            </li>
-                                            <li class="dot"></li>
-                                            <li>January 15, 2021</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--/-->
-    
-                        <!--Post-4-->
-                        <div class="card">
-                            <div class="post-card">
-                                <div class="post-card-image">
-                                    <a href="post-default.html">
-                                     <img src="assets/img/blog/7.jpg" alt="">
-                                    </a>
-                                   
-                                </div>
-                                <div class="post-card-content">
-                                    <a href="blog-grid.html" class="categorie">Food</a>
-    
-                                    <h5>
-                                        <a href="post-default.html">How to make cokies with Chocolate for your kids?</a>
-                                    </h5>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit quam atque ipsa laborum sunt
-                                        distinctio...
-                                    </p>
-                                    <div class="post-card-info">
-                                        <ul class="list-inline">
-                                            <li>
-                                                <a href="author.html">
-                                                    <img src="assets/img/author/1.jpg" alt="">
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="author.html">David Smith</a>
-                                            </li>
-                                            <li class="dot"></li>
-                                            <li>January 15, 2021</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--/-->
-    
-                        <!--Post-5-->
-                        <div class="card">
-                            <div class="post-card">
-                                <div class="post-card-image">
-                                    <a href="post-default.html">
-                                    <img src="assets/img/blog/27.jpg" alt="">
-                                    </a>
-                                    
-                                </div>
-                                <div class="post-card-content">
-                                    <a href="blog-grid.html" class="categorie">Livestyle</a>
-                                    <h5>
-                                        <a href="post-default.html">How to Choose Outfits for Work for woman and men</a>
-                                    </h5>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit quam atque ipsa laborum sunt
-                                        distinctio...
-                                    </p>
-                                    <div class="post-card-info">
-                                        <ul class="list-inline">
-                                            <li>
-                                                <a href="author.html">
-                                                    <img src="assets/img/author/1.jpg" alt=""> </a>
-                                            </li>
-                                            <li>
-                                                <a href="author.html">David Smith</a>
-                                            </li>
-                                            <li class="dot"></li>
-                                            <li>January 15, 2021</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--/-->
-    
-                        <!--Post-6-->
-                        <div class="card">
-                            <div class="post-card">
-                                <div class="post-card-image">
-                                    <a href="post-default.html">
-                                    <img src="assets/img/blog/23.jpg" alt="">
-                                    </a>
-                                    
-                                </div>
-                                <div class="post-card-content">
-                                    <a href="blog-grid.html" class="categorie">Nature</a>
-                                    <h5>
-                                        <a href="post-default.html">Discovering the Natural History of Trinidad and Tobago</a>
-                                    </h5>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit quam atque ipsa laborum sunt
-                                        distinctio...
-                                    </p>
-                                    <div class="post-card-info">
-                                        <ul class="list-inline">
-                                            <li>
-                                                <a href="author.html">
-                                                    <img src="assets/img/author/1.jpg" alt="">
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="author.html">David Smith</a>
-                                            </li>
-                                            <li class="dot"></li>
-                                            <li>January 15, 2021</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--/-->
-    
-                        <!--Post-7-->
-                        <div class="card">
-                            <div class="post-card">
-                                <div class="post-card-image">
-                                    <a href="post-default.html">
-                                    <img src="assets/img/blog/26.jpg" alt="">
-                                    </a>
-                                    
-                                </div>
-                                <div class="post-card-content">
-                                    <a href="blog-grid.html" class="categorie">Livestyle</a>
-                                    <h5>
-                                        <a href="post-default.html">Top 10 Fashion Trends from Spring/Summer 2021 Fashion Weeks</a>
-                                    </h5>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit quam atque ipsa laborum sunt
-                                        distinctio...
-                                    </p>
-                                    <div class="post-card-info">
-                                        <ul class="list-inline">
-                                            <li>
-                                                <a href="author.html">
-                                                    <img src="assets/img/author/1.jpg" alt="">
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="author.html">David Smith</a>
-                                            </li>
-                                            <li class="dot"></li>
-                                            <li>January 15, 2021</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--/-->
-    
-                        <!--Post-8-->
-                        <div class="card">
-                            <div class="post-card">
-                                <div class="post-card-image">
-                                    <a href="post-default.html">
-                                    <img src="assets/img/blog/2.jpg" alt="">
-                                    </a>
-                                    
-                                </div>
-                                <div class="post-card-content">
-                                    <a href="blog-grid.html" class="categorie">Livestyle</a>
-                                    <h5>
-                                        <a href="post-default.html">20+ Cute Girly Outfits to Buy for the First Day of Winter</a>
-                                    </h5>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit quam atque ipsa laborum sunt
-                                        distinctio...
-                                    </p>
-                                    <div class="post-card-info">
-                                        <ul class="list-inline">
-                                            <li>
-                                                <a href="author.html">
-                                                    <img src="assets/img/author/1.jpg" alt="">
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="author.html">David Smith</a>
-                                            </li>
-                                            <li class="dot"></li>
-                                            <li>January 15, 2021</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--/-->
-    
-                        <!--Post-9-->
-                        <div class="card">
-                            <div class="post-card">
-                                <div class="post-card-image">
-                                    <a href="post-default.html">
-                                    <img src="assets/img/blog/1.jpg" alt="">
-                                    </a>
-                                    
-                                </div>
-                                <div class="post-card-content">
-                                    <a href="blog-grid.html" class="categorie">food</a>
-    
-                                    <h5>
-                                        <a href="post-default.html">5 five places must visit in turkey to relax from work</a>
-                                    </h5>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit quam atque ipsa laborum sunt
-                                        distinctio...
-                                    </p>
-                                    <div class="post-card-info">
-                                        <ul class="list-inline">
-                                            <li>
-                                                <a href="author.html">
-                                                    <img src="assets/img/author/1.jpg" alt="">
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="author.html">David Smith</a>
-                                            </li>
-                                            <li class="dot"></li>
-                                            <li>January 15, 2021</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--/-->
+
                     </div>
                     <!--pagination-->
                     <div class="pagination mt-30">
@@ -708,21 +419,20 @@
 
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="assets/js/jquery-3.5.0.min.js"></script>
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="{{asset('assets/js/jquery-3.5.0.min.js')}}"></script>
+    <script src="{{asset('assets/js/popper.min.js')}}"></script>
+    <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
 
     <!-- JS Plugins  -->
-    <script src="assets/js/ajax-contact.js"></script>
-    <script src="assets/js/owl.carousel.min.js"></script>
-    <script src="assets/js/switch.js"></script>
+    <script src="{{asset('assets/js/ajax-contact.js')}}"></script>
+    <script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
+    <script src="{{asset('assets/js/switch.js')}}"></script>
 
     <!-- JS main  -->
-    <script src="assets/js/main.js"></script>
+    <script src="{{asset('assets/js/main.js')}}"></script>
 
 
 </body>
 
 
-<!-- Mirrored from noonpost.netlify.app/html/template/index-4.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 21 May 2021 04:14:26 GMT -->
 </html>

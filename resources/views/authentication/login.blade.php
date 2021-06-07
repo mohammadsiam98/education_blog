@@ -13,21 +13,111 @@
     <link rel="icon" sizes="16x16" href="assets/img/favicon.png">
 
     <!-- Title -->
-    <title> - Personal Blog HTML Template </title>
+    <title>  - Personal Blog HTML Template </title>
     
     <!-- Font Google -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&amp;display=swap" rel="stylesheet">
     
     <!-- CSS Plugins -->
-    <link rel="stylesheet" href="assets/css/all.css">
-    <link rel="stylesheet" href="assets/css/elegant-font-icons.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/owl.carousel.css">
+    <link rel="stylesheet" href="{{asset('assets/css/all.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/elegant-font-icons.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/owl.carousel.css')}}">
     
     <!-- main style -->
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/custom.css">
 </head>
+<style>
+    .form .form-element .password-policies {
+  position:relative;
+  top:0px;
+  left:50%;
+  transform:translateX(-50%);
+  width:90%;
+  padding:0px;
+  height:0px;
+  background:#64C5B1;
+  border-radius:5px;
+  color: black;
+  margin-top:10px;
+  box-sizing:border-box;
+  opacity:0;
+  overflow:hidden;
+  transition: height 300ms ease-in-out,
+              opacity 300ms ease-in-out;
+}
+.dark .newslettre-form .form-control, .dark .widget-form .form-control, .dark .search-form input {
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.form .form-element .password-policies.active {
+  opacity:1;
+  padding:10px;
+  height:180px;
+}
+.form .form-element .password-policies > div {
+  margin:15px 10px;
+  font-weight:600;
+  color:#888;
+  transition:all 300ms ease-in-out;
+}
+.form .form-element .password-policies > div.active {
+  color:#111;
+}
+
+.form .form-element .toggle-password {
+  position:absolute;
+  color: green;
+  width:67px;
+  height:40px;
+  top:48px;
+  right:2px;
+  border-radius:50%;
+  text-align:center;
+  line-height:35px;
+  font-size:20px;
+  cursor:pointer;
+}
+
+i.fas.fa-user.username {
+    position: absolute;
+    color: green;
+    width: 67px;
+    height: 40px;
+    top: 48px;
+    right: 2px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 35px;
+    font-size: 20px;
+    cursor: pointer;
+}
+i.far.fa-envelope.email_address{
+    position: absolute;
+    color: green;
+    width: 67px;
+    height: 40px;
+    top: 48px;
+    right: 2px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 35px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+.form .form-group .toggle-password.active i.fa-eye {
+  display:none;
+}
+.form .form-group  .toggle-password.active i.fa-eye-slash {
+  display:inline;
+}
+.form .form-group  .toggle-password i.fa-eye-slash {
+  display:none;
+}
+</style>
 
 <body>  
     <!--loading -->
@@ -114,7 +204,7 @@
                     </li>
     
                     <li class="nav-item dropdown">
-                        <a class="nav-link active dropdown-toggle" href="#" data-toggle="dropdown">Pages </a>
+                        <a class="nav-link  active dropdown-toggle" href="#" data-toggle="dropdown">Pages </a>
                         <ul class="dropdown-menu fade-up">
                             <li>
                                 <a class="dropdown-item" href="about.html"> About </a>
@@ -123,13 +213,13 @@
                                 <a class="dropdown-item" href="author.html"> author </a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="login.html"> Login </a>
+                                <a class="dropdown-item active " href="login.html"> Login </a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="register.html"> Sign up </a>
+                                <a class="dropdown-item " href="register.html"> Sign up </a>
                             </li>
                             <li>
-                                <a class="dropdown-item active" href="page404.html"> Page 404 </a>
+                                <a class="dropdown-item " href="page404.html"> Page 404 </a>
                             </li>
                         </ul>
                     </li>
@@ -148,26 +238,7 @@
                         <div class="slider round"></div>
                     </label>
                 </div>
-                <div class="social-icones">
-                    <ul class="list-inline">
-                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                        <li>
-                            <a href="#">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fab fa-youtube"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+                
     
                 <div class="search-icon">
                     <i class="icon_search"></i>
@@ -180,21 +251,96 @@
         </div>
     </nav>
     <!--/-->
-    
-    <!--Page404-->
+
+    <!--Login-->
     <section class="section pt-55 mb-50">
-        <div class="container-fluid">
-            <div class="page404  widget">
-                <div class="image">
-                    <img src="assets/img/404.html" alt="">
+        <div class="container">
+            <div class="sign widget ">
+                <div class="section-title">
+                    <h5>Login</h5>
                 </div>
-                <div class="content">
-                    <h1>404</h1>
-                    <h3>Page Not Found.</h3>
-                    <p>It looks like nothing was found at this location. </p>
-                    <a href="index.html" class="btn-custom">Go back to Home</a>
-                </div>
-            </div>
+                <form action="{{route('login')}}" class="sign-form widget-form " method="post">
+                    @csrf
+                    <div class="form-group">
+                        <input style="font-size: 18px; font-weight:bold;" type="email" class="form-control @error('email') is-invalid @enderror" autocomplete="off" id="email" placeholder="Jhon@gmail.com" name="email" required="">
+                        
+                        @error('email')
+                        <span class="invalid-feedback is-invalid" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+
+                    </div>
+                    <div class="form-group">
+                        <input style="font-size: 24px;" type="password" id="password" class="form-control @error('password') is-invalid @enderror" placeholder="Enter your password*" name="password">
+                        <span style="position: absolute; right:40px;transform:translate(0,0%);top:36%;cursor:pointer;">
+                            <i class="far fa-eye" onclick="toggle()" id="eye" style="font-size:25px;"></i>
+                        </span>
+                      
+
+                        
+                       {{-- Password Error Message Start --}}
+                       @error('password')
+                       <span class="invalid-feedback is-invalid" role="alert">
+                       <strong>{{ $message }}</strong>
+                       </span>
+                       @enderror
+                       {{-- Password Error Message End --}}
+
+                    </div>
+                   
+                    <div class="sign-controls form-group">
+                        <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="rememberMe">
+                            <label class="custom-control-label" for="rememberMe">Remember Me</label>
+                        </div>
+                        <a href="#" class="btn-link  ml-auto">Forgot Password?</a>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" value="login" class="btn-custom">Login</button>
+                    </div>
+                    
+                    <p class="form-group text-center">Don't have an account? <a href="register.html" class="btn-link">Create One</a> </p>
+                    <div class="social-media" style="text-align: center; padding-top: 3rem;">
+                        <ul class="list-inline">
+                            <li>
+                                <a href="{{route('loginWithFacebook')}}" class="color-facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </li>
+                          
+                            <li>
+                                <a href="#" class="color-twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </li>
+                           
+                            
+                            <li>
+                                <a href="{{route('loginWithGoogle')}}" class="color-google">
+                                    <i class="fab fa-google"></i>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="{{route('loginWithGithub')}}" class="color-github">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="{{route('loginWithLinkedin')}}" class="color-linkedin">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </li>
+
+
+                           
+                        </ul>
+                    </div>
+                </form>
+                                
+            </div> 
         </div>
     </section>        
 
@@ -271,7 +417,8 @@
         </div>
     </div>
     <!--/-->
-
+  
+  
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="assets/js/jquery-3.5.0.min.js"></script>
     <script src="assets/js/popper.min.js"></script>
@@ -285,8 +432,25 @@
     <!-- JS main  -->
     <script src="assets/js/main.js"></script>
 
+    <script>
+        var state = false;
+        function toggle(){
+            if(state){
+                document.getElementById("password").setAttribute("type","password");
+                // document.getElementById("eye").style.color='red';
+                state=false;
+            }
+            else{
+                document.getElementById("password").setAttribute("type","text");
+                document.getElementById("eye").style.color='';
+                state=true;
+            }
+        }
+            </script>
+
+
 
 </body>
 
-<!-- Mirrored from noonpost.netlify.app/html/template/page404.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 21 May 2021 04:14:39 GMT -->
+
 </html>
