@@ -10,6 +10,11 @@ class Blog extends Model{
         'category','title','description','image','highlightedText'
     ];
     
+
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
   
 
 

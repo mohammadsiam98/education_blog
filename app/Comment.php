@@ -7,7 +7,7 @@ class Comment extends Model
 {
     public function post()
     {
-        return $this->belongsTo('App\Blog')
+        return $this->belongsTo('App\Blog');
     }
     public function user()
     {

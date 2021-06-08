@@ -181,3 +181,16 @@ Route::get('/career', 'App\Http\Controllers\PagesController@career')->name('care
 // This is education Route Url Start
 Route::get('/education', 'App\Http\Controllers\PagesController@education')->name('education');
 // This is education Route Url End
+
+
+
+// Comment Routes //
+Route::get('/comments/list', 'App\Http\Controllers\CommentDeletePagesController@list')->name('admin.comment.list');
+Route::delete('/comments/destroy/{id}', 'App\Http\Controllers\CommentDeletePagesController@destroy')->name('admin.comment.destroy');
+
+Route::get('/commentsReply/list', 'App\Http\Controllers\CommentReplyDeletePagesController@list')->name('admin.commentreply.list');
+Route::delete('/commentsReply/destroy/{id}', 'App\Http\Controllers\CommentReplyDeletePagesController@destroy')->name('admin.commentreply.destroy');
+Route::post('/comment/{blogs}','App\Http\Controllers\CommentController@store')->name('comment.store');
+
+Route::post('/comment-reply/{comment}','App\Http\Controllers\CommentReplyPagesController@store')->name('commentReply.store');
+

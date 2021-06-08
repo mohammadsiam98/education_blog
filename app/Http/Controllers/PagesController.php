@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Blog;
 use App\Slider;
+use DB;
+use App\CommentReply;
+use App\User;
+use App\Comment;
 class PagesController extends Controller
 {
     // index page
@@ -29,11 +33,15 @@ class PagesController extends Controller
         // SinglePost
         $blogs = Blog::find($id);
 
+       
+        $countComments = DB::table('comments')->where('post_id', $id)->get()->count();
+      
+
         // Related Posts Show
         $relatedposts= Blog::where('category',"=", $category)->take(3)->get();
         // Related Posts Show
 
-
+         
 
 
         // Travel Category Post Count //
@@ -106,11 +114,13 @@ class PagesController extends Controller
         // Education Category Post Count
         $categoryeducationCount= Blog::where('category',"=","education")->get()->count(); 
         // Education Category Post Count
-        
+
+        $user_detail= DB::table('users')->join('comments','users.id','comments.user_id')->get(); 
+        $comments = DB::table('comments')->where('post_id', $id)->get();
 
         return view('pages.blog_category_pages.post',compact('blogs','relatedposts','categorytravelCount','categoryhealthCount',
         'categorylawCount','categorylifestyleCount','categoryreviewCount','categoryhowtoCount','categorybrandstoriesCount','categoryfoodCount',
-        'categorycareerCount','categoryeducationCount','categorystartupsCount'));
+        'categorycareerCount','categoryeducationCount','categorystartupsCount','comments','user_detail','countComments'));
         
     }
 
