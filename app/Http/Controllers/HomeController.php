@@ -29,6 +29,13 @@ class HomeController extends Controller
     {
         return view('pages.dashboard');
     }
+
+    public function User_dashboard()
+    {
+        return view('pages.user_dashboard');
+    }
+
+
     public function index()
     {
         return view('pages.dashboard');

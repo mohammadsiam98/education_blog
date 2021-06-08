@@ -33,8 +33,8 @@ Route::prefix('admin')->group(function(){
     Route::delete('/sliders/destroy/{id}', 'App\Http\Controllers\SliderPagesController@destroy')->name('admin.sliders.destroy');
     // Restore Sliders Lists //
     Route::get('/sliders/restoreList', 'App\Http\Controllers\SliderPagesController@restoreList')->name('admin.sliders.restoreList');
-      // Restore Sliders Lists //
-      Route::get('/sliders/destroyList/{id}', 'App\Http\Controllers\SliderPagesController@restoreData')->name('admin.sliders.restoreData');
+    // Restore Sliders Lists //
+    Route::get('/sliders/destroyList/{id}', 'App\Http\Controllers\SliderPagesController@restoreData')->name('admin.sliders.restoreData');
 
     // // These are Terms & Conditions routes
     // Route::get('/terms/create', 'App\Http\Controllers\TermsConditionsPagesController@create')->name('admin.terms.create');
@@ -53,16 +53,6 @@ Route::prefix('admin')->group(function(){
     //  Route::delete('/faqs/destroy/{id}', 'App\Http\Controllers\FAQPagesController@destroy')->name('admin.faqs.destroy');
 
 
-
-    //   // These are About Us routes
-    //   Route::get('/abouts/create', 'App\Http\Controllers\AboutusPagesController@create')->name('admin.abouts.create');
-    //   Route::put('/abouts/create', 'App\Http\Controllers\AboutusPagesController@store')->name('admin.abouts.store');
-    //   Route::get('/abouts/list', 'App\Http\Controllers\AboutusPagesController@list')->name('admin.abouts.list');
-    //   Route::get('/abouts/edit/{id}', 'App\Http\Controllers\AboutusPagesController@edit')->name('admin.abouts.edit');
-    //   Route::post('/abouts/update/{id}', 'App\Http\Controllers\AboutusPagesController@update')->name('admin.abouts.update');
-    //   Route::delete('/abouts/destroy/{id}', 'App\Http\Controllers\AboutusPagesController@destroy')->name('admin.abouts.destroy');
-
-
     // These are blog routes
     Route::get('/blogs/create', 'App\Http\Controllers\BlogPagesController@create')->name('admin.blogs.create');
     Route::put('/blogs/create', 'App\Http\Controllers\BlogPagesController@store')->name('admin.blogs.store');
@@ -75,11 +65,6 @@ Route::prefix('admin')->group(function(){
     Route::get('/blogs/restoreList', 'App\Http\Controllers\BlogPagesController@restoreList')->name('admin.blogs.restoreList');
       // Restore Sliders Lists //
       Route::get('/blogs/destroyList/{id}', 'App\Http\Controllers\BlogPagesController@restoreData')->name('admin.blogs.restoreData');
-
-  
-
-    
-    
 
 });
 
@@ -194,5 +179,12 @@ Route::post('/comment/{blogs}','App\Http\Controllers\CommentController@store')->
 
 Route::post('/comment-reply/{comment}','App\Http\Controllers\CommentReplyPagesController@store')->name('commentReply.store');
 
+// This route is not working
 Route::post('/like-post','PagesController@likePost')->name('post.like')->middleware('auth');
+
+
+
+Route::prefix('user')->group(function(){
+  Route::get('/dashboard', 'App\Http\Controllers\HomeController@User_dashboard')->name('user.dashboard');
+});
 

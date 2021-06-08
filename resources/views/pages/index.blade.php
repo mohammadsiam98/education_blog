@@ -362,7 +362,7 @@
                 @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
-                        <a href="" class="text-sm text-gray-700 underline"
+                        <a href="{{route('user.dashboard')}}" class="text-sm text-gray-700 underline"
                         style="
                          background-color:#f67280;
                                                 color:#ffffff !important;
