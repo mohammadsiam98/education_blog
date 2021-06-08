@@ -8,6 +8,7 @@ use DB;
 use App\CommentReply;
 use App\User;
 use App\Comment;
+use Illuminate\Support\Facades\Auth;
 class PagesController extends Controller
 {
     // index page
@@ -26,6 +27,22 @@ class PagesController extends Controller
     //     return view('pages.blog',compact('blogs'));
         
     // }
+
+
+     function likePost(Request $request)
+    {
+      $user= Auth::user();
+      return $user;
+      $likePost = $user->likedPosts()->where('post_id',$request->blog_id)->count();
+      if($likePost == 0)
+      {
+        $user->likedPosts()->attach($request->blog_id);
+      }
+      else{
+        $user->likedPosts()->detach($request->blog_id);
+      }
+      return redirect()->back();
+    }
 
 
 

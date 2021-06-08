@@ -15,6 +15,11 @@ class Blog extends Model{
     {
         return $this->hasMany('App\Comment');
     }
+
+    public function likedUsers()
+    {
+        return $this->belongsToMany('App\User')->withTimesStamps();
+    }
   
 
 

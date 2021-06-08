@@ -194,3 +194,5 @@ Route::post('/comment/{blogs}','App\Http\Controllers\CommentController@store')->
 
 Route::post('/comment-reply/{comment}','App\Http\Controllers\CommentReplyPagesController@store')->name('commentReply.store');
 
+Route::post('/like-post','PagesController@likePost')->name('post.like')->middleware('auth');
+

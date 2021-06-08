@@ -229,10 +229,28 @@
 
                         <div class="post-single-footer">
                             <div class="tags">
+                                @guest
+                                {{-- <ul class="list-inline">
+                                    <a href=""><img src="{{asset('assets/img/love.png')}}" class="imageLove" alt="" style="height: 100px;width:auto;"></a>
+                                 
+                                </ul> --}}
+                                @else
                                 <ul class="list-inline">
-                                   <a href=""><img src="{{asset('assets/img/love.png')}}" class="imageLove" alt="" style="height: 100px;width:auto;"></a>
-                                
+                                    
+                                    <form action="{{route('post.like')}}" method="POST" id="like-form-{{$blogs->id}}">
+    
+                                    @csrf
+                                    <input type="hidden" name="blog_id" value="{{$blogs->id}}">
+                                    <button type="submit">
+                                        <img src="{{asset('assets/img/love.png')}}" class="imageLove" alt="" style="height: 100px;width:auto;">
+                                        </button>
+                                        
+                                    
+                                    </form>
+                                   @endguest
                                 </ul>
+                               
+                               
                             </div>
                             <div class="social-media">
                                 <ul class="list-inline">
@@ -666,6 +684,55 @@
                         <button class="submit-btn" type="submit">Subscribe</button>
                     </div>
                 </form>
+
+
+
+                @if (Route::has('login'))
+                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                    @auth
+                        <a href="" class="text-sm text-gray-700 underline"
+                        style="
+                         background-color:#f67280;
+                                                color:#ffffff !important;
+                                                padding: 13px 20px;
+                                                text-align:center;
+                                                font-size:24px;
+                                                border-radius:20px;
+                                                font-weight:700 !important;
+                                                text-transform: capitalize;"
+                        >Write Blogs in this website</a>
+                    @else
+                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline" 
+                        style="
+                         background-color:#f67280;
+                                                color:#ffffff !important;
+                                                padding: 13px 26px;
+                                                text-align:center;
+                                                font-size:24px;
+                                                border-radius:20px;
+                                                font-weight:700 !important;
+                                                text-transform: capitalize;
+                                                "
+                        
+                        
+                        >Login</a>
+
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline" style="
+                             background-color:#f67280;
+                                                color:#ffffff !important;
+                                                padding: 13px 26px;
+                                                text-align:center;
+                                                font-size:24px;
+                                                border-radius:20px;
+                                                font-weight:700 !important;
+                                                text-transform: capitalize;
+                            
+                            ">Register</a>
+                        @endif
+                    @endauth
+                </div>
+                @endif
                 <div class="social-icones">
                     <ul class="list-inline">
                         <li>
