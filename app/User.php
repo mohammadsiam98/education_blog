@@ -57,4 +57,12 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->belongsToMany('App\Blog')->withTimesStamps();
     }
+
+
+    function user(){
+        return $this->hasMany(UsersBlog::class, 'user_id');
+    } 
+
+
+
 }

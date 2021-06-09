@@ -112,7 +112,7 @@ class UsersBlogPagesController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $users_blogs = Blog::find($id);
+        $users_blogs = UsersBlog::find($id);
         $users_blogs->title = $request->title;
         $users_blogs->category= $request->category;
         $users_blogs->description = $request->description;       
@@ -126,7 +126,7 @@ class UsersBlogPagesController extends Controller
         $users_blogs->save();
 
         
-        return redirect()->route('admin.users_blogs.create')->with('success','New Posts Category & details updated Successfully');
+        return redirect()->route('admin.users_blogs.list')->with('success','Blog updated Successfully');
     }
 
     /**

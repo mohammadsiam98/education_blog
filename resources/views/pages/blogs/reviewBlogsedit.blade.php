@@ -1,4 +1,4 @@
-@extends('layouts.user_layout')
+@extends('layouts.admin_layout')
 
 @section('content')
 
@@ -39,9 +39,9 @@
                                     <div class="row">
                                         <div class="col-12">
                                             <div>
-                                                <form action="{{route('admin.users_blogs.update',$users_blogs->id)}}" enctype="multipart/form-data" method="POST">
+                                                <form action="{{route('admin.users_review_blogs.update')}}" enctype="multipart/form-data" method="POST">
                                                     @csrf
-                                                   
+                                                    <input type="hidden" name="blog_id" value="{{ $users_blogs->id }}" >
                                                     <div class="form-group row">
                                                         <label class="col-md-2 col-form-label" for="simpleinput">Enter your Blog Title</label>
                                                         <div class="col-md-10">

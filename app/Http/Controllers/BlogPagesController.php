@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Blog;
 use App\UsersBlog;
+use DB;
 use Illuminate\Support\Facades\Auth;
 class BlogPagesController extends Controller
 {
@@ -143,11 +144,51 @@ class BlogPagesController extends Controller
 
     public function ShowUsersBlogslist()
     {
-        $user_id = Auth::id();
-        $users_blogs = UsersBlog::where('status',0)->get();
-        return view ('pages.blogs.reviewBlogslist',compact('users_blogs'));
+        
+        $users_blogs=DB::table('users')->join('users_blogs','users_blogs.user_id','users.id')->where('users_blogs.status',0)->whereNull('deleted_at')->orderBy('users_blogs.id', 'desc')->get();
+       
+        return view ('pages.blogs.reviewBlogslist',compact('users_blogs'));  
+    }
+
+    function reviewedit($id)
+    {
+       
+        $users_blogs = UsersBlog::find($id);
+       
+        return view('pages.blogs.reviewBlogsedit',compact('users_blogs'));
+    }
+
+
+    public function reviewupdate(Request $request)
+    {
+        $id = $request->blog_id;
+
+        $users_blogs = UsersBlog::where('id',$id)->first();
+        $users_blogs->title = $request->title;
+        $users_blogs->category= $request->category;
+        $users_blogs->description = $request->description;       
+        $users_blogs->highlightedText = $request->highlightedText;
+        $users_blogs->status = 0;            
+        if($request->file('image')){
+            $image  = $request->file('image');
+            Storage::putFile('public/img/',$image);
+            $users_blogs->image ="storage/img/".$image->hashName();
+        }
+        $users_blogs->save();
 
         
-       
+        return redirect()->route('admin.users_review_blogs.list')->with('success','Blog updated Successfully');
+    }
+
+
+    public function reviewapprove($id)
+    {
+        $reviewBlog = UsersBlog::where('id', $id)->first();
+
+        $reviewBlog->status = 1;
+        $reviewBlog->save();
+        return redirect()->route('admin.users_review_blogs.list')->with('success','Blog Approved Successfully');
+
+
     }
 }

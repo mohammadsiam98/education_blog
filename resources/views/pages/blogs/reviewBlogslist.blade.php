@@ -33,7 +33,7 @@
                     <th style="text-align: center;">Serial Number</th>
                     <th style="text-align: center;">Post Category</th>
                     <th style="text-align: center;">Title</th>
-                    <th style="text-align: center;">User_id</th>
+                    <th style="text-align: center;">Username</th>
                     <th style="text-align: center;">Image</th>
                     
                     <th style="text-align: center;">Action</th>
@@ -44,13 +44,15 @@
 
                 <tbody>
             @if (count($users_blogs)>0)
-            @foreach ($users_blogs as $blog)
+            @foreach ($users_blogs as $key=>$blog)
                 <tr>
                     
-                    <td>{{$blog->id}}</td>
+                    <td>{{$key+1}}</td>
                     <td>{{$blog->category}}</td>
                     <td>{{$blog->title}}</td>
-                    <td>{{$blog->user_id}}</td>
+                    <td>{{$blog->name}}</td>
+                    
+
                     <td>
                         <img style="height: 70px; width:auto;" src="{{url($blog->image)}}" alt="image">
                           
@@ -61,16 +63,13 @@
                     <td>
                         <div class="row">
                           <div>
-                            <a  href="{{route('admin.blogs.edit' , $blog->id)}}" style="color: white;" class="btn btn-primary m-2"> Edit </a>
+                            <a  href="{{route('admin.users_review_blogs.edit' , $blog->id)}}" style="color: white;" class="btn btn-primary m-2"> Edit </a>
                           </div>
-                          <div >
-                            <form action="{{route('admin.blogs.destroy', $blog->id)}}" method="POST">
-                              @csrf
-                              @method('Delete')
-                              <input type="submit" name="submit" value="Delete" class="btn btn-danger m-2">
-                            </form>
-                            
+
+                          <div>
+                            <a  href="{{route('admin.users_review_blogs.approve' , $blog->id)}}" style="color: white;" class="btn btn-warning m-2"> Accept </a>
                           </div>
+                          
                         </div>
                       </td>
                   

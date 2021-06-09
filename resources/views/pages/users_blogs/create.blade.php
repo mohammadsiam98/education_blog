@@ -78,7 +78,7 @@
             <div class="custom-modal-text">
               
                 <h1>Blog Description</h1>
-                <p style="font-weight:bold; font-size:20px; ">New Google's meta description length is up to 920 pixels, which might allow for up to 158 characters.</p>
+                <p style="font-weight:bold; font-size:20px; ">New Googles meta description length is up to 920 pixels, which might allow for up to 158 characters.</p>
             </div>
         </div>
 

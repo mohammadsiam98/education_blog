@@ -134,7 +134,7 @@
                                    
                                     <li><a href="{{route('admin.users_blogs.create')}}">Create</a></li>
                                     <li><a href="{{route('admin.users_blogs.list')}}">List</a></li>
-                                    <li><a href="{{route('admin.users_blogs.restoreList')}}">Restore</a></li>
+                                    
                                 </ul>
                             </li>
                            

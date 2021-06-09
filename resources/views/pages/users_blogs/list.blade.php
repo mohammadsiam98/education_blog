@@ -34,6 +34,7 @@
                     <th style="text-align: center;">Post Category</th>
                     <th style="text-align: center;">Title</th>
                     <th style="text-align: center;">Image</th>
+                    <th style="text-align: center;">Satus</th>
                     
                     <th style="text-align: center;">Action</th>
                     
@@ -43,10 +44,10 @@
 
                 <tbody>
             @if (count($users_blogs)>0)
-            @foreach ($users_blogs as $blog)
+            @foreach ($users_blogs as $key => $blog)
                 <tr>
                     
-                    <td>{{$blog->id}}</td>
+                    <td>{{$key+1}}</td>
                     <td>{{$blog->category}}</td>
                     <td>{{$blog->title}}</td>
                     
@@ -55,6 +56,29 @@
                           
                     </td>
 
+                    <td>
+                        <?php 
+
+                            if($blog->status == 0)
+                            {
+                        ?>
+                        <a style="color: white;" class="btn btn-warning mt-2 btn-block"> Pending </a>
+                                
+                        <?php 
+                        
+                            }
+                            elseif($blog->status == 1)
+                            {
+                        ?>
+                        
+                        <a style="color: white;" class="btn btn-success mt-2 btn-block"> Published </a>
+
+
+                        <?php 
+                            }
+
+                        ?>
+                    </td>
                   
 
                     <td>

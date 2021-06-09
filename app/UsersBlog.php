@@ -3,6 +3,7 @@ use Cviebrock\EloquentTaggable\Taggable;
 namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+
 class UsersBlog extends Model{
     use SoftDeletes;
    
@@ -21,7 +22,7 @@ class UsersBlog extends Model{
         return $this->belongsToMany('App\User')->withTimesStamps();
     }
   
-
+  
 
 }
 

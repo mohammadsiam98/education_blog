@@ -61,7 +61,15 @@ Route::prefix('admin')->group(function(){
     Route::post('/blogs/update/{id}', 'App\Http\Controllers\BlogPagesController@update')->name('admin.blogs.update');
     Route::delete('/blogs/destroy/{id}', 'App\Http\Controllers\BlogPagesController@destroy')->name('admin.blogs.destroy');
 
+    
+
+    //There routes are for user blogs to review and publish
+    Route::get('/UsersblogsReview/edit/{id}', 'App\Http\Controllers\BlogPagesController@reviewedit')->name('admin.users_review_blogs.edit');
+    Route::post('/UsersblogsReview/update', 'App\Http\Controllers\BlogPagesController@reviewupdate')->name('admin.users_review_blogs.update');
     Route::get('/UsersblogsReview/list', 'App\Http\Controllers\BlogPagesController@ShowUsersBlogslist')->name('admin.users_review_blogs.list');
+    Route::get('/UsersblogsReview/approve/{id}', 'App\Http\Controllers\BlogPagesController@reviewapprove')->name('admin.users_review_blogs.approve');
+
+    
     
 
     // Restore Sliders Lists //
