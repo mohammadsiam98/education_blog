@@ -43,6 +43,12 @@
         <link href="{{asset('anotherassets/libs/bootstrap-select/bootstrap-select.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{asset('anotherassets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.css')}}" rel="stylesheet" type="text/css" />
 
+        <link href="assets/libs/custombox/custombox.min.css" rel="stylesheet" type="text/css" >
+
+        <!-- App css -->
+     
+        <link href="{{asset('anotherassets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('anotherassets/css/app.min.css')}}" rel="stylesheet" type="text/css"  id="app-stylesheet" />
 
 
     </head>
@@ -117,6 +123,20 @@
                             <li class="menu-title" style="font-size: 26px;">Components</li>
 
 
+                            <li>
+                                <a href="javascript: void(0);">
+                                    <i class="fe-box"></i>
+                                    <span style="font-size: 20px;">  Write Blog </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+
+                                <ul class="nav-second-level" aria-expanded="false">
+                                   
+                                    <li><a href="{{route('admin.users_blogs.create')}}">Create</a></li>
+                                    <li><a href="{{route('admin.users_blogs.list')}}">List</a></li>
+                                    <li><a href="{{route('admin.users_blogs.restoreList')}}">Restore</a></li>
+                                </ul>
+                            </li>
                            
                             
 
@@ -205,6 +225,11 @@
             <script src="{{asset('anotherassets/libs/bootstrap-tagsinput/bootstrap-tagsinput.min.js')}}"></script>
             <script src="{{asset('anotherassets/libs/select2/select2.min.js')}}"></script>
             <script src="{{asset('anotherassets/libs/jquery-mockjax/jquery.mockjax.min.js')}}"></script>
+
+      
+            <script src="{{asset('anotherassets/libs/custombox/custombox.min.js')}}"></script>
+
+       
        
     </body>
 </html>

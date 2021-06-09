@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Blog;
-
+use App\UsersBlog;
+use Illuminate\Support\Facades\Auth;
 class BlogPagesController extends Controller
 {
     /**
@@ -138,5 +139,15 @@ class BlogPagesController extends Controller
         //
         $blogs = Blog::onlyTrashed()->find($id)->restore();
         return redirect()->route('admin.blogs.list')->with('success',"Blog Restored Successfully");
+    }
+
+    public function ShowUsersBlogslist()
+    {
+        $user_id = Auth::id();
+        $users_blogs = UsersBlog::where('status',0)->get();
+        return view ('pages.blogs.reviewBlogslist',compact('users_blogs'));
+
+        
+       
     }
 }

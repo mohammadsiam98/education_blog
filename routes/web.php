@@ -61,6 +61,9 @@ Route::prefix('admin')->group(function(){
     Route::post('/blogs/update/{id}', 'App\Http\Controllers\BlogPagesController@update')->name('admin.blogs.update');
     Route::delete('/blogs/destroy/{id}', 'App\Http\Controllers\BlogPagesController@destroy')->name('admin.blogs.destroy');
 
+    Route::get('/UsersblogsReview/list', 'App\Http\Controllers\BlogPagesController@ShowUsersBlogslist')->name('admin.users_review_blogs.list');
+    
+
     // Restore Sliders Lists //
     Route::get('/blogs/restoreList', 'App\Http\Controllers\BlogPagesController@restoreList')->name('admin.blogs.restoreList');
       // Restore Sliders Lists //
@@ -186,5 +189,20 @@ Route::post('/like-post','PagesController@likePost')->name('post.like')->middlew
 
 Route::prefix('user')->group(function(){
   Route::get('/dashboard', 'App\Http\Controllers\HomeController@User_dashboard')->name('user.dashboard');
+
+
+  
+    // These are Users blog routes
+    Route::get('/User_blogs/create', 'App\Http\Controllers\UsersBlogPagesController@create')->name('admin.users_blogs.create');
+    Route::put('/User_blogs/create', 'App\Http\Controllers\UsersBlogPagesController@store')->name('admin.users_blogs.store');
+    Route::get('/User_blogs/list', 'App\Http\Controllers\UsersBlogPagesController@list')->name('admin.users_blogs.list');
+    Route::get('/User_blogs/edit/{id}', 'App\Http\Controllers\UsersBlogPagesController@edit')->name('admin.users_blogs.edit');
+    Route::post('/User_blogs/update/{id}', 'App\Http\Controllers\UsersBlogPagesController@update')->name('admin.users_blogs.update');
+    Route::delete('/User_blogs/destroy/{id}', 'App\Http\Controllers\UsersBlogPagesController@destroy')->name('admin.users_blogs.destroy');
+
+    // Restore Sliders Lists //
+    Route::get('/User_blogs/restoreList', 'App\Http\Controllers\UsersBlogPagesController@restoreList')->name('admin.users_blogs.restoreList');
+      // Restore Sliders Lists //users_blogs
+      Route::get('/User_blogs/destroyList/{id}', 'App\Http\Controllers\UsersBlogPagesController@restoreData')->name('admin.users_blogs.restoreData');
 });
 

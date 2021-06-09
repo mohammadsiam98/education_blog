@@ -52,13 +52,19 @@ class PagesController extends Controller
 
        
         $countComments = DB::table('comments')->where('post_id', $id)->get()->count();
+        // $blogKey = 'blogs_' . $blogs->id;
+        // if(!Session::has($blogKey))
+        // {
+        //   $post->increment('view_count');
+        //   Session::put($blogKey,1);
+        // }
       
-
+ 
         // Related Posts Show
         $relatedposts= Blog::where('category',"=", $category)->take(3)->get();
         // Related Posts Show
 
-         
+        
 
 
         // Travel Category Post Count //

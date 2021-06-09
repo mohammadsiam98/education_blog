@@ -21,6 +21,8 @@ class CreateUsersBlogsTable extends Migration
             $table->string('image');
             $table->text('highlightedText');
             $table->string('status')->default(0);
+            $table->unsignedBigInteger('user_id');
+            $table->integer('view_count');
             $table->softDeletes();
             $table->timestamps();
         });

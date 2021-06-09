@@ -164,8 +164,30 @@
                                     <li><a href="{{route('admin.blogs.create')}}">Create</a></li>
                                     <li><a href="{{route('admin.blogs.list')}}">List</a></li>
                                     <li><a href="{{route('admin.blogs.restoreList')}}">Restore</a></li>
+                                    
                                 </ul>
                             </li>
+
+
+                            <li>
+                                <a href="javascript: void(0);">
+                                    <i class="fe-box"></i>
+                                    <span style="font-size: 20px;"> Review Blog </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+
+                                <ul class="nav-second-level" aria-expanded="false">
+                                   
+                                   
+                                    <li><a href="{{route('admin.users_review_blogs.list')}}">List</a></li>
+                                   
+                                    
+                                </ul>
+                            </li>
+
+
+                          
+
 
                             
                             <li>
@@ -313,6 +335,7 @@
             <script src="{{asset('anotherassets/libs/bootstrap-tagsinput/bootstrap-tagsinput.min.js')}}"></script>
             <script src="{{asset('anotherassets/libs/select2/select2.min.js')}}"></script>
             <script src="{{asset('anotherassets/libs/jquery-mockjax/jquery.mockjax.min.js')}}"></script>
+            <script src="{{asset('anotherassets/libs/custombox/custombox.min.js')}}"></script>
        
     </body>
 </html>
