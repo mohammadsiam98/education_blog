@@ -113,7 +113,7 @@
                                     <div class="row">
                                         <div class="col-12">
                                             <div>
-                                                <form action="{{route('admin.users_blogs.store')}}" enctype="multipart/form-data" method="POST">
+                                                <form action="{{route('users.users_blogs.store')}}" enctype="multipart/form-data" method="POST">
                                                     @csrf
                                                     {{method_field('PUT')}}
                                                     <div class="form-group row">

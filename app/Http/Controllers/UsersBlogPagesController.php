@@ -68,7 +68,7 @@ class UsersBlogPagesController extends Controller
 
         // dd($users_blogs);
         $users_blogs->save();
-        return redirect()->route('admin.users_blogs.create')->with('success','New Posts Category & details created Successfully');
+        return redirect()->route('users.users_blogs.create')->with('success','New Posts Category & details created Successfully');
     }
 
     /**
@@ -125,8 +125,8 @@ class UsersBlogPagesController extends Controller
         }
         $users_blogs->save();
 
-        
-        return redirect()->route('admin.users_blogs.list')->with('success','Blog updated Successfully');
+        notify()->success('Laravel Notify is awesome!');
+        return redirect()->route('users.users_blogs.list')->with('success','Blog updated Successfully');
     }
 
     /**
@@ -140,13 +140,14 @@ class UsersBlogPagesController extends Controller
         //
         $users_blogs = UsersBlog::find($id);
         $users_blogs->delete();
-        return redirect()->route('admin.users_blogs.list')->with('success',"Post Deleted Successfully");
+        return redirect()->route('users.users_blogs.destroy')->with('success',"Post Deleted Successfully");
     }
 
-    public function restoreData($id)
+  
+    public function ReviewCommentlist()
     {
-        //
-        $users_blogs = UsersBlog::onlyTrashed()->find($id)->restore();
-        return redirect()->route('admin.users_blogs.list')->with('success',"Blog Restored Successfully");
+        $user_id = Auth::id();
+        $users_blogs = UsersBlog::where('user_id',$user_id)->get();
+        return view ('pages.users_blogs.review',compact('users_blogs','user_id'));
     }
 }

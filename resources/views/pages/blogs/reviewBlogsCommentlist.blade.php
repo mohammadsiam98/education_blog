@@ -26,19 +26,16 @@
                 <button type="button" class="btn btn-dark btn-rounded width-md waves-effect waves-light"><i class="fas fa-briefcase"></i> <span>  Career </span></button>
                 <button type="button" class="btn btn-dark btn-rounded width-md waves-effect waves-light"><i class="fas fa-university"></i> <span>  Education </span></button>
             </div>
-
             <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
 
            
                 <thead>
                 <tr>
                     <th style="text-align: center;">Serial Number</th>
-                    <th style="text-align: center;">Post Category</th>
                     <th style="text-align: center;">Title</th>
                     <th style="text-align: center;">Username</th>
-                    <th style="text-align: center;">Image</th>
+                    <th style="text-align: center">Review Comment</th>                   
                     
-                    <th style="text-align: center;">Action</th>
                     
                 </tr>
                 </thead>
@@ -49,32 +46,10 @@
             @foreach ($users_blogs as $key=>$blog)
                 <tr>
                     
-                    <td>{{$key+1}}</td>
-                    <td>{{$blog->category}}</td>
+                    <td>{{$key+1}}</td>  
                     <td>{{$blog->title}}</td>
                     <td>{{$blog->name}}</td>
-                    
-
-                    <td>
-                        <img style="height: 70px; width:auto;" src="{{url($blog->image)}}" alt="image">
-                          
-                    </td>
-
-                  
-
-                    <td>
-                        <div class="row">
-                          <div>
-                            <a  href="{{route('admin.users_review_blogs.edit' , $blog->id)}}" style="color: white;" class="btn btn-primary m-2"> Edit </a>
-                          </div>
-
-                          <div>
-                            <a  href="{{route('admin.users_review_blogs.approve' , $blog->id)}}" style="color: white;" class="btn btn-warning m-2"> Accept </a>
-                          </div>
-                          
-                        </div>
-                      </td>
-                  
+                    <td>{{$blog->review_comment}}</td>
                 </tr>
 
             @endforeach                    

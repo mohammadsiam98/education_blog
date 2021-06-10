@@ -13,16 +13,18 @@
         <div class="card-box table-responsive">
             <h1 class="header-title">All Categories</h1>
             <div class="button-list" style="padding: 30px; display:flex;justify-content:center;" >
-                <button type="button" class="btn btn-primary btn-rounded width-md waves-effect waves-light">Politics</button>
-                <button type="button" class="btn btn-info btn-rounded width-md waves-effect waves-light">Sports</button>
-                <button type="button" class="btn btn-success btn-rounded width-md waves-effect waves-light">Business</button>
-                <button type="button" class="btn btn-purple btn-rounded width-md waves-effect waves-light">Fashion</button>
-                <button type="button" class="btn btn-warning btn-rounded width-md waves-effect waves-light">Lifestyle</button>
-                <button type="button" class="btn btn-danger btn-rounded width-md waves-effect waves-light">Travel</button>
-                <button type="button" class="btn btn-pink btn-rounded width-md waves-effect waves-light">Gadget</button>
+                <button type="button" class="btn btn-warning btn-rounded width-md waves-effect waves-light"> <i class="far fa-lightbulb"></i> <span>Startup</span> </button>
+                <button type="button" class="btn btn-info btn-rounded width-md waves-effect waves-light"><i class="fas fa-file-medical"></i> <span> Health & Wellness</span></button>
+                <button type="button" class="btn btn-success btn-rounded width-md waves-effect waves-light"><i class="fas fa-gavel"></i><span> Law</span></button>
+                <button type="button" class="btn btn-purple btn-rounded width-md waves-effect waves-light"><i class="fas fa-shopping-bag"></i><span> Lifestyle</span></button>
+                <button type="button" class="btn btn-warning btn-rounded width-md waves-effect waves-light"><i class="fas fa-pencil-alt"></i><span> Review</span></button>
+                <button type="button" class="btn btn-danger btn-rounded width-md waves-effect waves-light"><i class="fas fa-question"></i><span> How To</span></button>
+                <button type="button" class="btn btn-pink btn-rounded width-md waves-effect waves-light"><i class="fas fa-tshirt"></i><span> Brand Stories</span></button>
                
-                <button type="button" class="btn btn-dark btn-rounded width-md waves-effect waves-light">International News</button>
-                <button type="button" class="btn btn-dark btn-rounded width-md waves-effect waves-light">Job</button>
+                <button type="button" class="btn btn-dark btn-rounded width-md waves-effect waves-light"><i class="fas fa-utensils"></i> <span>  Food </span></button>
+                <button type="button" class="btn btn-dark btn-rounded width-md waves-effect waves-light"><i class="fas fa-bus"></i> <span>  Travel</span></button>
+                <button type="button" class="btn btn-dark btn-rounded width-md waves-effect waves-light"><i class="fas fa-briefcase"></i> <span>  Career </span></button>
+                <button type="button" class="btn btn-dark btn-rounded width-md waves-effect waves-light"><i class="fas fa-university"></i> <span>  Education </span></button>
             </div>
 
             <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
@@ -84,10 +86,10 @@
                     <td>
                         <div class="row">
                           <div>
-                            <a  href="{{route('admin.users_blogs.edit' , $blog->id)}}" style="color: white;" class="btn btn-primary m-2"> Edit </a>
+                            <a  href="{{route('users.users_blogs.edit' , $blog->id)}}" style="color: white;" class="btn btn-primary m-2"> Edit </a>
                           </div>
                           <div >
-                            <form action="{{route('admin.users_blogs.destroy', $blog->id)}}" method="POST">
+                            <form action="{{route('users.users_blogs.destroy', $blog->id)}}" method="POST">
                               @csrf
                               @method('Delete')
                               <input type="submit" name="submit" value="Delete" class="btn btn-danger m-2">

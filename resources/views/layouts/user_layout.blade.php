@@ -132,8 +132,9 @@
 
                                 <ul class="nav-second-level" aria-expanded="false">
                                    
-                                    <li><a href="{{route('admin.users_blogs.create')}}">Create</a></li>
-                                    <li><a href="{{route('admin.users_blogs.list')}}">List</a></li>
+                                    <li><a href="{{route('users.users_blogs.create')}}">Create</a></li>
+                                    <li><a href="{{route('users.users_blogs.list')}}">List</a></li>
+                                    <li><a href="{{route('users.users_blogs.review')}}">Review Comments List</a></li>
                                     
                                 </ul>
                             </li>

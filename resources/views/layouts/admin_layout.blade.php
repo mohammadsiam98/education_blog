@@ -42,29 +42,23 @@
         <link href="{{asset('anotherassets/libs/select2/select2.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{asset('anotherassets/libs/bootstrap-select/bootstrap-select.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{asset('anotherassets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.css')}}" rel="stylesheet" type="text/css" />
-
-
-
+           <!-- App css -->
+           <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap-stylesheet" />
+           <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+           <link href="assets/css/app.min.css" rel="stylesheet" type="text/css"  id="app-stylesheet" />
+           @notifyCss
     </head>
 
     <body>
        
-
+        
         <!-- Begin page -->
         <div id="wrapper">
 
             
             <!-- Topbar Start -->
             <div class="navbar-custom">
-                <ul class="list-unstyled topnav-menu float-right mb-0">
-                    <li class="dropdown notification-list">
-                        <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                            <img src="{{asset('anotherassets/images/users/avatar-1.jpg')}}" alt="user-image" class="rounded-circle">                          
-                        </a>  
-                                    
-                       
-                    </li>
-                </ul>
+                
 
                
 
@@ -106,29 +100,14 @@
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <ul class="nav-second-level" aria-expanded="false">
-                                    <li><a href="page-starter.html">Starter Page</a></li>
-                                    
-                                    <li><a href="page-recoverpw.html">Change Password</a></li>
-                                    <li><a href="page-lock-screen.html">Lock Screen</a></li>
+                                   
+                                    <li><a href="page-lock-screen.html">Logout</a></li>
                                    
                                     
                                 </ul>
                             </li>
 
-                            {{-- <li>
-                                <a href="javascript: void(0);">
-                                    <i class="fe-plus-square"></i>
-                                    <span> Extra Pages </span>
-                                    <span class="menu-arrow"></span>
-                                </a>
-                                <ul class="nav-second-level" aria-expanded="false">
-                                    <li><a href="extras-about.html">About Us</a></li>
-                                    <li><a href="extras-contact.html">Contact</a></li>
-                                    
-                                    <li><a href="extras-maintenance.html">Maintenance</a></li>
-                                   
-                                </ul>
-                            </li> --}}
+                           
 
                           
 
@@ -180,6 +159,7 @@
                                    
                                    
                                     <li><a href="{{route('admin.users_review_blogs.list')}}">List</a></li>
+                                    <li><a href="{{route('admin.users_review_blogs.Commentlist')}}">Review Comment List</a></li>
                                    
                                     
                                 </ul>
@@ -336,6 +316,8 @@
             <script src="{{asset('anotherassets/libs/select2/select2.min.js')}}"></script>
             <script src="{{asset('anotherassets/libs/jquery-mockjax/jquery.mockjax.min.js')}}"></script>
             <script src="{{asset('anotherassets/libs/custombox/custombox.min.js')}}"></script>
-       
+            
+            <x:notify-messages />
+            @notifyJs
     </body>
 </html>

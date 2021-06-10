@@ -39,7 +39,7 @@
                                     <div class="row">
                                         <div class="col-12">
                                             <div>
-                                                <form action="{{route('admin.users_blogs.update',$users_blogs->id)}}" enctype="multipart/form-data" method="POST">
+                                                <form action="{{route('users.users_blogs.update',$users_blogs->id)}}" enctype="multipart/form-data" method="POST">
                                                     @csrf
                                                    
                                                     <div class="form-group row">

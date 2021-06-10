@@ -97,6 +97,17 @@
                                                     </div>
 
 
+                                                    <div class="form-group row">
+                                                        <label class="col-md-2 col-form-label" for="simpleinput">Review Comment</label>
+                                                        <div class="col-md-10">
+                                                            <textarea id="my-editor2" name="review_comment" class="form-control"></textarea>
+
+                                                            
+                                                        </div>
+                                                    </div>
+
+
+
                                                     <button type="submit" name="submit" class="btn btn-primary">Save changes</button>
                                                 </form>
                                             </div>

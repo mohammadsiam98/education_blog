@@ -13,7 +13,7 @@
     <link rel="icon" sizes="16x16" href="assets/img/favicon.png">
 
     <!-- Title -->
-    <title> - Personal Blog HTML Template </title>
+    <title>Website Name</title>
 
     <!-- Font Google -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&amp;display=swap" rel="stylesheet">
@@ -41,7 +41,7 @@
         <div class="container-fluid">
             <!--logo-->
             <div class="logo">
-                <a href="index.html">
+                <a href="{{route('homepage')}}">
                     <img src="assets/img/logo-dark.png" alt="" class="logo-dark">
                     <img src="assets/img/logo-white.png" alt="" class="logo-white">
                 </a>
@@ -51,91 +51,54 @@
             <!--navbar-collapse-->
             <div class="collapse navbar-collapse" id="main_nav">
                 <ul class="navbar-nav ml-auto mr-auto">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="index.html" data-toggle="dropdown"> Home </a>
-                        <ul class="dropdown-menu fade-up">
-                            <li>
-                                <a class="dropdown-item" href="index.html">Demo 1</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="index-2.html">Demo 2 </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="index-3.html">Demo 3 </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item active" href="index-4.html">Demo 4 </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="index-5.html">Demo 5</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="index-6.html">Demo 6 </a>
-                            </li>
-                        </ul>
-                    </li>
-    
-                    <li class="nav-item dropdown">
-                        <a class="nav-link  dropdown-toggle" href="blog-grid.html" data-toggle="dropdown"> Blog </a>
-                        <ul class="dropdown-menu fade-up">
-                            <li>
-                                <a class="dropdown-item" href="blog-grid.html"> Blog grid</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="blog-masonry.html"> Blog masonry </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item " href="blog-list.html"> Blog list </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link  dropdown-toggle" href="post-default.html" data-toggle="dropdown"> Posts Features </a>
-                        <ul class="dropdown-menu fade-up">
-                            <li>
-                                <a class="dropdown-item" href="post-default.html"> post default</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="post-video.html"> post video</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="post-audio.html"> post audio</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="post-gallery.html"> post gallery</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="post-no-sidebar.html"> post no sidebar </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="post-left-sidebar.html"> post left sidebar </a>
-                            </li>
-                        </ul>
-                    </li>
-    
-                    <li class="nav-item dropdown">
-                        <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">Pages </a>
-                        <ul class="dropdown-menu fade-up">
-                            <li>
-                                <a class="dropdown-item" href="about.html"> About </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="author.html"> author </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="login.html"> Login </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item " href="register.html"> Sign up </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item " href="page404.html"> Page 404 </a>
-                            </li>
-                        </ul>
-                    </li>
+                   
+                   
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.html"> Contact </a>
+                        <a class="nav-link" href="{{route('startups')}}"> Startups </a>
                     </li>
+                   
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('lifestyle')}}"> Lifestyle </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('review')}}"> Review </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('contact')}}"> Contact </a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown"> More Categories</a>
+                        <ul class="dropdown-menu fade-up">
+                            <li>
+                                <a class="dropdown-item" href="{{route('howto')}}"> How To</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{route('brandstories')}}">Brand Stories</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{route('food')}}"> Food </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{route('travel')}}"> Travel </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{route('career')}}"> Career </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{route('education')}}"> Education </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{route('health')}}"> Health & Wellness </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{route('law')}}"> Law </a>
+                            </li>
+                        </ul>
+                    </li>
+                   
                 </ul>
             </div>
             <!--/-->
@@ -172,11 +135,7 @@
                         </li>
                     </ul>
                 </div>
-    
-                <div class="search-icon">
-                    <i class="icon_search"></i>
-                </div>
-    
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -287,9 +246,9 @@
                                     
                                 </div>
                                 <div class="post-card-content">
-                                    <a href="blog-grid.html" class="categorie">{{$blog->category}}</a>
+                                    <a href="{{route('allpost' , [$blog->id,$blog->category])}}" class="categorie">{{$blog->category}}</a>
                                     <h5>
-                                        <a href="post-default.html">{{$blog->title}}</a>
+                                        <a href="{{route('allpost' , [$blog->id,$blog->category])}}">{{$blog->title}}</a>
                                     </h5>
                                     <p>{{$blog->highlightedText}}
                                     </p>
@@ -315,28 +274,24 @@
     
 
                     </div>
+
+
+                   
                     <!--pagination-->
                     <div class="pagination mt-30">
+                        @if ($blogs->lastPage() >1)
                         <ul class="list-inline">
-                            <li class="active">
-                                <a href="#">1</a>
-                            </li>
-                            <li>
-                                <a href="#">2</a>
-                            </li>
-                            <li>
-                                <a href="#">3</a>
-                            </li>
-                            <li>
-                                <a href="#">4</a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="arrow_carrot-2right"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+                            <li class="{{$blogs->currentPage() == 1 ? 'disabled' : ''}}"><a class="" href="{{$blogs->url(1)}}"><i class="arrow_carrot-2left"></i></a>
+                                @for($i=1; $i<=$blogs->lastPage();$i++)
+                                <li class="siam {{$blogs->currentPage() == $i ? 'current' : ''}}">
+                                  <a class='page-numbers' href='{{$blogs->url($i)}}'>{{$i}}</a></li>
+                                @endfor
+                                <li class="{{$blogs->currentPage() == $blogs->lastPage() ? 'disabled' : '' }}"><a class="disabled" href="{{$blogs->url($blogs_startups->currentPage() +1 )}}"><i class="arrow_carrot-2right"></i></a></li>
+                           
+                        </ul> 
+                        @endif
+                    </div><!--/-->
+
                 </div>
             </div>
         </div>
@@ -348,17 +303,10 @@
         <div class="container-fluid">
             <div class="newslettre-width text-center">
                 <div class="newslettre-info">
-                    <h5>Subscribe to our Newslatter</h5>
-                    <p> Sign up for free and be the first to get notified about new posts. </p>
+                    <h5>Want to be a author in our website ? </h5>
+                    <p>Sign up for free and be the author. </p>
                 </div>
-                <form action="#" class="newslettre-form">
-                    <div class="form-flex">
-                        <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Your email adress" required="required">
-                        </div>
-                        <button class="submit-btn" type="submit">Subscribe</button>
-                    </div>
-                </form>
+               
                 @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
@@ -435,7 +383,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="copyright">
-                        <p>© Copyright 2021 <a href="#">AssiaGroupe</a>, All rights reserved.</p>
+                        <p>© Copyright 2021 <a href="#">XYZ Company</a>, All rights reserved.</p>
                     </div>
                     <div class="back">
                         <a href="#" class="back-top">

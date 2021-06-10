@@ -8,6 +8,7 @@ use DB;
 use App\CommentReply;
 use App\User;
 use App\Comment;
+use App\UsersBlog;
 use Illuminate\Support\Facades\Auth;
 class PagesController extends Controller
 {
@@ -15,7 +16,7 @@ class PagesController extends Controller
     public function index()
     {
         // Show All Blog Posts Show
-        $blogs = Blog::paginate(10);        
+        $blogs = Blog::paginate(100);        
         return view('pages.index',compact('blogs'));
     }
 
@@ -29,36 +30,33 @@ class PagesController extends Controller
     // }
 
 
-     function likePost(Request $request)
-    {
-      $user= Auth::user();
-      return $user;
-      $likePost = $user->likedPosts()->where('post_id',$request->blog_id)->count();
-      if($likePost == 0)
-      {
-        $user->likedPosts()->attach($request->blog_id);
-      }
-      else{
-        $user->likedPosts()->detach($request->blog_id);
-      }
-      return redirect()->back();
-    }
+    //  function likePost(Request $request)
+    // {
+    //   $user= Auth::user();
+    //   return $user;
+    //   $likePost = $user->likedPosts()->where('post_id',$request->blog_id)->count();
+    //   if($likePost == 0)
+    //   {
+    //     $user->likedPosts()->attach($request->blog_id);
+    //   }
+    //   else{
+    //     $user->likedPosts()->detach($request->blog_id);
+    //   }
+    //   return redirect()->back();
+    // }
 
 
 
     public function allpost($id, $category){
-        // SinglePost
+        // SinglePost find
         $blogs = Blog::find($id);
 
-       
+       // Count Comments Query
         $countComments = DB::table('comments')->where('post_id', $id)->get()->count();
-        // $blogKey = 'blogs_' . $blogs->id;
-        // if(!Session::has($blogKey))
-        // {
-        //   $post->increment('view_count');
-        //   Session::put($blogKey,1);
-        // }
-      
+        
+        // User's Blogs
+        $users_blogs=DB::table('users')->join('users_blogs','users_blogs.user_id','users.id')->where('users_blogs.status',0)->whereNull('deleted_at')->first();
+        
  
         // Related Posts Show
         $relatedposts= Blog::where('category',"=", $category)->take(3)->get();
@@ -143,7 +141,7 @@ class PagesController extends Controller
 
         return view('pages.blog_category_pages.post',compact('blogs','relatedposts','categorytravelCount','categoryhealthCount',
         'categorylawCount','categorylifestyleCount','categoryreviewCount','categoryhowtoCount','categorybrandstoriesCount','categoryfoodCount',
-        'categorycareerCount','categoryeducationCount','categorystartupsCount','comments','user_detail','countComments'));
+        'categorycareerCount','categoryeducationCount','categorystartupsCount','comments','user_detail','countComments','users_blogs'));
         
     }
 
@@ -1081,6 +1079,12 @@ class PagesController extends Controller
       return view('pages.blog_category_pages.education',compact('blogs_education','relatedposts','categorytravelCount','categoryhealthCount',
       'categorylawCount','categorylifestyleCount','categoryreviewCount','categoryhowtoCount','categorybrandstoriesCount','categoryfoodCount',
       'categorycareerCount','categoryeducationCount','categorystartupsCount'));
+    }
+    
+
+    public function contact()
+    {
+      return view('pages.contact');
     }
 
 

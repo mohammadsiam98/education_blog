@@ -36,12 +36,12 @@
     </div>
     <!--/-->
 
-    <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg fixed-top">
+     <!-- Navigation-->
+     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container-fluid">
             <!--logo-->
             <div class="logo">
-                <a href="index.html">
+                <a href="{{route('homepage')}}">
                     <img src="assets/img/logo-dark.png" alt="" class="logo-dark">
                     <img src="assets/img/logo-white.png" alt="" class="logo-white">
                 </a>
@@ -51,92 +51,50 @@
             <!--navbar-collapse-->
             <div class="collapse navbar-collapse" id="main_nav">
                 <ul class="navbar-nav ml-auto mr-auto">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="index.html" data-toggle="dropdown"> Home </a>
-                        <ul class="dropdown-menu fade-up">
-                            <li>
-                                <a class="dropdown-item" href="index.html">Demo 1</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="index-2.html">Demo 2 </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="index-3.html">Demo 3 </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="index-4.html">Demo 4 </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="index-5.html">Demo 5</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="index-6.html">Demo 6 </a>
-                            </li>
-                        </ul>
-                    </li>
-    
-                    <li class="nav-item dropdown">
-                        <a class="nav-link  dropdown-toggle" href="blog-grid.html" data-toggle="dropdown"> Blog </a>
-                        <ul class="dropdown-menu fade-up">
-                            <li>
-                                <a class="dropdown-item" href="blog-grid.html"> Blog grid</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="blog-masonry.html"> Blog masonry </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item " href="blog-list.html"> Blog list </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link  dropdown-toggle" href="post-default.html" data-toggle="dropdown"> Posts Features </a>
-                        <ul class="dropdown-menu fade-up">
-                            <li>
-                                <a class="dropdown-item" href="post-default.html"> post default</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="post-video.html"> post video</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="post-audio.html"> post audio</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="post-gallery.html"> post gallery</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="post-no-sidebar.html"> post no sidebar </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="post-left-sidebar.html"> post left sidebar </a>
-                            </li>
-                        </ul>
-                    </li>
-    
-                    <li class="nav-item dropdown">
-                        <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">Pages </a>
-                        <ul class="dropdown-menu fade-up">
-                            <li>
-                                <a class="dropdown-item" href="about.html"> About </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="author.html"> author </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="login.html"> Login </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item " href="register.html"> Sign up </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item " href="page404.html"> Page 404 </a>
-                            </li>
-                        </ul>
-                    </li>
+                   
+                   
                     <li class="nav-item">
-                        <a class="nav-link active" href="contact.html"> Contact </a>
+                        <a class="nav-link" href="{{route('startups')}}"> Startups </a>
                     </li>
-                 
+                   
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('lifestyle')}}"> Lifestyle </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('review')}}"> Review </a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown"> More Categories</a>
+                        <ul class="dropdown-menu fade-up">
+                            <li>
+                                <a class="dropdown-item" href="{{route('howto')}}"> How To</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{route('brandstories')}}">Brand Stories</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{route('food')}}"> Food </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{route('travel')}}"> Travel </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{route('career')}}"> Career </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{route('education')}}"> Education </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{route('health')}}"> Health & Wellness </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{route('law')}}"> Law </a>
+                            </li>
+                        </ul>
+                    </li>
+                   
                 </ul>
             </div>
             <!--/-->
@@ -173,11 +131,7 @@
                         </li>
                     </ul>
                 </div>
-    
-                <div class="search-icon">
-                    <i class="icon_search"></i>
-                </div>
-    
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -185,7 +139,6 @@
         </div>
     </nav>
     <!--/-->
-
     <!--contact us-->
     <section class="section pt-50">
         <div class="container-fluid">
@@ -198,7 +151,7 @@
             </div>
             
             <div class="row mb-20">
-                <div class="col-lg-8 mt-30">
+                <div class="col-lg-12 mt-30">
                     <div class="contact">
                         <div class="google-map">
                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3104.5761533072873!2d-78.19644468515456!3d38.91080675375955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b5c5dc680d0b2b%3A0x1e9ff0b6bb7a2f87!2s1000%20Proctor%20Ln%2C%20Front%20Royal%2C%20VA%2022630%2C%20%C3%89tats-Unis!5e0!3m2!1sfr!2sma!4v1578068093888!5m2!1sfr!2sma"
@@ -231,118 +184,10 @@
                         </form>
                     </div> 
                 </div>
-                <div class="col-lg-4 max-width">
-                <!--widget-latest-posts-->
-                <div class="widget ">
-                    <div class="section-title">
-                        <h5>Latest Posts</h5>
-                    </div>
-                    <ul class="widget-latest-posts">
-                        <li class="last-post">
-                            <div class="image">
-                                <a href="post-default.html">
-                                    <img src="assets/img/latest/1.jpg" alt="...">
-                                </a>
-                            </div>
-                            <div class="nb">1</div>
-                            <div class="content">
-                                <p>
-                                    <a href="post-default.html">5 Things I Wish I Knew Before Traveling to Malaysia</a>
-                                </p>
-                                <small>
-                                    <span class="icon_clock_alt"></span> January 15, 2021</small>
-                            </div>
-                        </li>
-                        <li class="last-post">
-                            <div class="image">
-                                <a href="post-default.html">
-                                    <img src="assets/img/latest/2.jpg" alt="...">
-                                </a>
-                            </div>
-                            <div class="nb">2</div>
-                            <div class="content">
-                                <p>
-                                    <a href="post-default.html">Everything you need to know about visiting the Amazon.</a>
-                                </p>
-                                <small>
-                                    <span class="icon_clock_alt"></span> January 15, 2021</small>
-                            </div>
-                        </li>
-                        <li class="last-post">
-                            <div class="image">
-                                <a href="post-default.html">
-                                    <img src="assets/img/latest/3.jpg" alt="...">
-                                </a>
-                            </div>
-                            <div class="nb">3</div>
-                            <div class="content">
-                                <p>
-                                    <a href="post-default.html">How to spend interesting vacation after hard work?</a>
-                                </p>
-                                <small>
-                                    <span class="icon_clock_alt"></span> January 15, 2021</small>
-                            </div>
-                        </li>
-                        <li class="last-post">
-                            <div class="image">
-                                <a href="post-default.html">
-                                    <img src="assets/img/latest/4.jpg" alt="...">
-                                </a>
-                            </div>
-                            <div class="nb">4</div>
-                            <div class="content">
-                                <p>
-                                    <a href="post-default.html">10 Best and Most Beautiful Places to Visit in Italy</a>
-                                </p>
-                                <small>
-                                    <span class="icon_clock_alt"></span> January 15, 2021</small>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <!--/-->
-                    
-                    <!--widget-instagram-->
-                    <div class="widget">
-                        <div class="section-title">
-                            <h5>Instagram</h5>
-                        </div>
-                        <ul class="widget-instagram">
-                            <li>
-                                <a class="image" href="#">
-                                    <img src="assets/img/instagram/1.jpg" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a class="image" href="#">
-                                    <img src="assets/img/instagram/2.jpg" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a class="image" href="#">
-                                    <img src="assets/img/instagram/3.jpg" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a class="image" href="#">
-                                    <img src="assets/img/instagram/4.jpg" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a class="image" href="#">
-                                    <img src="assets/img/instagram/5.jpg" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a class="image" href="#">
-                                    <img src="assets/img/instagram/6.jpg" alt="">
-                                </a>
-                            </li>
-                        </ul>
-                    
-                    </div>
-                    <!--/-->
-                </div>
+
+
+
+
             </div>
            
         </div>
@@ -353,17 +198,10 @@
         <div class="container-fluid">
             <div class="newslettre-width text-center">
                 <div class="newslettre-info">
-                    <h5>Subscribe to our Newslatter</h5>
-                    <p> Sign up for free and be the first to get notified about new posts. </p>
+                    <h5>Want to be a author in our website ? </h5>
+                    <p>Sign up for free and be the author. </p>
                 </div>
-                <form action="#" class="newslettre-form">
-                    <div class="form-flex">
-                        <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Your email adress" required="required">
-                        </div>
-                        <button class="submit-btn" type="submit">Subscribe</button>
-                    </div>
-                </form>
+                
                 <div class="social-icones">
                     <ul class="list-inline">
                         <li>

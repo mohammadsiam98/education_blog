@@ -36,46 +36,54 @@ Route::prefix('admin')->group(function(){
     // Restore Sliders Lists //
     Route::get('/sliders/destroyList/{id}', 'App\Http\Controllers\SliderPagesController@restoreData')->name('admin.sliders.restoreData');
 
-    // // These are Terms & Conditions routes
-    // Route::get('/terms/create', 'App\Http\Controllers\TermsConditionsPagesController@create')->name('admin.terms.create');
-    // Route::put('/terms/create', 'App\Http\Controllers\TermsConditionsPagesController@store')->name('admin.terms.store');
-    // Route::get('/terms/list', 'App\Http\Controllers\TermsConditionsPagesController@list')->name('admin.terms.list');
-    // Route::get('/terms/edit/{id}', 'App\Http\Controllers\TermsConditionsPagesController@edit')->name('admin.terms.edit');
-    // Route::post('/terms/update/{id}', 'App\Http\Controllers\TermsConditionsPagesController@update')->name('admin.terms.update');
-    // Route::delete('/terms/destroy/{id}', 'App\Http\Controllers\TermsConditionsPagesController@destroy')->name('admin.terms.destroy');
-
-    //  // These are FAQ  routes
-    //  Route::get('/faqs/create', 'App\Http\Controllers\FAQPagesController@create')->name('admin.faqs.create');
-    //  Route::put('/faqs/create', 'App\Http\Controllers\FAQPagesController@store')->name('admin.faqs.store');
-    //  Route::get('/faqs/list', 'App\Http\Controllers\FAQPagesController@list')->name('admin.faqs.list');
-    //  Route::get('/faqs/edit/{id}', 'App\Http\Controllers\FAQPagesController@edit')->name('admin.faqs.edit');
-    //  Route::post('/faqs/update/{id}', 'App\Http\Controllers\FAQPagesController@update')->name('admin.faqs.update');
-    //  Route::delete('/faqs/destroy/{id}', 'App\Http\Controllers\FAQPagesController@destroy')->name('admin.faqs.destroy');
+    
 
 
-    // These are blog routes
+
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                      // Admin Blog Routes //
+   /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+
+
+
+
+    // Admin Blog Create Route
     Route::get('/blogs/create', 'App\Http\Controllers\BlogPagesController@create')->name('admin.blogs.create');
+    // Admin Blog Create Store Data Route
     Route::put('/blogs/create', 'App\Http\Controllers\BlogPagesController@store')->name('admin.blogs.store');
+    // Admin Blog List Show Route
     Route::get('/blogs/list', 'App\Http\Controllers\BlogPagesController@list')->name('admin.blogs.list');
+    // Admin Blog Edit Route
     Route::get('/blogs/edit/{id}', 'App\Http\Controllers\BlogPagesController@edit')->name('admin.blogs.edit');
+    // Admin Blog Update Route By Using Blog id
     Route::post('/blogs/update/{id}', 'App\Http\Controllers\BlogPagesController@update')->name('admin.blogs.update');
+    // Admin Blog Destroy Route By Using Blog id 
     Route::delete('/blogs/destroy/{id}', 'App\Http\Controllers\BlogPagesController@destroy')->name('admin.blogs.destroy');
-
-    
-
-    //There routes are for user blogs to review and publish
-    Route::get('/UsersblogsReview/edit/{id}', 'App\Http\Controllers\BlogPagesController@reviewedit')->name('admin.users_review_blogs.edit');
-    Route::post('/UsersblogsReview/update', 'App\Http\Controllers\BlogPagesController@reviewupdate')->name('admin.users_review_blogs.update');
-    Route::get('/UsersblogsReview/list', 'App\Http\Controllers\BlogPagesController@ShowUsersBlogslist')->name('admin.users_review_blogs.list');
-    Route::get('/UsersblogsReview/approve/{id}', 'App\Http\Controllers\BlogPagesController@reviewapprove')->name('admin.users_review_blogs.approve');
-
-    
-    
-
-    // Restore Sliders Lists //
+    // Admin Blog Restore Show List  
     Route::get('/blogs/restoreList', 'App\Http\Controllers\BlogPagesController@restoreList')->name('admin.blogs.restoreList');
-      // Restore Sliders Lists //
-      Route::get('/blogs/destroyList/{id}', 'App\Http\Controllers\BlogPagesController@restoreData')->name('admin.blogs.restoreData');
+    // Admin Blog Restore Data  
+    Route::get('/blogs/destroyList/{id}', 'App\Http\Controllers\BlogPagesController@restoreData')->name('admin.blogs.restoreData');
+
+
+
+     // User's Blogs Review Edit Using id. Admin Can Edit User's Blog // 
+     Route::get('/UsersblogsReview/edit/{id}', 'App\Http\Controllers\BlogPagesController@reviewedit')->name('admin.users_review_blogs.edit');
+     // User's Blogs Review Update. Admin Can Update User's Blog // 
+     Route::post('/UsersblogsReview/update', 'App\Http\Controllers\BlogPagesController@reviewupdate')->name('admin.users_review_blogs.update');
+     // User's Blogs Review List Show.Admin Can Show All the blogs of User's // 
+     Route::get('/UsersblogsReview/list', 'App\Http\Controllers\BlogPagesController@ShowUsersBlogslist')->name('admin.users_review_blogs.list');
+     Route::get('/UsersblogsReview/approve/{id}', 'App\Http\Controllers\BlogPagesController@reviewapprove')->name('admin.users_review_blogs.approve');
+     Route::get('/UsersblogsReview/comment_review_list', 'App\Http\Controllers\BlogPagesController@ShowUsersBlogsCommentlist')->name('admin.users_review_blogs.Commentlist');
+
+
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                      // Admin Blog Routes End Here//
+   /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 });
 
@@ -178,6 +186,9 @@ Route::get('/career', 'App\Http\Controllers\PagesController@career')->name('care
 Route::get('/education', 'App\Http\Controllers\PagesController@education')->name('education');
 // This is education Route Url End
 
+// This is Contact Route Url Start
+Route::get('/contact', 'App\Http\Controllers\PagesController@contact')->name('contact');
+// This is Contact Route Url End
 
 
 // Comment Routes //
@@ -201,16 +212,15 @@ Route::prefix('user')->group(function(){
 
   
     // These are Users blog routes
-    Route::get('/User_blogs/create', 'App\Http\Controllers\UsersBlogPagesController@create')->name('admin.users_blogs.create');
-    Route::put('/User_blogs/create', 'App\Http\Controllers\UsersBlogPagesController@store')->name('admin.users_blogs.store');
-    Route::get('/User_blogs/list', 'App\Http\Controllers\UsersBlogPagesController@list')->name('admin.users_blogs.list');
-    Route::get('/User_blogs/edit/{id}', 'App\Http\Controllers\UsersBlogPagesController@edit')->name('admin.users_blogs.edit');
-    Route::post('/User_blogs/update/{id}', 'App\Http\Controllers\UsersBlogPagesController@update')->name('admin.users_blogs.update');
-    Route::delete('/User_blogs/destroy/{id}', 'App\Http\Controllers\UsersBlogPagesController@destroy')->name('admin.users_blogs.destroy');
-
-    // Restore Sliders Lists //
-    Route::get('/User_blogs/restoreList', 'App\Http\Controllers\UsersBlogPagesController@restoreList')->name('admin.users_blogs.restoreList');
-      // Restore Sliders Lists //users_blogs
-      Route::get('/User_blogs/destroyList/{id}', 'App\Http\Controllers\UsersBlogPagesController@restoreData')->name('admin.users_blogs.restoreData');
+    Route::get('/User_blogs/create', 'App\Http\Controllers\UsersBlogPagesController@create')->name('users.users_blogs.create');
+    Route::put('/User_blogs/create', 'App\Http\Controllers\UsersBlogPagesController@store')->name('users.users_blogs.store');
+    Route::get('/User_blogs/list', 'App\Http\Controllers\UsersBlogPagesController@list')->name('users.users_blogs.list');
+    Route::get('/User_blogs/edit/{id}', 'App\Http\Controllers\UsersBlogPagesController@edit')->name('users.users_blogs.edit');
+    Route::post('/User_blogs/update/{id}', 'App\Http\Controllers\UsersBlogPagesController@update')->name('users.users_blogs.update');
+    Route::delete('/User_blogs/destroy/{id}', 'App\Http\Controllers\UsersBlogPagesController@destroy')->name('users.users_blogs.destroy');
+    
+    
+    Route::get('/User_blogs/Comment_review_list', 'App\Http\Controllers\UsersBlogPagesController@ReviewCommentlist')->name('users.users_blogs.review');
+    Route::get('/User_blogs/destroyList/{id}', 'App\Http\Controllers\UsersBlogPagesController@restoreData')->name('users.users_blogs.restoreData');
 });
 

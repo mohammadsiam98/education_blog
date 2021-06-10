@@ -7,6 +7,7 @@ use App\Blog;
 use App\UsersBlog;
 use DB;
 use Illuminate\Support\Facades\Auth;
+notify();
 class BlogPagesController extends Controller
 {
     /**
@@ -17,9 +18,11 @@ class BlogPagesController extends Controller
     public function list()
     {
         //
-       
         $blogs = Blog::all();
+        
+        
         return view ('pages.blogs.list',compact('blogs'));
+        
     }
 
 
@@ -31,6 +34,7 @@ class BlogPagesController extends Controller
     public function create()
     {
         //
+        
         return view('pages.blogs.create');
     }
 
@@ -166,7 +170,8 @@ class BlogPagesController extends Controller
         $users_blogs = UsersBlog::where('id',$id)->first();
         $users_blogs->title = $request->title;
         $users_blogs->category= $request->category;
-        $users_blogs->description = $request->description;       
+        $users_blogs->description = $request->description;
+        $users_blogs->review_comment = $request->review_comment;
         $users_blogs->highlightedText = $request->highlightedText;
         $users_blogs->status = 0;            
         if($request->file('image')){
@@ -190,5 +195,12 @@ class BlogPagesController extends Controller
         return redirect()->route('admin.users_review_blogs.list')->with('success','Blog Approved Successfully');
 
 
+    }
+
+    public function ShowUsersBlogsCommentlist()
+    {
+        $users_blogs=DB::table('users')->join('users_blogs','users_blogs.user_id','users.id')->where('users_blogs.status',0)->whereNull('deleted_at')->orderBy('users_blogs.id', 'desc')->get();
+       
+        return view ('pages.blogs.reviewBlogsCommentlist',compact('users_blogs'));  
     }
 }
