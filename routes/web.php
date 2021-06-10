@@ -191,6 +191,10 @@ Route::get('/contact', 'App\Http\Controllers\PagesController@contact')->name('co
 // This is Contact Route Url End
 
 
+// This is Contact Route Url Start
+Route::get('/author', 'App\Http\Controllers\PagesController@individualAuthorBlogs')->name('individualAuthorBlogs');
+// This is Contact Route Url End
+
 // Comment Routes //
 Route::get('/comments/list', 'App\Http\Controllers\CommentDeletePagesController@list')->name('admin.comment.list');
 Route::delete('/comments/destroy/{id}', 'App\Http\Controllers\CommentDeletePagesController@destroy')->name('admin.comment.destroy');

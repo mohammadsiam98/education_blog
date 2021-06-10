@@ -276,6 +276,61 @@
                     </div>
 
 
+
+
+                      
+
+                    <div class="card-columns">
+                        @foreach($users_blogs as $blog)
+                        <!--Post-1-->
+                        <div class="card">
+                            <div class="post-card">
+                                <div class="post-card-image">
+                                    <a href="{{route('allpost' , [$blog->id,$blog->category])}}">
+                                    <img src="{{url($blog->image)}}" alt="">
+                                    </a>
+                                    
+                                </div>
+                                <div class="post-card-content">
+                                    <a href="{{route('allpost' , [$blog->id,$blog->category])}}" class="categorie">{{$blog->category}}</a>
+                                    <h5>
+                                        <a href="{{route('allpost' , [$blog->id,$blog->category])}}">{{$blog->title}}</a>
+                                    </h5>
+                                    <p>{{$blog->highlightedText}}
+                                    </p>
+                                    <div class="post-card-info">
+                                        <ul class="list-inline">
+                                            {{-- <li>
+                                                <a href="author.html">
+                                                    <img src="#" alt="">
+                                                </a>
+                                            </li> --}}
+                                            <li>
+                                                <a>{{$blog->name}}</a>
+                                            </li>
+                                            <li class="dot"></li>
+                                            <li>{{$blog->created_at}}</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/-->
+                        @endforeach
+    
+
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
                    
                     <!--pagination-->
                     <div class="pagination mt-30">
@@ -286,7 +341,7 @@
                                 <li class="siam {{$blogs->currentPage() == $i ? 'current' : ''}}">
                                   <a class='page-numbers' href='{{$blogs->url($i)}}'>{{$i}}</a></li>
                                 @endfor
-                                <li class="{{$blogs->currentPage() == $blogs->lastPage() ? 'disabled' : '' }}"><a class="disabled" href="{{$blogs->url($blogs_startups->currentPage() +1 )}}"><i class="arrow_carrot-2right"></i></a></li>
+                                <li class="{{$blogs->currentPage() == $blogs->lastPage() ? 'disabled' : '' }}"><a class="disabled" href="{{$blogs->url($blogs->currentPage() +1 )}}"><i class="arrow_carrot-2right"></i></a></li>
                            
                         </ul> 
                         @endif

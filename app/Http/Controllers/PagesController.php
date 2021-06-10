@@ -16,9 +16,28 @@ class PagesController extends Controller
     public function index()
     {
         // Show All Blog Posts Show
-        $blogs = Blog::paginate(100);        
-        return view('pages.index',compact('blogs'));
+        $blogs = Blog::paginate(30);  
+        // $users_blogs = DB::table('blo')->join('users_blogs','users_blogs.user_id','users.id')->paginate(30);  
+       
+        $users_blogs =DB::table('users')->join('users_blogs','users_blogs.user_id','users.id')->where('users_blogs.status',1)->whereNull('deleted_at')->paginate(30);  
+        // dd($users_blogs_two);  
+        return view('pages.index',compact('blogs','users_blogs'));
     }
+
+    public function individualAuthorBlogs()
+    {
+                
+        $user_id = Auth::id();
+        $users_blogs_one = UsersBlog::where('user_id',$user_id)->get();
+        
+        $users_blogs_two =DB::table('users')->join('users_blogs','users_blogs.user_id','users.id')->where('users_blogs.status',0)->whereNull('deleted_at')->first();
+        // dd($users_blogs_two);
+        return view ('pages.author',compact('users_blogs_one','users_blogs_two','user_id'));
+      
+    }
+
+
+
 
     
     // public function blog(){            
