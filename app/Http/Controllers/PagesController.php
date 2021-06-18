@@ -16,23 +16,24 @@ class PagesController extends Controller
     public function index()
     {
         // Show All Blog Posts Show
-        $blogs = Blog::paginate(30);  
-        // $users_blogs = DB::table('blo')->join('users_blogs','users_blogs.user_id','users.id')->paginate(30);  
+       $blogs = DB::table('users')->join('blogs','blogs.user_id','users.id')->whereNull('deleted_at')->where('status', 1)->orderBy('blogs.id', 'DESC')->paginate(30);  
        
-        $users_blogs =DB::table('users')->join('users_blogs','users_blogs.user_id','users.id')->where('users_blogs.status',1)->whereNull('deleted_at')->paginate(30);  
-        // dd($users_blogs_two);  
+        $users_blogs =DB::table('users')->join('users_blogs','users_blogs.user_id','users.id')->where('users_blogs.status',1)->whereNull('deleted_at')->orderBy('users_blogs.id', 'DESC')->paginate(30);  
+    
         return view('pages.index',compact('blogs','users_blogs'));
     }
 
-    public function individualAuthorBlogs()
+    public function individualAuthorBlogs($id)
     {
                 
-        $user_id = Auth::id();
-        $users_blogs_one = UsersBlog::where('user_id',$user_id)->get();
-        
-        $users_blogs_two =DB::table('users')->join('users_blogs','users_blogs.user_id','users.id')->where('users_blogs.status',0)->whereNull('deleted_at')->first();
-        // dd($users_blogs_two);
-        return view ('pages.author',compact('users_blogs_one','users_blogs_two','user_id'));
+        $user_id = $id;
+        $users_blogs_one = DB::table('users')->join('blogs','blogs.user_id','users.id')->where('blogs.user_id', $user_id)->orderBy('blogs.id', 'DESC')->get();  
+        $user = DB::table('users')->where('id', $user_id)->first();
+
+        return view ('pages.author',[
+          'users_blogs_one' => $users_blogs_one,
+          'user'=> $user
+        ]);
       
     }
 
@@ -70,11 +71,13 @@ class PagesController extends Controller
         // SinglePost find
         $blogs = Blog::find($id);
 
+        //blog author
+        $user = DB::table('users')->where('id', $blogs->user_id)->first();
+
+
        // Count Comments Query
         $countComments = DB::table('comments')->where('post_id', $id)->get()->count();
         
-        // User's Blogs
-        $users_blogs=DB::table('users')->join('users_blogs','users_blogs.user_id','users.id')->where('users_blogs.status',0)->whereNull('deleted_at')->first();
         
  
         // Related Posts Show
@@ -160,7 +163,7 @@ class PagesController extends Controller
 
         return view('pages.blog_category_pages.post',compact('blogs','relatedposts','categorytravelCount','categoryhealthCount',
         'categorylawCount','categorylifestyleCount','categoryreviewCount','categoryhowtoCount','categorybrandstoriesCount','categoryfoodCount',
-        'categorycareerCount','categoryeducationCount','categorystartupsCount','comments','user_detail','countComments','users_blogs'));
+        'categorycareerCount','categoryeducationCount','categorystartupsCount','comments','user_detail','countComments','user'));
         
     }
 

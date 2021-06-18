@@ -149,10 +149,10 @@
                     <!--widget-author-->
                     <div class="widget-author inner-width">
                         <a href="author.html" class="image">
-                            <img src="assets/img/author/1.jpg" alt="">
+                            <img src="{{asset('assets/img/author/1.jpg')}}" alt="">
                         </a>
-                        <h6><span>{{$users_blogs_two->name}}</span></h6>
-                        <div class="link">{{$users_blogs_two->category}}</div>
+                        <h6><span>{{ $user->name }}</span></h6>
+                      
                         <p> I'm David Smith, husband and father , I love Photography,travel 
                             and nature. I'm working as a writer
                             and blogger with experience of 5 years until now.
@@ -217,15 +217,23 @@
                                     <div class="post-card-info">
                                         <ul class="list-inline">
                                             <li>
-                                                <a href="author.html">
-                                                    <img src="assets/img/author/1.jpg" alt="">
+                                                <a >
+                                                    <img src="{{asset('assets/img/author/1.jpg')}}" alt="">
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="author.html">David Smith</a>
+                                                <a>{{ $blog->name }}</a>
                                             </li>
                                             <li class="dot"></li>
-                                            <li>{{$blog->created_at}}</li>
+                                            <li>
+                                                <?php 
+
+                                                 echo date("d M, Y", strtotime($blog->created_at));
+
+                                                ?>
+                                                
+                                                
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -237,29 +245,7 @@
         
                     </div>
         
-                    <!--pagination-->
-                    <div class="pagination mt-30">
-                        <ul class="list-inline">
-                            <li class="active">
-                                <a href="#">1</a>
-                            </li>
-                            <li>
-                                <a href="#">2</a>
-                            </li>
-                            <li>
-                                <a href="#">3</a>
-                            </li>
-                            <li>
-                                <a href="#">4</a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="arrow_carrot-2right"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!--/-->
+                    
                 </div>
                
             </div>
@@ -342,20 +328,20 @@
     <!--/-->
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="assets/js/jquery-3.5.0.min.js"></script>
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="{{ asset('assets/js/jquery-3.5.0.min.js') }}"></script>
+    <script src="{{ asset('assets/js/popper.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
     
     <!-- JS Plugins  -->
-    <script src="assets/js/ajax-contact.js"></script>
-    <script src="assets/js/owl.carousel.min.js"></script>
-    <script src="assets/js/switch.js"></script>
+    <script src="{{ asset('assets/js/ajax-contact.js') }}"></script>
+    <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('assets/js/switch.js') }}"></script>
     
     <!-- JS main  -->
-    <script src="assets/js/main.js"></script>
+    <script src="{{ asset('assets/js/main.js') }}"></script>
 
 
 </body>
 
-<!-- Mirrored from noonpost.netlify.app/html/template/author.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 21 May 2021 04:14:38 GMT -->
+
 </html>

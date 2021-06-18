@@ -241,7 +241,7 @@
                             <div class="post-card">
                                 <div class="post-card-image">
                                     <a href="{{route('allpost' , [$blog->id,$blog->category])}}">
-                                    <img src="{{url($blog->image)}}" alt="">
+                                    <img src="{{url($blog->image)}}" alt="img">
                                     </a>
                                     
                                 </div>
@@ -254,16 +254,17 @@
                                     </p>
                                     <div class="post-card-info">
                                         <ul class="list-inline">
-                                            {{-- <li>
-                                                <a href="author.html">
-                                                    <img src="#" alt="">
-                                                </a>
-                                            </li> --}}
+                                        
                                             <li>
-                                                <a href="author.html">Admin</a>
+                                                <a>{{$blog->name}}</a>
                                             </li>
                                             <li class="dot"></li>
-                                            <li>{{$blog->created_at->format('d.m.Y')}}</li>
+                                            <li><?php
+                                                
+                                                echo date("d.m.Y", strtotime($blog->created_at));
+                                                
+                                                 
+                                             ?></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -280,47 +281,7 @@
 
                       
 
-                    <div class="card-columns">
-                        @foreach($users_blogs as $blog)
-                        <!--Post-1-->
-                        <div class="card">
-                            <div class="post-card">
-                                <div class="post-card-image">
-                                    <a href="{{route('allpost' , [$blog->id,$blog->category])}}">
-                                    <img src="{{url($blog->image)}}" alt="">
-                                    </a>
-                                    
-                                </div>
-                                <div class="post-card-content">
-                                    <a href="{{route('allpost' , [$blog->id,$blog->category])}}" class="categorie">{{$blog->category}}</a>
-                                    <h5>
-                                        <a href="{{route('allpost' , [$blog->id,$blog->category])}}">{{$blog->title}}</a>
-                                    </h5>
-                                    <p>{{$blog->highlightedText}}
-                                    </p>
-                                    <div class="post-card-info">
-                                        <ul class="list-inline">
-                                            {{-- <li>
-                                                <a href="author.html">
-                                                    <img src="#" alt="">
-                                                </a>
-                                            </li> --}}
-                                            <li>
-                                                <a>{{$blog->name}}</a>
-                                            </li>
-                                            <li class="dot"></li>
-                                            <li>{{$blog->created_at}}</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--/-->
-                        @endforeach
-    
-
-                    </div>
-
+                  
 
 
 

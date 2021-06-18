@@ -420,18 +420,19 @@
                     <!--widget-author-->
                     <div class="widget">
                         <div class="widget-author">
-                            <a href="#" class="image">
+                            <a href="{{ route('individualAuthorBlogs', $user->id ) }}" class="image">
                                 <img src="{{asset('assets/img/author/1.jpg')}}" alt="">
+                          
+                                <h6>
+                                    <span>{{$user->name}}</span>
+                                </h6>
                             </a>
-                            <h6>
-                                <span>{{$users_blogs->name}}</span>
-                            </h6>
-                            <p>
 
-                            I'm David Smith, husband and father ,
-                             I love Photography,travel and nature. I'm working as a writer and blogger with experience
-                            of 5 years until now.
-                        </p>
+                            <p>
+                                I am David Smith, husband and father ,
+                                I love Photography,travel and nature. I am working as a writer and blogger with experience
+                                of 5 years until now.
+                            </p>
                     
                     
                             <div class="social-media">

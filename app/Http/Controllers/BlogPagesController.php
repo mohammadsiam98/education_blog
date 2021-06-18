@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 use App\Blog;
 use App\UsersBlog;
 use DB;
+use App\User;
 use Illuminate\Support\Facades\Auth;
-notify();
+// notify();
 class BlogPagesController extends Controller
 {
     /**
@@ -17,8 +18,10 @@ class BlogPagesController extends Controller
      */
     public function list()
     {
-        //
-        $blogs = Blog::all();
+        
+
+        $user_id = Auth::id();
+        $blogs = Blog::where('user_id', $user_id)->whereNull('deleted_at')->orderBy('id', 'DESC')->get();
         
         
         return view ('pages.blogs.list',compact('blogs'));
@@ -56,11 +59,14 @@ class BlogPagesController extends Controller
 
         ]);
 
+        $user_id = Auth::id();
         $blogs = new Blog;
+        $blogs->user_id = $user_id;
         $blogs->title = $request->title;
         $blogs->category= $request->category;
         $blogs->description = $request->description;
-        $blogs->highlightedText = $request->highlightedText;         
+        $blogs->highlightedText = $request->highlightedText; 
+        $blogs->status = 1;        
         $image  = $request->file('image');
         Storage::putFile('public/img/',$image);
         $blogs->image ="storage/img/".$image->hashName();
@@ -143,13 +149,13 @@ class BlogPagesController extends Controller
     {
         //
         $blogs = Blog::onlyTrashed()->find($id)->restore();
-        return redirect()->route('admin.blogs.list')->with('success',"Blog Restored Successfully");
+        return redirect()->route('admin.blogs.restoreList')->with('success',"Blog Restored Successfully");
     }
 
     public function ShowUsersBlogslist()
     {
         
-        $users_blogs=DB::table('users')->join('users_blogs','users_blogs.user_id','users.id')->where('users_blogs.status',0)->whereNull('deleted_at')->orderBy('users_blogs.id', 'desc')->get();
+        $users_blogs=DB::table('users')->join('blogs','blogs.user_id','users.id')->where('blogs.status',0)->whereNull('deleted_at')->orderBy('blogs.id', 'desc')->get();
        
         return view ('pages.blogs.reviewBlogslist',compact('users_blogs'));  
     }
@@ -157,7 +163,7 @@ class BlogPagesController extends Controller
     function reviewedit($id)
     {
        
-        $users_blogs = UsersBlog::find($id);
+        $users_blogs = Blog::find($id);
        
         return view('pages.blogs.reviewBlogsedit',compact('users_blogs'));
     }
@@ -167,13 +173,13 @@ class BlogPagesController extends Controller
     {
         $id = $request->blog_id;
 
-        $users_blogs = UsersBlog::where('id',$id)->first();
+        $users_blogs = Blog::where('id',$id)->first();
         $users_blogs->title = $request->title;
         $users_blogs->category= $request->category;
         $users_blogs->description = $request->description;
         $users_blogs->review_comment = $request->review_comment;
         $users_blogs->highlightedText = $request->highlightedText;
-        $users_blogs->status = 0;            
+        $users_blogs->status = 1;            
         if($request->file('image')){
             $image  = $request->file('image');
             Storage::putFile('public/img/',$image);
@@ -182,13 +188,13 @@ class BlogPagesController extends Controller
         $users_blogs->save();
 
         
-        return redirect()->route('admin.users_review_blogs.list')->with('success','Blog updated Successfully');
+        return redirect()->route('admin.users_review_blogs.list')->with('success','Blog updated and published Successfully');
     }
 
 
     public function reviewapprove($id)
     {
-        $reviewBlog = UsersBlog::where('id', $id)->first();
+        $reviewBlog = Blog::where('id', $id)->first();
 
         $reviewBlog->status = 1;
         $reviewBlog->save();
@@ -199,8 +205,50 @@ class BlogPagesController extends Controller
 
     public function ShowUsersBlogsCommentlist()
     {
-        $users_blogs=DB::table('users')->join('users_blogs','users_blogs.user_id','users.id')->where('users_blogs.status',0)->whereNull('deleted_at')->orderBy('users_blogs.id', 'desc')->get();
+        $users_blogs=DB::table('users')->join('blogs','blogs.user_id','users.id')->where('blogs.status',1)->whereNull('deleted_at')->whereNotNull('review_comment')->orderBy('blogs.id', 'desc')->get();
        
         return view ('pages.blogs.reviewBlogsCommentlist',compact('users_blogs'));  
+    }
+
+
+
+    function userlist()
+    {
+        $users = DB::table('users')->where('user_type', 'user')->where('blog_access', 0)->get();
+
+        return view ('pages.blogs.userlist',compact('users'));  
+
+    }
+
+
+    public function makeBlogWriter($id)
+    {
+
+       $user = User::where('id', $id)->first();
+
+       $user->blog_access =1;
+       $user->save();
+
+        return back();
+
+
+    }
+
+
+    public function writerlist()
+    {
+        $users = DB::table('users')->where('user_type', 'user')->where('blog_access', 1)->get();
+
+        return view ('pages.blogs.writerlist',compact('users'));  
+    }
+
+
+    public function removeBlogWriter($id)
+    {
+        $user = User::where('id', $id)->first();
+
+        $user->blog_access =0;
+        $user->save();
+        return back();
     }
 }

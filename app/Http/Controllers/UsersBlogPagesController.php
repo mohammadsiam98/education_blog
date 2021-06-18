@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\UsersBlog;
-
+use App\Blog;
 use Illuminate\Support\Facades\Auth;
 class UsersBlogPagesController extends Controller
 {
@@ -17,7 +17,7 @@ class UsersBlogPagesController extends Controller
     {
         // Users Blogs List
         $user_id = Auth::id();
-        $users_blogs = UsersBlog::where('user_id',$user_id)->get();
+        $users_blogs = Blog::where('user_id',$user_id)->whereNull('deleted_at')->orderby('id','DESC')->get();
         return view ('pages.users_blogs.list',compact('users_blogs','user_id'));
     }
 
@@ -51,12 +51,12 @@ class UsersBlogPagesController extends Controller
         ]);
         
 
-        $users_blogs = new UsersBlog;
+        $users_blogs = new Blog;
         $users_blogs->title = $request->title;
         $users_blogs->category= $request->category;
         $users_blogs->description = $request->description;
         $users_blogs->highlightedText = $request->highlightedText; 
-        $users_blogs->status = 0;        
+              
         $image  = $request->file('image');
         Storage::putFile('public/img/',$image);
         $users_blogs->image ="storage/img/".$image->hashName();
@@ -66,7 +66,16 @@ class UsersBlogPagesController extends Controller
         $user_all_data = Auth::user();
         $users_blogs->user_id = $user_id;
 
-        // dd($users_blogs);
+        if($user_all_data->blog_access == 1)
+        {
+            $users_blogs->status = 1;     
+        }
+        else{
+            $users_blogs->status = 0; 
+        }
+
+
+
         $users_blogs->save();
         return redirect()->route('users.users_blogs.create')->with('success','New Posts Category & details created Successfully');
     }
@@ -98,7 +107,7 @@ class UsersBlogPagesController extends Controller
     public function edit($id)
     {
         //
-        $users_blogs = UsersBlog::find($id);
+        $users_blogs = Blog::find($id);
         return view('pages.users_blogs.edit',compact('users_blogs'));
     }
 
@@ -112,12 +121,12 @@ class UsersBlogPagesController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $users_blogs = UsersBlog::find($id);
+        $users_blogs = Blog::find($id);
         $users_blogs->title = $request->title;
         $users_blogs->category= $request->category;
         $users_blogs->description = $request->description;       
         $users_blogs->highlightedText = $request->highlightedText;
-        $users_blogs->status = 0;            
+                    
         if($request->file('image')){
             $image  = $request->file('image');
             Storage::putFile('public/img/',$image);
@@ -125,7 +134,7 @@ class UsersBlogPagesController extends Controller
         }
         $users_blogs->save();
 
-        notify()->success('Laravel Notify is awesome!');
+        // notify()->success('Laravel Notify is awesome!');
         return redirect()->route('users.users_blogs.list')->with('success','Blog updated Successfully');
     }
 
@@ -135,19 +144,22 @@ class UsersBlogPagesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
-        //
-        $users_blogs = UsersBlog::find($id);
-        $users_blogs->delete();
-        return redirect()->route('users.users_blogs.destroy')->with('success',"Post Deleted Successfully");
+      
+
+        $blog = Blog::where('id', $id)->first();
+        $blog->delete();
+       
+        
+        return redirect()->route('users.users_blogs.list')->with('success',"Post Deleted Successfully");
     }
 
   
     public function ReviewCommentlist()
     {
         $user_id = Auth::id();
-        $users_blogs = UsersBlog::where('user_id',$user_id)->get();
+        $users_blogs = Blog::where('user_id',$user_id)->whereNotNull('review_comment')->whereNULL('deleted_at')->get();
         return view ('pages.users_blogs.review',compact('users_blogs','user_id'));
     }
 }

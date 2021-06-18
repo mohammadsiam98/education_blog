@@ -46,7 +46,7 @@
            <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap-stylesheet" />
            <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
            <link href="assets/css/app.min.css" rel="stylesheet" type="text/css"  id="app-stylesheet" />
-           @notifyCss
+           {{--  @notifyCss  --}}
     </head>
 
     <body>
@@ -200,6 +200,24 @@
                             </li>
                             
 
+                            <li>
+                                <a href="javascript: void(0);">
+                                    <i class="fe-box"></i>
+                                    <span style="font-size: 20px;"> Blog Writers </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+
+                                <ul class="nav-second-level" aria-expanded="false">
+                                   
+                                   
+                                    <li><a href="{{route('admin.allusers.list')}}"> User List</a></li>
+                                    <li><a href="{{route('writerlist')}}">Writer List</a></li>
+                                   
+                                    
+                                </ul>
+                            </li>
+
+
                             
 
                            
@@ -317,7 +335,7 @@
             <script src="{{asset('anotherassets/libs/jquery-mockjax/jquery.mockjax.min.js')}}"></script>
             <script src="{{asset('anotherassets/libs/custombox/custombox.min.js')}}"></script>
             
-            <x:notify-messages />
-            @notifyJs
+            {{--  <x:notify-messages />
+            @notifyJs  --}}
     </body>
 </html>

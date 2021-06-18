@@ -66,6 +66,15 @@ Route::prefix('admin')->group(function(){
     Route::get('/blogs/restoreList', 'App\Http\Controllers\BlogPagesController@restoreList')->name('admin.blogs.restoreList');
     // Admin Blog Restore Data  
     Route::get('/blogs/destroyList/{id}', 'App\Http\Controllers\BlogPagesController@restoreData')->name('admin.blogs.restoreData');
+    // Admin views all the users in the system
+    Route::get('/blogs/users', 'App\Http\Controllers\BlogPagesController@userlist')->name('admin.allusers.list');
+      // Admin making a User as a Writer
+    Route::get('/makewriter/{id}', 'App\Http\Controllers\BlogPagesController@makeBlogWriter')->name('makeBlogWriter');
+   // Admin viewing the writer list
+   Route::get('/writerlist', 'App\Http\Controllers\BlogPagesController@writerlist')->name('writerlist');
+   // Admin removing blog writer
+   
+   Route::get('/removeBlogWriter/{id}', 'App\Http\Controllers\BlogPagesController@removeBlogWriter')->name('removeBlogWriter');
 
 
 
@@ -132,6 +141,8 @@ Route::get('/blog', 'App\Http\Controllers\PagesController@index')->name('blog');
 
 // This is singlepost Route Url Start
 Route::get('/allpost/singlePost/{id}/{category}', 'App\Http\Controllers\PagesController@allpost')->name('allpost');
+// Route::get('/allpost/singlePost/{id}/{category}', 'App\Http\Controllers\PagesController@allpost2')->name('allpost2');
+
 // This is singlepost Route Url End
 
 
@@ -192,7 +203,7 @@ Route::get('/contact', 'App\Http\Controllers\PagesController@contact')->name('co
 
 
 // This is Contact Route Url Start
-Route::get('/author', 'App\Http\Controllers\PagesController@individualAuthorBlogs')->name('individualAuthorBlogs');
+Route::get('/author/{id}', 'App\Http\Controllers\PagesController@individualAuthorBlogs')->name('individualAuthorBlogs')->middleware('auth');
 // This is Contact Route Url End
 
 // Comment Routes //
@@ -221,7 +232,8 @@ Route::prefix('user')->group(function(){
     Route::get('/User_blogs/list', 'App\Http\Controllers\UsersBlogPagesController@list')->name('users.users_blogs.list');
     Route::get('/User_blogs/edit/{id}', 'App\Http\Controllers\UsersBlogPagesController@edit')->name('users.users_blogs.edit');
     Route::post('/User_blogs/update/{id}', 'App\Http\Controllers\UsersBlogPagesController@update')->name('users.users_blogs.update');
-    Route::delete('/User_blogs/destroy/{id}', 'App\Http\Controllers\UsersBlogPagesController@destroy')->name('users.users_blogs.destroy');
+   //  Route::delete('/User_blogs/destroy/{id}', 'App\Http\Controllers\UsersBlogPagesController@destroy')->name('users.users_blogs.destroy');
+    Route::get('/User_blogs/delete/{id}', 'App\Http\Controllers\UsersBlogPagesController@delete')->name('users.users_blogs.delete');
     
     
     Route::get('/User_blogs/Comment_review_list', 'App\Http\Controllers\UsersBlogPagesController@ReviewCommentlist')->name('users.users_blogs.review');

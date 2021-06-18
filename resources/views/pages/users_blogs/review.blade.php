@@ -52,7 +52,7 @@
                   
                     <td>{{$blog->category}}</td>
                     <td>{{$blog->title}}</td>
-                    <td>{{$blog->review_comment}}</td>
+                    <td>{!! $blog->review_comment !!}</td>
                     
 
                     <td>

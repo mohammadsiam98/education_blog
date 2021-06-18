@@ -49,7 +49,7 @@
                     <td>{{$key+1}}</td>  
                     <td>{{$blog->title}}</td>
                     <td>{{$blog->name}}</td>
-                    <td>{{$blog->review_comment}}</td>
+                    <td>{!! $blog->review_comment !!}</td>
                 </tr>
 
             @endforeach                    

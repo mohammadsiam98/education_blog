@@ -1,4 +1,4 @@
-@extends('layouts.user_layout')
+@extends('layouts.admin_layout')
 
 @section('content')
 
@@ -11,7 +11,7 @@
 <div class="row">
     <div class="col-12">
         <div class="card-box table-responsive">
-            <h1 class="header-title">All Categories</h1>
+            <h1 class="header-title" style="color: red; font-weight:700;display:flex;justify-content:center; font-size:28px;">Users</h1>
             <div class="button-list" style="padding: 30px; display:flex;justify-content:center;" >
                 <button type="button" class="btn btn-warning btn-rounded width-md waves-effect waves-light"> <i class="far fa-lightbulb"></i> <span>Startup</span> </button>
                 <button type="button" class="btn btn-info btn-rounded width-md waves-effect waves-light"><i class="fas fa-file-medical"></i> <span> Health & Wellness</span></button>
@@ -33,68 +33,34 @@
                 <thead>
                 <tr>
                     <th style="text-align: center;">Serial Number</th>
-                    <th style="text-align: center;">Post Category</th>
-                    <th style="text-align: center;">Title</th>
-                    <th style="text-align: center;">Image</th>
-                    <th style="text-align: center;">Satus</th>
-                    
+                    <th style="text-align: center;">Name</th>
+                    <th style="text-align: center;">Email</th>
                     <th style="text-align: center;">Action</th>
+                   
                     
                 </tr>
                 </thead>
 
 
                 <tbody>
-            @if (count($users_blogs)>0)
-            @foreach ($users_blogs as $key => $blog)
+            @if (count($users)>0)
+            @foreach ($users as $key=>$data)
                 <tr>
                     
                     <td>{{$key+1}}</td>
-                    <td>{{$blog->category}}</td>
-                    <td>{{$blog->title}}</td>
+                    <td>{{$data->name}}</td>
+                    <td>{{$data->email}}</td>
                     
-                    <td>
-                        <img style="height: 70px; width:auto;" src="{{url($blog->image)}}" alt="image">
-                          
-                    </td>
-
-                    <td>
-                        <?php 
-
-                            if($blog->status == 0)
-                            {
-                        ?>
-                        <a style="color: white;" class="btn btn-warning mt-2 btn-block"> Pending </a>
-                                
-                        <?php 
-                        
-                            }
-                            elseif($blog->status == 1)
-                            {
-                        ?>
-                        
-                        <a style="color: white;" class="btn btn-success mt-2 btn-block"> Published </a>
-
-
-                        <?php 
-                            }
-
-                        ?>
-                    </td>
                   
 
                     <td>
                         <div class="row">
                           <div>
-                            <a  href="{{route('users.users_blogs.edit' , $blog->id)}}" style="color: white;" class="btn btn-primary m-2"> Edit </a>
+                            <a  href="{{ route('removeBlogWriter' , $data->id) }}" style="color: white;" class="btn btn-danger m-2"> Remove Writer </a>
                           </div>
-                          <div >
-                            
 
-                            <a  href="{{route('users.users_blogs.delete' , $blog->id)}}" style="color: white;" class="btn btn-danger m-2"> Delete </a>
-
-                            
-                          </div>
+                          
+                          
                         </div>
                       </td>
                   
