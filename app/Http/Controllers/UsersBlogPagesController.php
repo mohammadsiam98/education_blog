@@ -6,6 +6,15 @@ use Illuminate\Http\Request;
 use App\UsersBlog;
 use App\Blog;
 use Illuminate\Support\Facades\Auth;
+
+//For Notification
+use App\Models\User;
+use App\Notifications\NewAuthorPost;
+use Illuminate\Support\Facades\Notification;
+use App\Subscriber;
+use App\Notifications\NewPostNotify;
+//For Notification
+
 class UsersBlogPagesController extends Controller
 {
     /**
@@ -77,6 +86,23 @@ class UsersBlogPagesController extends Controller
 
 
         $users_blogs->save();
+
+        
+        
+        //Notification Part
+        $users = User::all();
+        Notification::send($users,new NewAuthorPost($user_all_data->name));
+
+        $subscribers = Subscriber::all();
+        foreach($subscribers as $subscriber)
+        {
+            Notification::route('mail',$subscriber->email)
+                ->notify(new NewPostNotify($user_all_data));
+        }
+        // Notification Part End 
+
+
+
         return redirect()->route('users.users_blogs.create')->with('success','New Posts Category & details created Successfully');
     }
 

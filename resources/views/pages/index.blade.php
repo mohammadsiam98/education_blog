@@ -318,6 +318,23 @@
     <section class="newslettre">
         <div class="container-fluid">
             <div class="newslettre-width text-center">
+                
+
+
+                <div class="newslettre-info">
+                    <h5>Subscribe to our Newslatter</h5>
+                    <p> Sign up for free and be the first to get notified about new posts. </p>
+                </div>
+                <form action="{{route('subscriber.store')}}" method="POST" class="newslettre-form">
+                    @csrf
+                    <div class="form-flex">
+                        <div class="form-group">
+                            <input name="email" type="email" class="form-control" placeholder="Your email adress" required="required">
+                        </div>
+                        <button class="submit-btn" type="submit">Subscribe</button>
+                    </div>
+                </form>
+
                 <div class="newslettre-info">
                     <h5>Want to be a author in our website ? </h5>
                     <p>Sign up for free and be the author. </p>

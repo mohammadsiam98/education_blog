@@ -16,9 +16,10 @@ use Illuminate\Support\Facades\Route;
 // This is main Home page Route Url Start
 Route::get('/', 'App\Http\Controllers\PagesController@index')->name('homepage');
 
-Route::get('/home', function () {
-   dd(\Illuminate\Support\Facades\Auth::user());
+Route::get('/home',function(){
+  return redirect()->route('homepage');
 })->middleware(['auth','verified']);
+
 
 Route::prefix('admin')->group(function(){
     Route::get('/dashboard', 'App\Http\Controllers\HomeController@dashboard')->name('admin.dashboard');
@@ -94,9 +95,14 @@ Route::prefix('admin')->group(function(){
                                       // Admin Blog Routes End Here//
    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+   
+   Route::get('/subscribers/list', 'App\Http\Controllers\SubscriberPagesController@list')->name('admin.subscriber.list');
+   Route::delete('/subscribers/destroy/{id}', 'App\Http\Controllers\SubscriberPagesController@destroy')->name('admin.subscriber.destroy');
 });
 
 
+Route::post('subscriber','App\Http\Controllers\SubscriberPagesController@store')->name('subscriber.store');
 
 
 
@@ -222,21 +228,21 @@ Route::post('/like-post','PagesController@likePost')->name('post.like')->middlew
 
 
 Route::prefix('user')->group(function(){
-  Route::get('/dashboard', 'App\Http\Controllers\HomeController@User_dashboard')->name('user.dashboard');
+  Route::get('/dashboard', 'App\Http\Controllers\HomeController@User_dashboard')->name('user.dashboard')->middleware(['auth','verified']);
 
 
   
     // These are Users blog routes
-    Route::get('/User_blogs/create', 'App\Http\Controllers\UsersBlogPagesController@create')->name('users.users_blogs.create');
-    Route::put('/User_blogs/create', 'App\Http\Controllers\UsersBlogPagesController@store')->name('users.users_blogs.store');
-    Route::get('/User_blogs/list', 'App\Http\Controllers\UsersBlogPagesController@list')->name('users.users_blogs.list');
-    Route::get('/User_blogs/edit/{id}', 'App\Http\Controllers\UsersBlogPagesController@edit')->name('users.users_blogs.edit');
-    Route::post('/User_blogs/update/{id}', 'App\Http\Controllers\UsersBlogPagesController@update')->name('users.users_blogs.update');
+    Route::get('/User_blogs/create', 'App\Http\Controllers\UsersBlogPagesController@create')->name('users.users_blogs.create')->middleware(['auth','verified']);
+    Route::put('/User_blogs/create', 'App\Http\Controllers\UsersBlogPagesController@store')->name('users.users_blogs.store')->middleware(['auth','verified']);
+    Route::get('/User_blogs/list', 'App\Http\Controllers\UsersBlogPagesController@list')->name('users.users_blogs.list')->middleware(['auth','verified']);
+    Route::get('/User_blogs/edit/{id}', 'App\Http\Controllers\UsersBlogPagesController@edit')->name('users.users_blogs.edit')->middleware(['auth','verified']);
+    Route::post('/User_blogs/update/{id}', 'App\Http\Controllers\UsersBlogPagesController@update')->name('users.users_blogs.update')->middleware(['auth','verified']);
    //  Route::delete('/User_blogs/destroy/{id}', 'App\Http\Controllers\UsersBlogPagesController@destroy')->name('users.users_blogs.destroy');
-    Route::get('/User_blogs/delete/{id}', 'App\Http\Controllers\UsersBlogPagesController@delete')->name('users.users_blogs.delete');
+    Route::get('/User_blogs/delete/{id}', 'App\Http\Controllers\UsersBlogPagesController@delete')->name('users.users_blogs.delete')->middleware(['auth','verified']);
     
     
-    Route::get('/User_blogs/Comment_review_list', 'App\Http\Controllers\UsersBlogPagesController@ReviewCommentlist')->name('users.users_blogs.review');
-    Route::get('/User_blogs/destroyList/{id}', 'App\Http\Controllers\UsersBlogPagesController@restoreData')->name('users.users_blogs.restoreData');
+    Route::get('/User_blogs/Comment_review_list', 'App\Http\Controllers\UsersBlogPagesController@ReviewCommentlist')->name('users.users_blogs.review')->middleware(['auth','verified']);
+    Route::get('/User_blogs/destroyList/{id}', 'App\Http\Controllers\UsersBlogPagesController@restoreData')->name('users.users_blogs.restoreData')->middleware(['auth','verified']);
 });
 

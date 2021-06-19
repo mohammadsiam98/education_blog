@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Fortify\Fortify;
-
+use App\User;
 class FortifyServiceProvider extends ServiceProvider
 {
     /**
@@ -22,6 +22,11 @@ class FortifyServiceProvider extends ServiceProvider
     public function register()
     {
         //
+    }
+    protected function authenticated()
+    {
+        //
+        \Auth::logoutOtherDevices(request('password'));
     }
 
     /**

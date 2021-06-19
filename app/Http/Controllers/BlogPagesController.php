@@ -9,6 +9,13 @@ use DB;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 // notify();
+
+//Notification
+use App\Subscriber;
+use App\Notifications\NewPostNotify;
+use Illuminate\Support\Facades\Notification;
+//Notification
+
 class BlogPagesController extends Controller
 {
     /**
@@ -72,6 +79,20 @@ class BlogPagesController extends Controller
         $blogs->image ="storage/img/".$image->hashName();
         
         $blogs->save();
+        
+        // Notification
+        $user_id =Auth::id();
+        $user_all_data = Auth::user();
+        $blogs->user_id = $user_id;
+
+        $subscribers = Subscriber::all();
+        foreach($subscribers as $subscriber)
+        {
+            Notification::route('mail',$subscriber->email)
+                ->notify(new NewPostNotify($user_all_data));
+        }
+        // Notification
+
         return redirect()->route('admin.blogs.create')->with('success','New Posts Category & details created Successfully');
     }
 

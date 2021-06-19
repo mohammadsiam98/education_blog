@@ -32,7 +32,7 @@ class HomeController extends Controller
 
     public function User_dashboard()
     {
-        return view('pages.user_dashboard');
+        return view('pages.User_dashboard');
     }
 
 
