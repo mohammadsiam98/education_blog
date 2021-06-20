@@ -230,7 +230,7 @@ Route::post('/like-post','PagesController@likePost')->name('post.like')->middlew
 Route::prefix('user')->group(function(){
   Route::get('/dashboard', 'App\Http\Controllers\HomeController@User_dashboard')->name('user.dashboard')->middleware(['auth','verified']);
 
-
+  
   
     // These are Users blog routes
     Route::get('/User_blogs/create', 'App\Http\Controllers\UsersBlogPagesController@create')->name('users.users_blogs.create')->middleware(['auth','verified']);
@@ -238,11 +238,14 @@ Route::prefix('user')->group(function(){
     Route::get('/User_blogs/list', 'App\Http\Controllers\UsersBlogPagesController@list')->name('users.users_blogs.list')->middleware(['auth','verified']);
     Route::get('/User_blogs/edit/{id}', 'App\Http\Controllers\UsersBlogPagesController@edit')->name('users.users_blogs.edit')->middleware(['auth','verified']);
     Route::post('/User_blogs/update/{id}', 'App\Http\Controllers\UsersBlogPagesController@update')->name('users.users_blogs.update')->middleware(['auth','verified']);
-   //  Route::delete('/User_blogs/destroy/{id}', 'App\Http\Controllers\UsersBlogPagesController@destroy')->name('users.users_blogs.destroy');
+
     Route::get('/User_blogs/delete/{id}', 'App\Http\Controllers\UsersBlogPagesController@delete')->name('users.users_blogs.delete')->middleware(['auth','verified']);
+    Route::get('/User_blogs/list', 'App\Http\Controllers\UsersBlogPagesController@list')->name('users.users_blogs.list')->middleware(['auth','verified']);
+    Route::post('/User_blogs/userCreateChannelName', 'App\Http\Controllers\UsersBlogPagesController@userCreateChannelName')->name('userCreateChannelName')->middleware(['auth','verified']);
+    Route::post('/User_blogs/userCreateChannelNameUpdate', 'App\Http\Controllers\UsersBlogPagesController@userCreateChannelNameUpdate')->name('userCreateChannelNameUpdate')->middleware(['auth','verified']);
     
     
     Route::get('/User_blogs/Comment_review_list', 'App\Http\Controllers\UsersBlogPagesController@ReviewCommentlist')->name('users.users_blogs.review')->middleware(['auth','verified']);
-    Route::get('/User_blogs/destroyList/{id}', 'App\Http\Controllers\UsersBlogPagesController@restoreData')->name('users.users_blogs.restoreData')->middleware(['auth','verified']);
+    Route::get('/User_blogs/channel', 'App\Http\Controllers\UsersBlogPagesController@userChannelName')->name('userChannelName')->middleware(['auth','verified']);
 });
 

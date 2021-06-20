@@ -44,6 +44,7 @@ function GithubCallBack(){
     function loginWithGoogle(){
         return Socialite::driver('google')->redirect();
     }
+    
     function GoogleCallBack(){
         $user = Socialite::driver('google')
         ->setHttpClient(new \GuzzleHttp\Client(['verify' => false]))

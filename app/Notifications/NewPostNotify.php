@@ -46,7 +46,7 @@ class NewPostNotify extends Notification
         
         ->greeting('Dear Users, Hope You are fine')
         ->subject('New Post in XYZ.com')
-        ->line('New post has been uploaded in this website by' .$this->blogs->name. ' this Author')
+        ->line('New post has been uploaded in this website by ' .$this->blogs->name. ' this Author')
         ->line('Thank you for using our application!');
     }
 

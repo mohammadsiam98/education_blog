@@ -27,7 +27,7 @@ class PagesController extends Controller
     {
                 
         $user_id = $id;
-        $users_blogs_one = DB::table('users')->join('blogs','blogs.user_id','users.id')->where('blogs.user_id', $user_id)->orderBy('blogs.id', 'DESC')->get();  
+        $users_blogs_one = DB::table('users')->join('blogs','blogs.user_id','users.id')->where('blogs.user_id', $user_id)->where('blogs.status', 1)->orderBy('blogs.id', 'DESC')->get();  
         $user = DB::table('users')->where('id', $user_id)->first();
 
         return view ('pages.author',[

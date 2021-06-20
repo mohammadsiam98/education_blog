@@ -46,7 +46,7 @@ class NewAuthorPost extends Notification
                     ->greeting('Hello','Admin!')
                     ->subject('New Post Approval Needed')
                     ->line('New Post by need to approve this post')
-                    ->line('Go to your admin panel to approve the blog of ' .$this->users_blogs. ' this user')
+                    ->line('Go to your admin panel to approve the blog of '.$this->users_blogs.' this user')
                     ->line('Thank you for using our application!');
     }
 

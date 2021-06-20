@@ -126,16 +126,29 @@
                             <li>
                                 <a href="javascript: void(0);">
                                     <i class="fe-box"></i>
+                                    <span style="font-size: 20px;"> Channel </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+
+                                <ul class="nav-second-level" aria-expanded="false">
+                                    <li><a href="{{route('userChannelName')}}">Name</a></li>
+                                    
+                                </ul>
+                            </li>
+                           
+                            
+
+                            <li>
+                                <a href="javascript: void(0);">
+                                    <i class="fe-box"></i>
                                     <span style="font-size: 20px;">  Write Blog </span>
                                     <span class="menu-arrow"></span>
                                 </a>
 
                                 <ul class="nav-second-level" aria-expanded="false">
-                                   
                                     <li><a href="{{route('users.users_blogs.create')}}">Create</a></li>
                                     <li><a href="{{route('users.users_blogs.list')}}">List</a></li>
                                     <li><a href="{{route('users.users_blogs.review')}}">Review Comments List</a></li>
-                                    
                                 </ul>
                             </li>
                            

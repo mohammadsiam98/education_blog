@@ -188,4 +188,36 @@ class UsersBlogPagesController extends Controller
         $users_blogs = Blog::where('user_id',$user_id)->whereNotNull('review_comment')->whereNULL('deleted_at')->get();
         return view ('pages.users_blogs.review',compact('users_blogs','user_id'));
     }
+
+    function userChannelName()
+    {
+        $user = Auth::user();
+
+       
+        return view('pages.users_blogs.channelname', [
+            'user'=> $user
+        ]);
+    }
+
+
+    function userCreateChannelName(Request $req)
+    {
+
+        $user_id = Auth::id();
+        $user = User::where('id',$user_id)->first();
+        $user->channel_name = $req->channel_name;
+        $user->save();
+        return back();
+    }
+
+
+    function userCreateChannelNameUpdate(Request $req)
+    {
+        $user_id = Auth::id();
+        $user = User::where('id',$user_id)->first();
+        $user->channel_name = $req->channel_name;
+        $user->save();
+        return back();
+    }
+
 }

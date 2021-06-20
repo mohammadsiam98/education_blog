@@ -419,52 +419,60 @@
                 <div class="col-lg-4 max-width">
                     <!--widget-author-->
                     <div class="widget">
-                        <div class="widget-author">
-                            <a href="{{ route('individualAuthorBlogs', $user->id ) }}" class="image">
-                                <img src="{{asset('assets/img/author/1.jpg')}}" alt="">
-                          
-                                <h6>
-                                    <span>{{$user->name}}</span>
-                                </h6>
-                            </a>
 
-                            <p>
-                                I am David Smith, husband and father ,
-                                I love Photography,travel and nature. I am working as a writer and blogger with experience
-                                of 5 years until now.
-                            </p>
-                    
-                    
-                            <div class="social-media">
-                                <ul class="list-inline">
-                                    <li>
-                                        <a href="#" class="color-facebook">
-                                            <i class="fab fa-facebook"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="color-instagram">
-                                            <i class="fab fa-instagram"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="color-twitter">
-                                            <i class="fab fa-twitter"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="color-youtube">
-                                            <i class="fab fa-youtube"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="color-pinterest">
-                                            <i class="fab fa-pinterest"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                        @if ($user->channel_name != null)
+                            <div class="widget-author">
+                                <a href="{{ route('individualAuthorBlogs', $user->id ) }}" class="image">
+                                    <img src="{{asset('assets/img/author/1.jpg')}}" alt="">
+                                
+                                    <h6>
+                                        <span>{{$user->channel_name}}</span>
+                                    </h6>
+                                </a>
+
+                                <p>
+                                    I am David Smith, husband and father ,
+                                    I love Photography,travel and nature. I am working as a writer and blogger with experience
+                                    of 5 years until now.
+                                </p>
+                        
+                        
+                                <div class="social-media">
+                                    <ul class="list-inline">
+                                        <li>
+                                            <a href="#" class="color-facebook">
+                                                <i class="fab fa-facebook"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="color-instagram">
+                                                <i class="fab fa-instagram"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="color-twitter">
+                                                <i class="fab fa-twitter"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="color-youtube">
+                                                <i class="fab fa-youtube"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="color-pinterest">
+                                                <i class="fab fa-pinterest"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>    
+                        @else
+                            <h6>
+                                <span>Author : {{$user->name}}</span>
+                            </h6>
+                        @endif
+                        
                     </div>
                     <!--/-->
 
