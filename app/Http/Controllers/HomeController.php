@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Auth;
 class HomeController extends Controller
 {
     //
@@ -27,12 +27,29 @@ class HomeController extends Controller
 
     public function dashboard()
     {
-        return view('pages.dashboard');
+
+        $user = Auth::user();
+        if($user->user_type == 'admin')
+        {
+            return view('pages.dashboard');
+        }
+        else{
+            return view('pages.404NotFound');
+        }
     }
 
     public function User_dashboard()
     {
-        return view('pages.User_dashboard');
+        $user = Auth::user();
+
+        if($user->user_type == 'user')
+        {
+            return view('pages.User_dashboard');
+        }
+        else{
+            return view('pages.404NotFound');
+        }
+      
     }
 
 
