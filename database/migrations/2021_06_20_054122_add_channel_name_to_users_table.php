@@ -15,6 +15,7 @@ class AddChannelNameToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('channel_name')->nullable();
+            $table->string('channel_name_description')->nullable();
 
         });
     }
@@ -28,6 +29,7 @@ class AddChannelNameToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('channel_name');
+            $table->dropColumn('channel_name_description');
 
         });
     }

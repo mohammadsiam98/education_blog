@@ -185,10 +185,15 @@
                                     <ul class="list-inline">
                                         <li><a href="#"><img src="{{asset('startups')}}" alt=""></a></li>
                                         <li>
-                                            <a href="#">David Smith</a>
+                                            <a href="#">{{$startups->name}}</a>
                                         </li>
                                         <li class="dot"></li>
-                                        <li>January 15, 2021</li>
+                                        <li><?php
+                                                
+                                            echo date("d.m.Y", strtotime($startups->created_at));
+                                            
+                                             
+                                         ?></li>
                                     </ul>
                                 </div>
                             </div>

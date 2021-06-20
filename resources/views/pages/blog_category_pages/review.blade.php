@@ -186,10 +186,15 @@
                                     <ul class="list-inline">
                                         <li><a href="#"><img src="{{asset('assets/img/author/1.jpg')}}" alt=""></a></li>
                                         <li>
-                                            <a href="#">David Smith</a>
+                                            <a href="#">{{$review->name}}</a>
                                         </li>
                                         <li class="dot"></li>
-                                        <li>January 15, 2021</li>
+                                        <li><?php
+                                                
+                                            echo date("d.m.Y", strtotime($review->created_at));
+                                            
+                                             
+                                         ?></li>
                                     </ul>
                                 </div>
                             </div>
@@ -204,27 +209,21 @@
 
                     <!--pagination-->
                     <div class="pagination mt-30">
+                        @if ($blogs_health->lastPage() >1)
                         <ul class="list-inline">
-                            <li class="active">
-                                <a href="#">1</a>
-                            </li>
-                            <li>
-                                <a href="#">2</a>
-                            </li>
-                            <li>
-                                <a href="#">3</a>
-                            </li>
-                            <li>
-                                <a href="#">4</a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="arrow_carrot-2right"></i>
-                                </a>
-                            </li>
+                            <li class="{{$blogs_review->currentPage() == 1 ? 'disabled' : ''}}"><a class="" href="{{$blogs_review->url(1)}}"><i class="arrow_carrot-2left"></i></a>
+                                @for($i=1; $i<=$blogs_review->lastPage();$i++)
+                                <li class="siam {{$blogs_review->currentPage() == $i ? 'current' : ''}}">
+                                  <a class='page-numbers' href='{{$blogs_review->url($i)}}'>{{$i}}</a></li>
+                                @endfor
+                                <li class="{{$blogs_review->currentPage() == $blogs_review->lastPage() ? 'disabled' : '' }}"><a class="disabled" href="{{$blogs_review->url($blogs_review->currentPage() +1 )}}"><i class="arrow_carrot-2right"></i></a></li>
+                           
                         </ul> 
+                        @endif
                     </div><!--/-->
                 </div>
+
+
                 <div class="col-lg-4 max-width">
                     <!--widget-latest-posts-->
                     <div class="widget ">

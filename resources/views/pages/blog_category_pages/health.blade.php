@@ -184,10 +184,15 @@
                                     <ul class="list-inline">
                                         <li><a href="#"><img src="{{asset('assets/img/author/1.jpg')}}" alt=""></a></li>
                                         <li>
-                                            <a href="#">David Smith</a>
+                                            <a href="#">{{$health_wealth->name}}</a>
                                         </li>
                                         <li class="dot"></li>
-                                        <li>January 15, 2021</li>
+                                        <li><?php
+                                                
+                                            echo date("d.m.Y", strtotime($health_wealth->created_at));
+                                            
+                                             
+                                         ?></li>
                                     </ul>
                                 </div>
                             </div>
@@ -203,12 +208,12 @@
     <div class="pagination mt-30">
         @if ($blogs_health->lastPage() >1)
         <ul class="list-inline">
-            <li class="{{$blogs_startups->currentPage() == 1 ? 'disabled' : ''}}"><a class="" href="{{$blogs_startups->url(1)}}"><i class="arrow_carrot-2left"></i></a>
-                @for($i=1; $i<=$blogs_startups->lastPage();$i++)
-                <li class="siam {{$blogs_startups->currentPage() == $i ? 'current' : ''}}">
-                  <a class='page-numbers' href='{{$blogs_startups->url($i)}}'>{{$i}}</a></li>
+            <li class="{{$blogs_health->currentPage() == 1 ? 'disabled' : ''}}"><a class="" href="{{$blogs_health->url(1)}}"><i class="arrow_carrot-2left"></i></a>
+                @for($i=1; $i<=$blogs_health->lastPage();$i++)
+                <li class="siam {{$blogs_health->currentPage() == $i ? 'current' : ''}}">
+                  <a class='page-numbers' href='{{$blogs_health->url($i)}}'>{{$i}}</a></li>
                 @endfor
-                <li class="{{$blogs_startups->currentPage() == $blogs_startups->lastPage() ? 'disabled' : '' }}"><a class="disabled" href="{{$blogs_startups->url($blogs_startups->currentPage() +1 )}}"><i class="arrow_carrot-2right"></i></a></li>
+                <li class="{{$blogs_health->currentPage() == $blogs_health->lastPage() ? 'disabled' : '' }}"><a class="disabled" href="{{$blogs_health->url($blogs_health->currentPage() +1 )}}"><i class="arrow_carrot-2right"></i></a></li>
            
         </ul> 
         @endif

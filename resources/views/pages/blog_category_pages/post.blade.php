@@ -431,9 +431,7 @@
                                 </a>
 
                                 <p>
-                                    I am David Smith, husband and father ,
-                                    I love Photography,travel and nature. I am working as a writer and blogger with experience
-                                    of 5 years until now.
+                                    {{$user->channel_name_description}}
                                 </p>
                         
                         

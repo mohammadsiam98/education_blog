@@ -43,6 +43,14 @@
                                             <input type="text" name="channel_name" id="simpleinput" class="form-control" placeholder="Write a catchy channel Name">
                                         </div>
                                     </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-md-2 col-form-label" for="simpleinput">Enter your Channel Description</label>
+                                        <div class="col-md-10">
+                                            <input type="text" name="channel_name_description" id="simpleinput" class="form-control" placeholder="Write a catchy channel Name">
+                                        </div>
+                                    </div>
+                                   
                                     
                                 
 
@@ -71,6 +79,13 @@
                                         <label class="col-md-2 col-form-label" for="simpleinput">Your Channel Name</label>
                                         <div class="col-md-10">
                                             <input type="text" name="channel_name" id="simpleinput" value="{{ $user->channel_name }}" class="form-control" placeholder="Write a catchy channel Name">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-md-2 col-form-label" for="simpleinput">Enter your Channel Description</label>
+                                        <div class="col-md-10">
+                                            <input type="text" name="channel_name_description" value="{{ $user->channel_name_description}}" id="simpleinput" class="form-control" placeholder="Write a catchy channel Name">
                                         </div>
                                     </div>
                                     

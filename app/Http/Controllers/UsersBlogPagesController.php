@@ -206,6 +206,7 @@ class UsersBlogPagesController extends Controller
         $user_id = Auth::id();
         $user = User::where('id',$user_id)->first();
         $user->channel_name = $req->channel_name;
+        $user->channel_name_description = $req->channel_name_description;
         $user->save();
         return back();
     }
@@ -216,6 +217,7 @@ class UsersBlogPagesController extends Controller
         $user_id = Auth::id();
         $user = User::where('id',$user_id)->first();
         $user->channel_name = $req->channel_name;
+        $user->channel_name_description = $req->channel_name_description;
         $user->save();
         return back();
     }

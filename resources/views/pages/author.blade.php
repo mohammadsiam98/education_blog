@@ -153,9 +153,8 @@
                         </a>
                         <h6><span>{{ $user->name }}</span></h6>
                       
-                        <p> I'm David Smith, husband and father , I love Photography,travel 
-                            and nature. I'm working as a writer
-                            and blogger with experience of 5 years until now.
+                        <p> 
+                            {{ $user->channel_name_description }}
                         </p>
                         
                         <div class="social-media">

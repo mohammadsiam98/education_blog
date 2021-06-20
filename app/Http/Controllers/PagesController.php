@@ -16,7 +16,7 @@ class PagesController extends Controller
     public function index()
     {
         // Show All Blog Posts Show
-       $blogs = DB::table('users')->join('blogs','blogs.user_id','users.id')->whereNull('deleted_at')->where('status', 1)->orderBy('blogs.id', 'DESC')->paginate(30);  
+        $blogs = DB::table('users')->join('blogs','blogs.user_id','users.id')->whereNull('deleted_at')->where('status', 1)->orderBy('blogs.id', 'DESC')->paginate(30);  
        
         $users_blogs =DB::table('users')->join('users_blogs','users_blogs.user_id','users.id')->where('users_blogs.status',1)->whereNull('deleted_at')->orderBy('users_blogs.id', 'DESC')->paginate(30);  
     
@@ -245,8 +245,8 @@ class PagesController extends Controller
                $categoryeducationCount= Blog::where('category',"=","education")->get()->count(); 
                // Education Category Post Count
                
-
-      $blogs_startups = Blog::where('category','startups')->paginate(50);
+      $blogs_startups =DB::table('users')->join('blogs','blogs.user_id','users.id')->whereNull('deleted_at')->where('status', 1)->where('category','startups')->orderBy('blogs.id', 'DESC')->paginate(30);
+     
       return view('pages.blog_category_pages.startup',compact('blogs_startups','relatedposts','categorytravelCount','categoryhealthCount',
       'categorylawCount','categorylifestyleCount','categoryreviewCount','categoryhowtoCount','categorybrandstoriesCount','categoryfoodCount',
       'categorycareerCount','categoryeducationCount','categorystartupsCount'));
@@ -330,7 +330,7 @@ class PagesController extends Controller
               // Education Category Post Count
               
 
-      $blogs_health = Blog::where('category','health')->paginate(50);
+      $blogs_health = DB::table('users')->join('blogs','blogs.user_id','users.id')->whereNull('deleted_at')->where('status', 1)->where('category','health')->orderBy('blogs.id', 'DESC')->paginate(30);
       return view('pages.blog_category_pages.health',compact('blogs_health','relatedposts','categorytravelCount','categoryhealthCount',
       'categorylawCount','categorylifestyleCount','categoryreviewCount','categoryhowtoCount','categorybrandstoriesCount','categoryfoodCount',
       'categorycareerCount','categoryeducationCount','categorystartupsCount'));
@@ -413,7 +413,7 @@ class PagesController extends Controller
        $relatedposts= Blog::latest()->limit(5)->get();
     // Related Posts Show
       
-      $blogs_law = Blog::where('category','law')->paginate(50);
+      $blogs_law = DB::table('users')->join('blogs','blogs.user_id','users.id')->whereNull('deleted_at')->where('status', 1)->where('category','law')->orderBy('blogs.id', 'DESC')->paginate(30);
       return view('pages.blog_category_pages.law',compact('blogs_law','relatedposts','categorytravelCount','categoryhealthCount',
       'categorylawCount','categorylifestyleCount','categoryreviewCount','categoryhowtoCount','categorybrandstoriesCount','categoryfoodCount',
       'categorycareerCount','categoryeducationCount','categorystartupsCount'));
@@ -499,7 +499,7 @@ class PagesController extends Controller
               // Education Category Post Count
               
 
-      $blogs_lifestyle = Blog::where('category','lifestyle')->paginate(50);
+      $blogs_lifestyle = DB::table('users')->join('blogs','blogs.user_id','users.id')->whereNull('deleted_at')->where('status', 1)->where('category','lifestyle')->orderBy('blogs.id', 'DESC')->paginate(30);
       return view('pages.blog_category_pages.lifestyle',compact('blogs_lifestyle','relatedposts','categorytravelCount','categoryhealthCount',
       'categorylawCount','categorylifestyleCount','categoryreviewCount','categoryhowtoCount','categorybrandstoriesCount','categoryfoodCount',
       'categorycareerCount','categoryeducationCount','categorystartupsCount'));
@@ -582,7 +582,7 @@ class PagesController extends Controller
               // Education Category Post Count
               
 
-      $blogs_review = Blog::where('category','review')->paginate(50);
+      $blogs_review = DB::table('users')->join('blogs','blogs.user_id','users.id')->whereNull('deleted_at')->where('status', 1)->where('category','review')->orderBy('blogs.id', 'DESC')->paginate(30);
       return view('pages.blog_category_pages.review',compact('blogs_review','relatedposts','categorytravelCount','categoryhealthCount',
       'categorylawCount','categorylifestyleCount','categoryreviewCount','categoryhowtoCount','categorybrandstoriesCount','categoryfoodCount',
       'categorycareerCount','categoryeducationCount','categorystartupsCount'));
@@ -666,7 +666,7 @@ class PagesController extends Controller
               // Education Category Post Count
               
 
-      $blogs_howto = Blog::where('category','howto')->paginate(50);
+      $blogs_howto = DB::table('users')->join('blogs','blogs.user_id','users.id')->whereNull('deleted_at')->where('status', 1)->where('category','howto')->orderBy('blogs.id', 'DESC')->paginate(30);
       return view('pages.blog_category_pages.howto',compact('blogs_howto','relatedposts','categorytravelCount','categoryhealthCount',
       'categorylawCount','categorylifestyleCount','categoryreviewCount','categoryhowtoCount','categorybrandstoriesCount','categoryfoodCount',
       'categorycareerCount','categoryeducationCount','categorystartupsCount'));
@@ -752,7 +752,7 @@ class PagesController extends Controller
               // Education Category Post Count
               
 
-      $blogs_brandstories = Blog::where('category','brandstories')->paginate(50);
+      $blogs_brandstories = DB::table('users')->join('blogs','blogs.user_id','users.id')->whereNull('deleted_at')->where('status', 1)->where('category','brandstories')->orderBy('blogs.id', 'DESC')->paginate(30);
       return view('pages.blog_category_pages.brandstories',compact('blogs_brandstories','relatedposts','categorytravelCount','categoryhealthCount',
       'categorylawCount','categorylifestyleCount','categoryreviewCount','categoryhowtoCount','categorybrandstoriesCount','categoryfoodCount',
       'categorycareerCount','categoryeducationCount','categorystartupsCount'));
@@ -839,7 +839,7 @@ class PagesController extends Controller
               // Education Category Post Count
               
 
-       $blogs_food = Blog::where('category','food')->paginate(50);
+       $blogs_food = DB::table('users')->join('blogs','blogs.user_id','users.id')->whereNull('deleted_at')->where('status', 1)->where('category','food')->orderBy('blogs.id', 'DESC')->paginate(30);
        return view('pages.blog_category_pages.food',compact('blogs_food','relatedposts','categorytravelCount','categoryhealthCount',
        'categorylawCount','categorylifestyleCount','categoryreviewCount','categoryhowtoCount','categorybrandstoriesCount','categoryfoodCount',
        'categorycareerCount','categoryeducationCount','categorystartupsCount'));
@@ -927,7 +927,7 @@ class PagesController extends Controller
               // Education Category Post Count
               
 
-      $blogs_travel = Blog::where('category','travel')->paginate(50);
+      $blogs_travel = DB::table('users')->join('blogs','blogs.user_id','users.id')->whereNull('deleted_at')->where('status', 1)->where('category','travel')->orderBy('blogs.id', 'DESC')->paginate(30);
       return view('pages.blog_category_pages.travel',compact('blogs_travel','relatedposts','categorytravelCount','categoryhealthCount',
       'categorylawCount','categorylifestyleCount','categoryreviewCount','categoryhowtoCount','categorybrandstoriesCount','categoryfoodCount',
       'categorycareerCount','categoryeducationCount','categorystartupsCount'));
@@ -1012,7 +1012,7 @@ class PagesController extends Controller
               // Education Category Post Count
               
 
-      $blogs_career = Blog::where('category','career')->paginate(50);
+      $blogs_career = DB::table('users')->join('blogs','blogs.user_id','users.id')->whereNull('deleted_at')->where('status', 1)->where('category','career')->orderBy('blogs.id', 'DESC')->paginate(30);
       return view('pages.blog_category_pages.career',compact('blogs_career','relatedposts','categorytravelCount','categoryhealthCount',
       'categorylawCount','categorylifestyleCount','categoryreviewCount','categoryhowtoCount','categorybrandstoriesCount','categoryfoodCount',
       'categorycareerCount','categoryeducationCount','categorystartupsCount'));
@@ -1096,7 +1096,7 @@ class PagesController extends Controller
               // Education Category Post Count
               
         
-      $blogs_education = Blog::where('category','education')->paginate(50);
+      $blogs_education =  DB::table('users')->join('blogs','blogs.user_id','users.id')->whereNull('deleted_at')->where('status', 1)->where('category','education')->orderBy('blogs.id', 'DESC')->paginate(30);
 
       return view('pages.blog_category_pages.education',compact('blogs_education','relatedposts','categorytravelCount','categoryhealthCount',
       'categorylawCount','categorylifestyleCount','categoryreviewCount','categoryhowtoCount','categorybrandstoriesCount','categoryfoodCount',
