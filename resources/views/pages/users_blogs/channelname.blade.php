@@ -50,7 +50,47 @@
                                             <input type="text" name="channel_name_description" id="simpleinput" class="form-control" placeholder="Write a catchy channel Name">
                                         </div>
                                     </div>
+                                    
+                                    <div class="form-group row">
+                                        <label class="col-md-2 col-form-label" for="simpleinput">Facebook Link</label>
+                                        <div class="col-md-10">
+                                            <input type="text" name="facebook" id="simpleinput" class="form-control" placeholder="Enter your Facebook Page Or Profile Link">
+                                        </div>
+                                    </div>
+
+                                    
+                                    <div class="form-group row">
+                                        <label class="col-md-2 col-form-label" for="simpleinput">Instagram Link</label>
+                                        <div class="col-md-10">
+                                            <input type="text" name="instagram" id="simpleinput" class="form-control" placeholder="Enter your Instagram Page Or Profile Link">
+                                        </div>
+                                    </div>
+
+                                    
+                                    <div class="form-group row">
+                                        <label class="col-md-2 col-form-label" for="simpleinput">Twitter Link</label>
+                                        <div class="col-md-10">
+                                            <input type="text" name="twitter" id="simpleinput" class="form-control" placeholder="Enter your Twitter Profile Link">
+                                        </div>
+                                    </div>
+
+                                    
+                                    <div class="form-group row">
+                                        <label class="col-md-2 col-form-label" for="simpleinput">Youtube Link</label>
+                                        <div class="col-md-10">
+                                            <input type="text" name="youtube" id="simpleinput" class="form-control" placeholder="Enter your Youtube Channel Link">
+                                        </div>
+                                    </div>
+
+
                                    
+                                    <div class="form-group row">
+                                        <p>Select an image</p>
+                                        <input type="file" class="filestyle" data-btnClass="btn-primary" id="image" name="image" placeholder="Enter an image">
+                                    </div>
+
+                                    
+
                                     
                                 
 
@@ -87,6 +127,37 @@
                                         <div class="col-md-10">
                                             <input type="text" name="channel_name_description" value="{{ $user->channel_name_description}}" id="simpleinput" class="form-control" placeholder="Write a catchy channel Name">
                                         </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-2 col-form-label" for="simpleinput">Facebook Profile Link</label>
+                                        <div class="col-md-10">
+                                            <input type="text" name="facebook" value="{{ $user->facebook}}" id="simpleinput" class="form-control" placeholder="Enter your Facebook Page Or Profile Link">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-2 col-form-label" for="simpleinput">Instagram Profile Link</label>
+                                        <div class="col-md-10">
+                                            <input type="text" name="instagram" value="{{ $user->instagram}}" id="simpleinput" class="form-control" placeholder="Enter your Instagram Page Or Profile Link">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-2 col-form-label" for="simpleinput">Twitter Profile Link</label>
+                                        <div class="col-md-10">
+                                            <input type="text" name="twitter" value="{{ $user->twitter}}" id="simpleinput" class="form-control" placeholder="Write a catchy channel Name">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-2 col-form-label" for="simpleinput">Youtube Channel Link</label>
+                                        <div class="col-md-10">
+                                            <input type="text" name="youtube" value="{{ $user->youtube}}" id="simpleinput" class="form-control" placeholder="Enter your Youtube Channel Link">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <p>Select an image</p>
+                                       
+                                        <input type="file" class="filestyle" data-btnClass="btn-primary" id="image" name="image" placeholder="Enter an image">
+                                        <img src="{{url($user->image)}}" class="img-thumbnail" style="height: 70px;width:auto;">
                                     </div>
                                     
                                 

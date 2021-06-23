@@ -42,8 +42,7 @@ class NewPostNotify extends Notification
      */
     public function toMail($notifiable)
     {
-        return (new MailMessage)
-        
+        return (new MailMessage)        
         ->greeting('Dear Users, Hope You are fine')
         ->subject('New Post in XYZ.com')
         ->line('New post has been uploaded in this website by ' .$this->blogs->name. ' this Author')

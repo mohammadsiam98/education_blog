@@ -11,16 +11,18 @@ class NewAuthorPost extends Notification
 {
     use Queueable;
     public $users_blogs;
+    public $title;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($users_blogs)
+    public function __construct($users_blogs,$title)
     {
         //
         $this->users_blogs = $users_blogs;
+        $this->title = $title;
     }
 
     /**
@@ -43,10 +45,11 @@ class NewAuthorPost extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->greeting('Hello','Admin!')
+                    ->greeting('Hello')
                     ->subject('New Post Approval Needed')
-                    ->line('New Post by need to approve this post')
+                   
                     ->line('Go to your admin panel to approve the blog of '.$this->users_blogs.' this user')
+                    ->line('Go to your admin panel to approve the blog of '.$this->title.' this user')
                     ->line('Thank you for using our application!');
     }
 

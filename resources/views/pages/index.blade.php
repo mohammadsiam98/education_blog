@@ -111,28 +111,56 @@
                         <div class="slider round"></div>
                     </label>
                 </div>
+                
                 <div class="social-icones">
                     <ul class="list-inline">
+                       
                         <li>
                             <a href="#">
-                                <i class="fab fa-facebook-f"></i>
+                                <i class="fas fa-bell" style="font-size: 20px;"></i>
                             </a>
                         </li>
-                        <li>
-                            <a href="#">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fab fa-youtube"></i>
-                            </a>
-                        </li>
+                        @if (Route::has('login'))
+                       
+                            @auth
+                            <li class="nav-item dropdown">
+                                <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown"
+                                  style="
+                                       background-color:#f67280;
+                                                color:#ffffff !important;
+                                                padding: 5px 32px;
+                                                text-align:center;
+                                                font-size:20px;
+                                                border-radius:20px;
+                                                font-weight:700 !important;
+                                                text-transform: capitalize;
+                                     "
+                                
+                                
+                                
+                                >Menu</a>
+                                <ul class="dropdown-menu fade-up">
+                                    <li >
+                                        <a class="dropdown-item" href="{{route('user.dashboard')}}"> Dashboard </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
+                                    </li>
+                                    
+                                </ul>
+                            </li>
+                            @else
+                                <a href="{{ route('login') }}" class="text-sm text-gray-700 underline" >Log in</a>
+        
+                                @if (Route::has('register'))
+                                    <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
+                                @endif
+                            @endauth
+                       
+                    @endif
+                        
+              
+                       
                     </ul>
                 </div>
 

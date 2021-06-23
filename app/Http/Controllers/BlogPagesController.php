@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Auth;
 //Notification
 use App\Subscriber;
 use App\Notifications\NewPostNotify;
+use App\Notifications\confirmAuthorPost;
 use Illuminate\Support\Facades\Notification;
 //Notification
 
@@ -89,7 +90,7 @@ class BlogPagesController extends Controller
         foreach($subscribers as $subscriber)
         {
             Notification::route('mail',$subscriber->email)
-                ->notify(new NewPostNotify($user_all_data));
+                ->notify(new NewPostNotify($user_all_data,));
         }
         // Notification
 
@@ -218,7 +219,19 @@ class BlogPagesController extends Controller
         $reviewBlog = Blog::where('id', $id)->first();
 
         $reviewBlog->status = 1;
+
+        
         $reviewBlog->save();
+
+        $user_id =Auth::id();
+        $user_all_data = Auth::user();
+       
+        
+        $fetch_blog_title = $reviewBlog->title; 
+        //Notification Part
+        $users = User::all();
+        Notification::send($users,new confirmAuthorPost($user_all_data->name,$fetch_blog_title));
+
         return redirect()->route('admin.users_review_blogs.list')->with('success','Blog Approved Successfully');
 
 

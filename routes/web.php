@@ -24,7 +24,7 @@ Route::get('/home',function(){
 Route::prefix('admin')->group(function(){
     Route::get('/dashboard', 'App\Http\Controllers\HomeController@dashboard')->name('admin.dashboard');
 
-    
+    Route::post('/mark-as-read', 'HomeController@markNotification')->name('markNotification');
     // These are slider routes
     Route::get('/sliders/create', 'App\Http\Controllers\SliderPagesController@create')->name('admin.sliders.create');
     Route::put('/sliders/create', 'App\Http\Controllers\SliderPagesController@store')->name('admin.sliders.store');
@@ -99,11 +99,21 @@ Route::prefix('admin')->group(function(){
    
    Route::get('/subscribers/list', 'App\Http\Controllers\SubscriberPagesController@list')->name('admin.subscriber.list');
    Route::delete('/subscribers/destroy/{id}', 'App\Http\Controllers\SubscriberPagesController@destroy')->name('admin.subscriber.destroy');
+
+
+   Route::get('/contact/list', 'App\Http\Controllers\ContactPagesController@list')->name('admin.contact.list');
+    // These are aboutUs routes
+    Route::get('/aboutUs/create', 'App\Http\Controllers\AboutUsPagesController@create')->name('admin.about.create');
+    Route::put('/aboutUs/create', 'App\Http\Controllers\AboutUsPagesController@store')->name('admin.about.store');
+    Route::get('/aboutUs/list', 'App\Http\Controllers\AboutUsPagesController@list')->name('admin.about.list');
+    Route::get('/aboutUs/edit/{id}', 'App\Http\Controllers\AboutUsPagesController@edit')->name('admin.about.edit');
+    Route::post('/aboutUs/update/{id}', 'App\Http\Controllers\AboutUsPagesController@update')->name('admin.about.update');
+    Route::delete('/aboutUs/destroy/{id}', 'App\Http\Controllers\AboutUsPagesController@destroy')->name('admin.about.destroy');
 });
 
 
 Route::post('subscriber','App\Http\Controllers\SubscriberPagesController@store')->name('subscriber.store');
-
+Route::post('contact','App\Http\Controllers\ContactPagesController@store')->name('contact.store');
 
 
 Route::get('login-with-github', 'App\Http\Controllers\SocialPagesController@loginWithGithub')->name('loginWithGithub');
@@ -144,9 +154,14 @@ Route::get('/blog', 'App\Http\Controllers\PagesController@index')->name('blog');
 // This is allpost Route Url End
 
 
+// This is allpost Route Url Start
+Route::get('/about-us', 'App\Http\Controllers\PagesController@aboutUs')->name('about');
+// This is allpost Route Url End
+
+
 
 // This is singlepost Route Url Start
-Route::get('/allpost/singlePost/{id}/{category}', 'App\Http\Controllers\PagesController@allpost')->name('allpost');
+Route::get('/allpost/singlePost/{id}/{category}', 'App\Http\Controllers\PagesController@allpost')->name('allpost')->middleware(['auth','verified']);
 // Route::get('/allpost/singlePost/{id}/{category}', 'App\Http\Controllers\PagesController@allpost2')->name('allpost2');
 
 // This is singlepost Route Url End
@@ -209,7 +224,7 @@ Route::get('/contact', 'App\Http\Controllers\PagesController@contact')->name('co
 
 
 // This is Contact Route Url Start
-Route::get('/author/{id}', 'App\Http\Controllers\PagesController@individualAuthorBlogs')->name('individualAuthorBlogs')->middleware('auth');
+Route::get('/author/{id}', 'App\Http\Controllers\PagesController@individualAuthorBlogs')->name('individualAuthorBlogs');
 // This is Contact Route Url End
 
 // Comment Routes //

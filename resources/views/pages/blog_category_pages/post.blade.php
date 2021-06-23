@@ -423,7 +423,7 @@
                         @if ($user->channel_name != null)
                             <div class="widget-author">
                                 <a href="{{ route('individualAuthorBlogs', $user->id ) }}" class="image">
-                                    <img src="{{asset('assets/img/author/1.jpg')}}" alt="">
+                                    <img src="{{url($user->image)}}" alt="">
                                 
                                     <h6>
                                         <span>{{$user->channel_name}}</span>
@@ -438,37 +438,70 @@
                                 <div class="social-media">
                                     <ul class="list-inline">
                                         <li>
-                                            <a href="#" class="color-facebook">
+                                            <a href=" {{ $user->facebook }}" class="color-facebook">
                                                 <i class="fab fa-facebook"></i>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#" class="color-instagram">
+                                            <a href=" {{ $user->instagram }}" class="color-instagram">
                                                 <i class="fab fa-instagram"></i>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#" class="color-twitter">
+                                            <a href=" {{ $user->twitter }}" class="color-twitter">
                                                 <i class="fab fa-twitter"></i>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#" class="color-youtube">
+                                            <a href=" {{ $user->youtube }}" class="color-youtube">
                                                 <i class="fab fa-youtube"></i>
                                             </a>
                                         </li>
-                                        <li>
-                                            <a href="#" class="color-pinterest">
-                                                <i class="fab fa-pinterest"></i>
-                                            </a>
-                                        </li>
+                                       
                                     </ul>
                                 </div>
                             </div>    
                         @else
-                            <h6>
-                                <span>Author : {{$user->name}}</span>
-                            </h6>
+                        <div class="widget-author">
+                            <a href="{{ route('individualAuthorBlogs', $user->id ) }}" class="image">
+                                <img src="{{asset('assets/img/person.png')}}" alt="">
+                            
+                                <h6>
+                                    <span>{{$user->channel_name}}</span>
+                                </h6>
+                            </a>
+
+                            <p>
+                                {{$user->channel_name_description}}
+                            </p>
+                    
+                    
+                            <div class="social-media">
+                                <ul class="list-inline">
+                                    <li>
+                                        <a href=" {{ $user->facebook }}" class="color-facebook">
+                                            <i class="fab fa-facebook"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href=" {{ $user->instagram }}" class="color-instagram">
+                                            <i class="fab fa-instagram"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href=" {{ $user->twitter }}" class="color-twitter">
+                                            <i class="fab fa-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href=" {{ $user->youtube }}" class="color-youtube">
+                                            <i class="fab fa-youtube"></i>
+                                        </a>
+                                    </li>
+                                   
+                                </ul>
+                            </div>
+                        </div>    
                         @endif
                         
                     </div>

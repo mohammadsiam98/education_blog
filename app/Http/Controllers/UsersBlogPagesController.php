@@ -90,8 +90,8 @@ class UsersBlogPagesController extends Controller
         
         
         //Notification Part
-        $users = User::all();
-        Notification::send($users,new NewAuthorPost($user_all_data->name));
+        $users = User::where('user_type','admin')->get();
+        Notification::send($users,new NewAuthorPost($user_all_data->name,$request->title));
 
         $subscribers = Subscriber::all();
         foreach($subscribers as $subscriber)
@@ -207,8 +207,18 @@ class UsersBlogPagesController extends Controller
         $user = User::where('id',$user_id)->first();
         $user->channel_name = $req->channel_name;
         $user->channel_name_description = $req->channel_name_description;
+        $user->facebook = $req->facebook;
+        $user->instagram = $req->instagram;
+        $user->twitter = $req->twitter;
+        $user->youtube = $req->youtube;
+
+        $image  = $req->file('image');
+        Storage::putFile('public/img/',$image);
+        $user->image ="storage/img/".$image->hashName();
+
+       
         $user->save();
-        return back();
+        return back()->with('success',"Details Saved Successfully");
     }
 
 
@@ -218,8 +228,19 @@ class UsersBlogPagesController extends Controller
         $user = User::where('id',$user_id)->first();
         $user->channel_name = $req->channel_name;
         $user->channel_name_description = $req->channel_name_description;
+        $user->facebook = $req->facebook;
+        $user->instagram = $req->instagram;
+        $user->twitter = $req->twitter;
+        $user->youtube = $req->youtube;
+
+         
+        if($req->file('image')){
+            $image  = $req->file('image');
+            Storage::putFile('public/img/',$image);
+            $user->image ="storage/img/".$image->hashName();
+        }
         $user->save();
-        return back();
+        return back()->with('success',"Details Saved Successfully");;
     }
 
 }

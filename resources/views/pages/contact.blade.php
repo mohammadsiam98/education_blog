@@ -158,18 +158,13 @@
                                 allowfullscreen="">
                             </iframe>
                         </div>
-                        <form action="https://noonpost.netlify.app/html/template/assets/php/mail.php" class="widget-form contact_form " method="POST" id="main_contact_form">
-                            <h6>Feel free to contact any time.</h6>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, repudiandae.</p>
-                            <div class="alert alert-success contact_msg" style="display: none" role="alert">
-                                Your message was sent successfully.
-                            </div>
+                        
+                        <form action="{{route('contact.store')}}" class="widget-form" enctype="multipart/form-data" method="POST">
+                            @csrf
+                           
+                            
                             <div class="form-group">
                                 <input type="text" name="name" id="name" class="form-control" placeholder="Your Name*" required="required">
-                            </div>
-                        
-                            <div class="form-group">
-                                <input type="email" name="email" id="email" class="form-control" placeholder="Your Email*" required="required">
                             </div>
                         
                             <div class="form-group">

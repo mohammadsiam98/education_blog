@@ -148,8 +148,8 @@
                 <div class="col-lg-12">
                     <!--widget-author-->
                     <div class="widget-author inner-width">
-                        <a href="author.html" class="image">
-                            <img src="{{asset('assets/img/author/1.jpg')}}" alt="">
+                        <a href="#" class="image">
+                            <img src="{{url($user->image)}}" alt="">
                         </a>
                         <h6><span>{{ $user->name }}</span></h6>
                       
@@ -160,33 +160,30 @@
                         <div class="social-media">
                             <ul class="list-inline">
                                 <li>
-                                    <a href="#" class="color-facebook">
+                                    <a href=" {{ $user->facebook }}" class="color-facebook">
                                         <i class="fab fa-facebook"></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="color-instagram">
+                                    <a href=" {{ $user->instagram }}" class="color-instagram">
                                         <i class="fab fa-instagram"></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="color-twitter">
+                                    <a href=" {{ $user->twitter }}" class="color-twitter">
                                         <i class="fab fa-twitter"></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="color-youtube">
+                                    <a href=" {{ $user->youtube }}" class="color-youtube">
                                         <i class="fab fa-youtube"></i>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="#" class="color-pinterest">
-                                        <i class="fab fa-pinterest"></i>
-                                    </a>
-                                </li>
+                               
                             </ul>
                         </div>
                     </div>
+                    
                 </div>
             </div>
         </div>

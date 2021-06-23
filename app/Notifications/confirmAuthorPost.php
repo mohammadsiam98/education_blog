@@ -7,20 +7,23 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class NewPostNotifyAnother extends Notification
+class confirmAuthorPost extends Notification
 {
+    
     use Queueable;
-    public $users_blogs;
+    public $reviewBlog;
+    public $fetch_blog_title;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($users_blogs)
+    public function __construct($reviewBlog,$fetch_blog_title)
     {
         //
-        $this->users_blogs = $users_blogs;
+        $this->reviewBlog = $reviewBlog;
+        $this->fetch_blog_title = $fetch_blog_title;
     }
 
     /**
@@ -42,11 +45,10 @@ class NewPostNotifyAnother extends Notification
      */
     public function toMail($notifiable)
     {
-        return (new MailMessage)
-        ->greeting('Dear Users, Hope You are fine')
-        ->subject('New Post in XYZ.com')
-        ->line('New post has been uploaded in this website by ' .$this->users_blogs->name. 'Author')
-        ->line('Thank you for using our application!');
+        return (new MailMessage)        
+        ->greeting('Post has been successfully approved')
+        ->subject('Post '.$this->fetch_blog_title. ' Approved' );
+
     }
 
     /**

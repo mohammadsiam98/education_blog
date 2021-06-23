@@ -9,6 +9,7 @@ use App\CommentReply;
 use App\User;
 use App\Comment;
 use App\UsersBlog;
+use App\AboutUs;
 use Illuminate\Support\Facades\Auth;
 class PagesController extends Controller
 {
@@ -1108,6 +1109,13 @@ class PagesController extends Controller
     {
       return view('pages.contact');
     }
+
+    public function aboutUs()
+    {
+      $aboutDetails = AboutUs::where('id',1)->first();
+      return view('pages.about',compact('aboutDetails'));
+    }
+
 
 
 }
