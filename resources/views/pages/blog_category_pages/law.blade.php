@@ -168,7 +168,7 @@
                     <!--cards-->
                     <div class="card-columns">
                         <!--Post-Start-->
-                        @foreach($blogs_law as $law)
+                        @foreach($blogs_law as $key=>$law)
 
                         <div class="card">
                             <div class="post-card">
@@ -178,13 +178,13 @@
                                 </a>
                             </div>
                             <div class="post-card-content">
-                                <a href="blog-grid.html" class="categorie">{{$law->category}}</a>  
-                                <h5><a href="post-default.html">{{$law->title}}</a> </h5>
+                                <a href="{{route('allpost' , [$law->id,$law->category])}}" class="categorie">{{$law->category}}</a>  
+                                <h5><a href="{{route('allpost' , [$law->id,$law->category])}}">{{$law->title}}</a> </h5>
                                 <p>{{$law->highlightedText}}
                                 </p>
                                 <div class="post-card-info">
                                     <ul class="list-inline">
-                                        <li><a href="author.html"><img src="assets/img/author/1.jpg" alt=""></a></li>
+                                        <li><a href="author.html"><img src="{{$user_information[$key]->image}}" alt=""></a></li>
                                         <li>
                                             <a href="author.html">{{$law->name}}</a>
                                         </li>

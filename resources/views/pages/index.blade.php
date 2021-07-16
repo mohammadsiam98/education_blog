@@ -36,141 +36,156 @@
     </div>
     <!--/-->
 
-    <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container-fluid">
-            <!--logo-->
-            <div class="logo">
-                <a href="{{route('homepage')}}">
-                    <img src="assets/img/logo-dark.png" alt="" class="logo-dark">
-                    <img src="assets/img/logo-white.png" alt="" class="logo-white">
-                </a>
+
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+        <!--logo-->
+        <div class="logo">
+            <a href="{{route('homepage')}}">
+                <img src="assets/img/logo-dark.png" alt="" class="logo-dark">
+                <img src="assets/img/logo-white.png" alt="" class="logo-white">
+            </a>
+        </div>
+        <!--/-->
+
+        <!--navbar-collapse-->
+        <div class="collapse navbar-collapse" id="main_nav">
+            <ul class="navbar-nav ml-auto mr-auto">
+               
+               
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('startups')}}"> Startups </a>
+                </li>
+               
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('lifestyle')}}"> Lifestyle </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('review')}}"> Review </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('contact')}}"> Contact </a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown"> More Categories</a>
+                    <ul class="dropdown-menu fade-up">
+                        <li>
+                            <a class="dropdown-item" href="{{route('howto')}}"> How To</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{route('brandstories')}}">Brand Stories</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{route('food')}}"> Food </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{route('travel')}}"> Travel </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{route('career')}}"> Career </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{route('education')}}"> Education </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{route('health')}}"> Health & Wellness </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{route('law')}}"> Law </a>
+                        </li>
+                    </ul>
+                </li>
+               
+            </ul>
+        </div>
+        <!--/-->
+
+        <!--navbar-right-->
+        <div class="navbar-right ml-auto">
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox" />
+                    <div class="slider round"></div>
+                </label>
             </div>
-            <!--/-->
+            
+            <div class="social-icones">
+                <ul class="list-inline">
+                   
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-bell" style="font-size: 20px;"></i>
+                        </a>
+                    </li>
+                    @if (Route::has('login'))
+                   
+                        @auth
+
+                   
+
+                        <li class="nav-item dropdown" style="background-color:#f67280;
+                            color:#ffffff !important;
+                                           
+                                           font-size:20px;
+                                           border-radius:20px;
+                                           padding:2px 13px;
+                                           font-weight:700 !important;
+                                           text-transform: capitalize;
+                                           text-align:center;">
+                            <a class="nav-link" href="#" data-toggle="dropdown"
+                              style="
+                                   
+                                            color:#ffffff !important;
+                                            padding:2px 13px;
+                                            font-size:20px;
+                                            border-radius:20px;
+                                            font-weight:700 !important;
+                                            text-transform: capitalize;
+                                            text-align:center;
+                                 "
+                            
+                            
+                            
+                            >Menu</a>
+                            <ul class="dropdown-menu fade-up">
+                                <li >
+                                    <a class="dropdown-item" href="{{route('user.dashboard')}}"> Dashboard </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" >Logout</a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                        @csrf
+                                    </form>
+                                </li>
+                                
+                            </ul>
+                        </li>
+                        @else
+                            <a href="{{ route('login') }}" class="text-sm text-gray-700 underline" >Log in</a>
     
-            <!--navbar-collapse-->
-            <div class="collapse navbar-collapse" id="main_nav">
-                <ul class="navbar-nav ml-auto mr-auto">
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
+                            @endif
+                        @endauth
                    
-                   
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('startups')}}"> Startups </a>
-                    </li>
-                   
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('lifestyle')}}"> Lifestyle </a>
-                    </li>
+                @endif
                     
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('review')}}"> Review </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('contact')}}"> Contact </a>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown"> More Categories</a>
-                        <ul class="dropdown-menu fade-up">
-                            <li>
-                                <a class="dropdown-item" href="{{route('howto')}}"> How To</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="{{route('brandstories')}}">Brand Stories</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="{{route('food')}}"> Food </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="{{route('travel')}}"> Travel </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="{{route('career')}}"> Career </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="{{route('education')}}"> Education </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="{{route('health')}}"> Health & Wellness </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="{{route('law')}}"> Law </a>
-                            </li>
-                        </ul>
-                    </li>
+          
                    
                 </ul>
             </div>
-            <!--/-->
-    
-            <!--navbar-right-->
-            <div class="navbar-right ml-auto">
-                <div class="theme-switch-wrapper">
-                    <label class="theme-switch" for="checkbox">
-                        <input type="checkbox" id="checkbox" />
-                        <div class="slider round"></div>
-                    </label>
-                </div>
-                
-                <div class="social-icones">
-                    <ul class="list-inline">
-                       
-                        <li>
-                            <a href="#">
-                                <i class="fas fa-bell" style="font-size: 20px;"></i>
-                            </a>
-                        </li>
-                        @if (Route::has('login'))
-                       
-                            @auth
-                            <li class="nav-item dropdown">
-                                <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown"
-                                  style="
-                                       background-color:#f67280;
-                                                color:#ffffff !important;
-                                                padding: 5px 32px;
-                                                text-align:center;
-                                                font-size:20px;
-                                                border-radius:20px;
-                                                font-weight:700 !important;
-                                                text-transform: capitalize;
-                                     "
-                                
-                                
-                                
-                                >Menu</a>
-                                <ul class="dropdown-menu fade-up">
-                                    <li >
-                                        <a class="dropdown-item" href="{{route('user.dashboard')}}"> Dashboard </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
-                                    </li>
-                                    
-                                </ul>
-                            </li>
-                            @else
-                                <a href="{{ route('login') }}" class="text-sm text-gray-700 underline" >Log in</a>
-        
-                                @if (Route::has('register'))
-                                    <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
-                                @endif
-                            @endauth
-                       
-                    @endif
-                        
-              
-                       
-                    </ul>
-                </div>
 
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
         </div>
-    </nav>
-    <!--/-->
+    </div>
+</nav>
+<!--/-->
 
     <!--carousel-hero-->
     <section class="section carousel-hero">
@@ -349,19 +364,6 @@
                 
 
 
-                <div class="newslettre-info">
-                    <h5>Subscribe to our Newslatter</h5>
-                    <p> Sign up for free and be the first to get notified about new posts. </p>
-                </div>
-                <form action="{{route('subscriber.store')}}" method="POST" class="newslettre-form">
-                    @csrf
-                    <div class="form-flex">
-                        <div class="form-group">
-                            <input name="email" type="email" class="form-control" placeholder="Your email adress" required="required">
-                        </div>
-                        <button class="submit-btn" type="submit">Subscribe</button>
-                    </div>
-                </form>
 
                 <div class="newslettre-info">
                     <h5>Want to be a author in our website ? </h5>
@@ -417,21 +419,16 @@
                 <div class="social-icones">
                     <ul class="list-inline">
                         <li>
-                            <a href="#">
-                                <i class="fab fa-facebook-f"></i>Facebook</a>
+                           
+                           <a class="nav-link" href="{{route('privacyPolicies')}}" style="font-size: 20px;"> Privacy-Policies </a>
                         </li>
                         <li>
-                            <a href="#">
-                                <i class="fab fa-twitter"></i>Twitter </a>
+                            <a class="nav-link" href="{{route('terms')}}" style="font-size: 20px;"> Terms & Conditions </a>
                         </li>
                         <li>
-                            <a href="#">
-                                <i class="fab fa-instagram"></i>Instagram </a>
+                            <a class="nav-link" href="{{route('about')}}" style="font-size: 20px;"> About Us </a>
                         </li>
-                        <li>
-                            <a href="#">
-                                <i class="fab fa-youtube"></i>Youtube</a>
-                        </li>
+                      
                     </ul>
                 </div>
             </div>

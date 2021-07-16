@@ -183,61 +183,7 @@
 
                         </div>
 
-                        <div class="post-single-footer">
-                            <div class="tags">
-                                @guest
-                                {{-- <ul class="list-inline">
-                                    <a href=""><img src="{{asset('assets/img/love.png')}}" class="imageLove" alt="" style="height: 100px;width:auto;"></a>
-                                 
-                                </ul> --}}
-                                @else
-                                <ul class="list-inline">
-                                    
-                                    <form action="{{route('post.like')}}" method="POST" id="like-form-{{$blogs->id}}">
-    
-                                    @csrf
-                                    <input type="hidden" name="blog_id" value="{{$blogs->id}}">
-                                    <button type="submit">
-                                        <img src="{{asset('assets/img/love.png')}}" class="imageLove" alt="" style="height: 100px;width:auto;">
-                                        </button>
-                                        
-                                    
-                                    </form>
-                                   @endguest
-                                </ul>
-                               
-                               
-                            </div>
-                            <div class="social-media">
-                                <ul class="list-inline">
-                                    <li>
-                                        <a href="#" class="color-facebook">
-                                            <i class="fab fa-facebook"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="color-instagram">
-                                            <i class="fab fa-instagram"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="color-twitter">
-                                            <i class="fab fa-twitter"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="color-youtube">
-                                            <i class="fab fa-youtube"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="color-pinterest">
-                                            <i class="fab fa-pinterest"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>                           
-                        </div>
+                
                     </div> <!--/-->
 
                     
@@ -463,11 +409,11 @@
                             </div>    
                         @else
                         <div class="widget-author">
-                            <a href="{{ route('individualAuthorBlogs', $user->id ) }}" class="image">
+                            <a href="" class="image">
                                 <img src="{{asset('assets/img/person.png')}}" alt="">
                             
                                 <h6>
-                                    <span>{{$user->channel_name}}</span>
+                                    <span>{{$user->name}}</span>
                                 </h6>
                             </a>
 
@@ -476,31 +422,7 @@
                             </p>
                     
                     
-                            <div class="social-media">
-                                <ul class="list-inline">
-                                    <li>
-                                        <a href=" {{ $user->facebook }}" class="color-facebook">
-                                            <i class="fab fa-facebook"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href=" {{ $user->instagram }}" class="color-instagram">
-                                            <i class="fab fa-instagram"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href=" {{ $user->twitter }}" class="color-twitter">
-                                            <i class="fab fa-twitter"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href=" {{ $user->youtube }}" class="color-youtube">
-                                            <i class="fab fa-youtube"></i>
-                                        </a>
-                                    </li>
-                                   
-                                </ul>
-                            </div>
+                           
                         </div>    
                         @endif
                         

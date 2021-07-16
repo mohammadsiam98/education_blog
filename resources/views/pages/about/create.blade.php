@@ -27,8 +27,9 @@
             </div>     
             <!-- end page title --> 
 
-
-                        <div class="row">
+                        <!-- Start Row -->
+                        @if ($about==NULL)
+                         <div class="row">
                             <div class="col-12">
                                 <div class="card-box">
                                     <h4 class="header-title">Start Writing your blog posts</h4>
@@ -60,8 +61,18 @@
 
                                 </div> <!-- end card-box -->
                             </div><!-- end col -->
+                         </div><!-- end row -->
+                         @else
+                         <div class="row">
+                            <div class="col-md-12">
+                                <div class="alert alert-warning" role="alert">
+                                   <h1>You have already Inserted About Us Details Now you can only Edit them !</h1> 
+                                  </div>
+                            </div>
                         </div>
-                        <!-- end row -->
+                        @endif
+                        
+                        
 
 
                       

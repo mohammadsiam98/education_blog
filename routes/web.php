@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Listeners\SendNewUserNotification;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -109,6 +109,25 @@ Route::prefix('admin')->group(function(){
     Route::get('/aboutUs/edit/{id}', 'App\Http\Controllers\AboutUsPagesController@edit')->name('admin.about.edit');
     Route::post('/aboutUs/update/{id}', 'App\Http\Controllers\AboutUsPagesController@update')->name('admin.about.update');
     Route::delete('/aboutUs/destroy/{id}', 'App\Http\Controllers\AboutUsPagesController@destroy')->name('admin.about.destroy');
+     
+
+      // These are TermsConditions routes
+      Route::get('/Terms_Conditions/create', 'App\Http\Controllers\TermsConditionsPagesController@create')->name('admin.termsConditions.create');
+      Route::put('/Terms_Conditions/create', 'App\Http\Controllers\TermsConditionsPagesController@store')->name('admin.termsConditions.store');
+      Route::get('/Terms_Conditions/list', 'App\Http\Controllers\TermsConditionsPagesController@list')->name('admin.termsConditions.list');
+      Route::get('/Terms_Conditions/edit/{id}', 'App\Http\Controllers\TermsConditionsPagesController@edit')->name('admin.termsConditions.edit');
+      Route::post('/Terms_Conditions/update/{id}', 'App\Http\Controllers\TermsConditionsPagesController@update')->name('admin.termsConditions.update');
+      Route::delete('/Terms_Conditions/destroy/{id}', 'App\Http\Controllers\TermsConditionsPagesController@destroy')->name('admin.termsConditions.destroy');
+
+        // These are PrivacyPolicy routes
+        Route::get('/PrivacyPolicy/create', 'App\Http\Controllers\PrivacyPolicyPagesController@create')->name('admin.privacy.create');
+        Route::put('/PrivacyPolicy/create', 'App\Http\Controllers\PrivacyPolicyPagesController@store')->name('admin.privacy.store');
+        Route::get('/PrivacyPolicy/list', 'App\Http\Controllers\PrivacyPolicyPagesController@list')->name('admin.privacy.list');
+        Route::get('/PrivacyPolicy/edit/{id}', 'App\Http\Controllers\PrivacyPolicyPagesController@edit')->name('admin.privacy.edit');
+        Route::post('/PrivacyPolicy/update/{id}', 'App\Http\Controllers\PrivacyPolicyPagesController@update')->name('admin.privacy.update');
+        Route::delete('/PrivacyPolicy/destroy/{id}', 'App\Http\Controllers\PrivacyPolicyPagesController@destroy')->name('admin.privacy.destroy');
+
+
 });
 
 
@@ -154,9 +173,18 @@ Route::get('/blog', 'App\Http\Controllers\PagesController@index')->name('blog');
 // This is allpost Route Url End
 
 
-// This is allpost Route Url Start
+// This is aboutus Route Url Start
 Route::get('/about-us', 'App\Http\Controllers\PagesController@aboutUs')->name('about');
-// This is allpost Route Url End
+// This is aboutus Route Url End
+
+
+// This is termsConditions Route Url Start
+Route::get('/termsConditions', 'App\Http\Controllers\PagesController@termsConditions')->name('terms');
+// This is termsConditions Route Url End
+
+// This is termsConditions Route Url Start
+Route::get('/privacyPolicies', 'App\Http\Controllers\PagesController@privacyPolicies')->name('privacyPolicies');
+// This is termsConditions Route Url End
 
 
 

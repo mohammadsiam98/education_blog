@@ -167,7 +167,7 @@
                     <!--cards-->
                     <div class="card-columns">
                         <!--Post-Start-->
-                        @foreach($blogs_lifestyle as $lifestyle)
+                        @foreach($blogs_lifestyle as $key=>$lifestyle)
 
                         <div class="card">
                             <div class="post-card">
@@ -178,12 +178,12 @@
                             </div>
                             <div class="post-card-content">
                                 <a href="blog-grid.html" class="categorie">{{$lifestyle->category}}</a>  
-                                <h5><a href="post-default.html">{{$lifestyle->title}}</a> </h5>
+                                <h5><a href="{{route('allpost' , [$lifestyle->id,$lifestyle->category])}}">{{$lifestyle->title}}</a> </h5>
                                 <p>{{$lifestyle->highlightedText}}
                                 </p>
                                 <div class="post-card-info">
                                     <ul class="list-inline">
-                                        <li><a href="#"><img src="{{asset('assets/img/author/1.jpg')}}" alt=""></a></li>
+                                        <li><a href="#"><img src="{{$user_information[$key]->image}}" alt=""></a></li>
                                         <li>
                                             <a href="#">{{$lifestyle->name}}</a>
                                         </li>
@@ -352,48 +352,7 @@
                     
                     </div>
                     <!--/-->
-                    <!--widget-tags-->
-                    <div class="widget">
-                        <div class="section-title">
-                            <h5>Tags</h5>
-                        </div>
-                        <div class="widget-tags">
-                            <ul class="list-inline">
-                                <li>
-                                    <a href="blog-grid.html">Travel</a>
-                                </li>
-                                <li>
-                                    <a href="blog-grid.html">Nature</a>
-                                </li>
-                                <li>
-                                    <a href="blog-grid.html">tips</a>
-                                </li>
-                                <li>
-                                    <a href="blog-grid.html">forest</a>
-                                </li>
-                                <li>
-                                    <a href="blog-grid.html">beach</a>
-                                </li>
-                                <li>
-                                    <a href="blog-grid.html">fashion</a>
-                                </li>
-                                <li>
-                                    <a href="blog-grid.html">livestyle</a>
-                                </li>
-                                <li>
-                                    <a href="blog-grid.html">healty</a>
-                                </li>
-                                <li>
-                                    <a href="blog-grid.html">food</a>
-                                </li>
-                                <li>
-                                    <a href="blog-grid.html">breakfast</a>
-                                </li>
-                    
-                            </ul>
-                        </div>
-                    </div>
-                    <!--/-->
+                   
                 </div>
             </div>
         </div>

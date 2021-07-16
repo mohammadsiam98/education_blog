@@ -101,7 +101,12 @@
                                 </a>
                                 <ul class="nav-second-level" aria-expanded="false">
                                    
-                                    <li><a href="page-lock-screen.html">Logout</a></li>
+                                    <li>
+                                        <a class="" href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" >Logout</a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                            @csrf
+                                        </form>
+                                    </li>
                                    
                                     
                                 </ul>
@@ -250,6 +255,38 @@
                                    
                                     <li><a href="{{route('admin.about.create')}}">Create</a></li>
                                     <li><a href="{{route('admin.about.list')}}">List</a></li>
+                                    
+                                </ul>
+                            </li>
+
+
+                            <li>
+                                <a href="javascript: void(0);">
+                                    <i class="fe-box"></i>
+                                    <span style="font-size: 20px;">  Terms </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+
+                                <ul class="nav-second-level" aria-expanded="false">
+                                    
+                                    <li><a href="{{route('admin.termsConditions.create')}}">Create</a></li>
+                                    <li><a href="{{route('admin.termsConditions.list')}}">List</a></li>
+                                    
+                                </ul>
+                            </li>
+
+
+                            <li>
+                                <a href="javascript: void(0);">
+                                    <i class="fe-box"></i>
+                                    <span style="font-size: 20px;">  Privacy  </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+
+                                <ul class="nav-second-level" aria-expanded="false">
+                                    
+                                    <li><a href="{{route('admin.privacy.create')}}">Create</a></li>
+                                    <li><a href="{{route('admin.privacy.list')}}">List</a></li>
                                     
                                 </ul>
                             </li>

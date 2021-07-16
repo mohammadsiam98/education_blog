@@ -168,7 +168,7 @@
                     <!--cards-->
                     <div class="card-columns">
                         <!--Post-Start-->
-                        @foreach($blogs_howto as $howto)
+                        @foreach($blogs_howto as $key=>$howto)
 
                         <div class="card">
                             <div class="post-card">
@@ -179,12 +179,12 @@
                             </div>
                             <div class="post-card-content">
                                 <a href="blog-grid.html" class="categorie">{{$howto->category}}</a>  
-                                <h5><a href="post-default.html">{{$howto->title}}</a> </h5>
+                                <h5><a href="{{route('allpost' , [$howto->id,$howto->category])}}">{{$howto->title}}</a> </h5>
                                 <p>{{$howto->highlightedText}}
                                 </p>
                                 <div class="post-card-info">
                                     <ul class="list-inline">
-                                        <li><a href="#"><img src="{{asset('assets/img/author/1.jpg')}}" alt=""></a></li>
+                                        <li><a href="#"><img src="{{$user_information[$key]->image}}" alt=""></a></li>
                                         <li>
                                             <a href="#">{{$howto->name}}</a>
                                         </li>

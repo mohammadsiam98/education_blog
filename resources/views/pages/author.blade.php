@@ -214,7 +214,7 @@
                                         <ul class="list-inline">
                                             <li>
                                                 <a >
-                                                    <img src="{{asset('assets/img/author/1.jpg')}}" alt="">
+                                                    <img src="{{url($user->image)}}" alt="">
                                                 </a>
                                             </li>
                                             <li>

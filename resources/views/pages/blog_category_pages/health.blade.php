@@ -166,7 +166,7 @@
                     <!--cards-->
                     <div class="card-columns">
                         <!--Post-Start-->
-                        @foreach($blogs_health as $health_wealth)
+                        @foreach($blogs_health as $key=>$health_wealth)
 
                         <div class="card">
                             <div class="post-card">
@@ -176,15 +176,15 @@
                                 </a>
                             </div>
                             <div class="post-card-content">
-                                <a href="blog-grid.html" class="categorie">{{$health_wealth->category}}</a>  
-                                <h5><a href="post-default.html">{{$health_wealth->title}}</a> </h5>
+                                <a href="" class="categorie">{{$health_wealth->category}}</a>  
+                                <h5><a href="{{route('allpost' , [$health_wealth->id,$health_wealth->category])}}">{{$health_wealth->title}}</a> </h5>
                                 <p>{{$health_wealth->highlightedText}}
                                 </p>
                                 <div class="post-card-info">
                                     <ul class="list-inline">
-                                        <li><a href="#"><img src="{{asset('assets/img/author/1.jpg')}}" alt=""></a></li>
+                                        <li><a href="{{route('allpost' , [$health_wealth->id,$health_wealth->category])}}"><img src="{{$user_information[$key]->image}}" alt=""></a></li>
                                         <li>
-                                            <a href="#">{{$health_wealth->name}}</a>
+                                            <a href="">{{$health_wealth->name}}</a>
                                         </li>
                                         <li class="dot"></li>
                                         <li><?php

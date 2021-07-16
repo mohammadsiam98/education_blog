@@ -182,7 +182,7 @@
                                 </p>
                                 <div class="post-card-info">
                                     <ul class="list-inline">
-                                        <li><a href="#"><img src="{{asset('assets/img/author/1.jpg')}}" alt=""></a></li>
+                                        <li><a href="#"><img src="{{url($travel->image)}}" alt=""></a></li>
                                         <li>
                                             <a href="#">{{$travel->name}}</a>
                                         </li>

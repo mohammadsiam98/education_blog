@@ -373,7 +373,7 @@ i.far.fa-envelope.email_address{
                             </div>    
 
                             <div class="form-group">
-                                <button name="reset" id="reset" type="submit" class="btn-custom">Update</button>
+                                <button name="register" id="reset" type="submit" class="btn-custom">Register</button>
                             </div>
 
                             <p class="form-group text-center">Have an account? <a href="{{route('login')}}" class="btn-link">Login</a> </p>
@@ -382,86 +382,14 @@ i.far.fa-envelope.email_address{
                     
                 </form>
 
-                <div class="social-media" style="text-align: center; padding-top: 3rem;">
-                    <ul class="list-inline">
-                        <li>
-                            <a href="#" class="color-facebook">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="color-instagram">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="color-twitter">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="color-youtube">
-                                <i class="fab fa-youtube"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="color-pinterest">
-                                <i class="fab fa-pinterest"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="color-google">
-                              <i class="fas fa-envelope"></i>
-                            </a>
-                        </li>
-                       
-                    </ul>
-                </div>
+
             </div> 
                
            
         </div>
     </section>        
 
-    <!--newslettre-->
-    <section class="newslettre">
-        <div class="container-fluid">
-            <div class="newslettre-width text-center">
-                <div class="newslettre-info">
-                    <h5>Subscribe to our Newslatter</h5>
-                    <p> Sign up for free and be the first to get notified about new posts. </p>
-                </div>
-                <form action="#" class="newslettre-form">
-                    <div class="form-flex">
-                        <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Your email adress" required="required">
-                        </div>
-                        <button class="submit-btn" type="submit">Subscribe</button>
-                    </div>
-                </form>
-                <div class="social-icones">
-                    <ul class="list-inline">
-                        <li>
-                            <a href="#">
-                                <i class="fab fa-facebook-f"></i>Facebook</a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fab fa-twitter"></i>Twitter </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fab fa-instagram"></i>Instagram </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fab fa-youtube"></i>Youtube</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+
     
     <!--footer-->
     <footer class="footer">

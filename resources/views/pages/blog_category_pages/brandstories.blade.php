@@ -167,7 +167,7 @@
                     <!--cards-->
                     <div class="card-columns">
                         <!--Post-Start-->
-                        @foreach($blogs_brandstories as $brandstories)
+                        @foreach($blogs_brandstories as $key=>$brandstories)
 
                         <div class="card">
                             <div class="post-card">
@@ -183,7 +183,7 @@
                                 </p>
                                 <div class="post-card-info">
                                     <ul class="list-inline">
-                                        <li><a href="#"><img src="{{asset('assets/img/author/1.jpg')}}" alt=""></a></li>
+                                        <li><a href="#"><img src="{{$user_information[$key]->image}}" alt=""></a></li>
                                         <li>
                                             <a href="#">{{$brandstories->name}}</a>
                                         </li>

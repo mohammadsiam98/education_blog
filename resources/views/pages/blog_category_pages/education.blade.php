@@ -178,13 +178,13 @@
                                 </a>
                             </div>
                             <div class="post-card-content">
-                                <a href="blog-grid.html" class="categorie">{{$law->category}}</a>  
-                                <h5><a href="post-default.html">{{$education->title}}</a> </h5>
+                                <a href="blog-grid.html" class="categorie">{{$education->category}}</a>  
+                                <h5><a href="{{route('allpost' , [$education->id,$education->category])}}">{{$education->title}}</a> </h5>
                                 <p>{{$education->highlightedText}}
                                 </p>
                                 <div class="post-card-info">
                                     <ul class="list-inline">
-                                        <li><a href="#"><img src="{{asset('assets/img/author/1.jpg')}}" alt=""></a></li>
+                                        <li><a href="#"><img src="{{$user_information[$key]->image}}" alt=""></a></li>
                                         <li>
                                             <a href="#">{{$education->name}}</a>
                                         </li>

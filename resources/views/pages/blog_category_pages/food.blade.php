@@ -177,12 +177,12 @@
                             </div>
                             <div class="post-card-content">
                                 <a href="blog-grid.html" class="categorie">{{$food->category}}</a>  
-                                <h5><a href="post-default.html">{{$food->title}}</a> </h5>
+                                <h5><a href="{{route('allpost' , [$food->id,$food->category])}}">{{$food->title}}</a> </h5>
                                 <p>{{$food->highlightedText}}
                                 </p>
                                 <div class="post-card-info">
                                     <ul class="list-inline">
-                                        <li><a href="#"><img src="{{asset('assets/img/author/1.jpg')}}" alt=""></a></li>
+                                        <li><a href="#"><img src="{{$user_information[$key]->image}}" alt=""></a></li>
                                         <li>
                                             <a href="#">{{$food->name}}</a>
                                         </li>

@@ -27,7 +27,8 @@ class AboutUsPagesController extends Controller
     public function create()
     {
         //
-        return view('pages.about.create');
+        $about = AboutUs::all();
+        return view('pages.about.create',compact('about'));
     }
 
     /**
@@ -96,7 +97,7 @@ class AboutUsPagesController extends Controller
         }
         $about->save();
         
-        return redirect()->route('admin.about.create')->with('success','About Us details updated Successfully');
+        return redirect()->route('admin.about.list')->with('success','About Us details updated Successfully');
 
     }
 

@@ -27,15 +27,16 @@
             </div>     
             <!-- end page title --> 
 
-
+            
                         <div class="row">
                             <div class="col-12">
                                 <div class="card-box">
                                     <h4 class="header-title">Start updating your About Us Page</h4>
-                                 
-                                    @include('alert.messages')
+                                       
+                                    
                                     <div class="row">
                                         <div class="col-12">
+                                            @include('alert.messages')
                                             <div>
                                                 <form action="{{route('admin.about.update',$about->id)}}" enctype="multipart/form-data" method="POST">
                                                     @csrf
