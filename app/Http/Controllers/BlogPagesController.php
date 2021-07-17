@@ -86,12 +86,12 @@ class BlogPagesController extends Controller
         $user_all_data = Auth::user();
         $blogs->user_id = $user_id;
 
-        $subscribers = Subscriber::all();
-        foreach($subscribers as $subscriber)
-        {
-            Notification::route('mail',$subscriber->email)
-                ->notify(new NewPostNotify($user_all_data,));
-        }
+        // $subscribers = Subscriber::all();
+        // foreach($subscribers as $subscriber)
+        // {
+        //     Notification::route('mail',$subscriber->email)
+        //         ->notify(new NewPostNotify($user_all_data,));
+        // }
         // Notification
 
         return redirect()->route('admin.blogs.create')->with('success','New Posts Category & details created Successfully');

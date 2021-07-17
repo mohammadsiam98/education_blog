@@ -84,7 +84,7 @@ class PagesController extends Controller
         
  
         // Related Posts Show
-        $relatedposts= Blog::where('category',"=", $category)->take(3)->get();
+        $relatedposts= Blog::where('category',"=", $category)->take(3)->where('status', 1)->get();
         // Related Posts Show
 
         
@@ -180,7 +180,7 @@ class PagesController extends Controller
                // Travel Category Post Count //
 
               // Related Posts Show
-              $relatedposts= Blog::latest()->limit(5)->get();
+              $relatedposts= Blog::latest()->limit(5)->where('status', 1)->get();
               // Related Posts Show
                
 
@@ -242,7 +242,7 @@ class PagesController extends Controller
                // Career Category Post Count
        
        
-               $user_information = DB::table('blogs')->join('users','blogs.user_id','users.id')->whereNull('deleted_at')->where('status', 1)->where('category','health')->orderBy('blogs.id', 'DESC')->get();
+               $user_information = DB::table('blogs')->join('users','blogs.user_id','users.id')->where('blogs.status', 1)->get();
        
                // Education Category Post Count
                $categoryeducationCount= Blog::where('category',"=","education")->where('status', 1)->get()->count(); 
@@ -259,7 +259,7 @@ class PagesController extends Controller
     public function health()
     {
               // Related Posts Show
-               $relatedposts= Blog::latest()->limit(5)->get();
+               $relatedposts= Blog::latest()->limit(5)->where('status', 1)->get();
               // Related Posts Show
 
            
@@ -417,7 +417,7 @@ class PagesController extends Controller
               // Education Category Post Count
               
     // Related Posts Show
-       $relatedposts= Blog::latest()->limit(5)->get();
+       $relatedposts= Blog::latest()->where('status', 1)->limit(5)->get();
     // Related Posts Show
       
       $blogs_law = DB::table('users')->join('blogs','blogs.user_id','users.id')->whereNull('deleted_at')->where('status', 1)->where('category','law')->orderBy('blogs.id', 'DESC')->paginate(30);
@@ -436,7 +436,7 @@ class PagesController extends Controller
             // Travel Category Post Count //
       
              // Related Posts Show
-             $relatedposts= Blog::latest()->limit(5)->get();
+             $relatedposts= Blog::latest()->limit(5)->where('status', 1)->get();
              // Related Posts Show
 
 
@@ -520,7 +520,7 @@ class PagesController extends Controller
               // Travel Category Post Count //
        
              // Related Posts Show
-               $relatedposts= Blog::latest()->limit(5)->get();
+               $relatedposts= Blog::latest()->limit(5)->where('status', 1)->get();
              // Related Posts Show
       
              // Startups Category Post Count //
@@ -603,7 +603,7 @@ class PagesController extends Controller
               // Travel Category Post Count //
      
               // Related Posts Show
-               $relatedposts= Blog::latest()->limit(5)->get();
+               $relatedposts= Blog::latest()->limit(5)->where('status', 1)->get();
                // Related Posts Show
 
             // Travel Category Post Count //
@@ -688,7 +688,7 @@ class PagesController extends Controller
 
 
                // Related Posts Show
-               $relatedposts= Blog::latest()->limit(5)->get();
+               $relatedposts= Blog::latest()->limit(5)->where('status', 1)->get();
                // Related Posts Show
 
               // Startup Category Post Count //
@@ -775,7 +775,7 @@ class PagesController extends Controller
 
               
                // Related Posts Show
-               $relatedposts= Blog::latest()->limit(5)->get();
+               $relatedposts= Blog::latest()->limit(5)->where('status', 1)->get();
                // Related Posts Show
 
               // Startup Category Post Count //
@@ -862,7 +862,7 @@ class PagesController extends Controller
 
                  
                // Related Posts Show
-               $relatedposts= Blog::latest()->limit(5)->get();
+               $relatedposts= Blog::latest()->limit(5)->where('status', 1)->get();
                // Related Posts Show
 
               // Startup Category Post Count //
@@ -948,7 +948,7 @@ class PagesController extends Controller
                 // Travel Category Post Count //
 
                  // Related Posts Show
-                 $relatedposts= Blog::latest()->limit(5)->get();
+                 $relatedposts= Blog::latest()->limit(5)->where('status', 1)->get();
                  // Related Posts Show
   
                 // Startup Category Post Count //
@@ -1034,7 +1034,7 @@ class PagesController extends Controller
       
       
               // Related Posts Show
-              $relatedposts= Blog::latest()->limit(5)->get();
+              $relatedposts= Blog::latest()->limit(5)->where('status', 1)->get();
               // Related Posts Show
   
 

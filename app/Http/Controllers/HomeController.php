@@ -54,24 +54,22 @@ class HomeController extends Controller
             // Total Comment
             $total_comments =DB::table('comments')->get()->count();
 
-             // Total Contacts
-             $total_contacts =DB::table('contacts')->get()->count();
+            // Total Contacts
+            $total_contacts =DB::table('contacts')->get()->count();
 
             // Total Subscribers
             $total_subscribers =DB::table('subscribers')->get()->count();
 
-             // Total Sliders
-             $total_sliders =DB::table('sliders')->get()->count();
+            // Total Sliders
+            $total_sliders =DB::table('sliders')->get()->count();
 
-             // Total Comment
-             $total_writers =DB::table('users')->where('blog_access',1)->get()->count();
+            // Total Comment
+            $total_writers =DB::table('users')->where('blog_access',1)->get()->count();
 
-              // Total Comment
-              $total_channel_names =DB::table('users')->whereNotNull('channel_name')->get()->count();
-
-
+            // Total Comment
+            $total_channel_names =DB::table('users')->whereNotNull('channel_name')->get()->count();
          
-            return view('pages.dashboard');
+            return view('pages.dashboard',compact('total_Users','total_blogs_accepted','total_blogs_pending','total_comments','total_contacts','total_subscribers','total_sliders','total_writers','total_channel_names'));
         }
         else{
             return view('pages.404NotFound');
