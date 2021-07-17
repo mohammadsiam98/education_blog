@@ -96,29 +96,7 @@
 
                         <ul class="metismenu" id="side-menu">
 
-                            <li class="menu-title" style="font-size: 26px;">Navigation</li>
-
                           
-                           
-
-                            
-
-                           
-
-                            <li>
-                                <a href="javascript: void(0);">
-                                    <i class="fe-file-plus"></i>
-                                    <span style="font-size: 20px;"> Pages </span>
-                                    <span class="menu-arrow"></span>
-                                </a>
-                                <ul class="nav-second-level" aria-expanded="false">
-                                    <li><a href="#">Logout</a></li>
-                                    
-                                   
-                                   
-                                    
-                                </ul>
-                            </li>
 
                             <li class="menu-title" style="font-size: 26px;">Components</li>
 
@@ -153,7 +131,15 @@
                             </li>
                            
                             
+                            <li>
+                                <a href="{{ route('homepage') }}">
+                                    <i class="fe-box"></i>
+                                    <span style="font-size: 20px;">  Main Website  </span>
+                                    
+                                </a>
 
+                               
+                            </li>
                        
 
                   

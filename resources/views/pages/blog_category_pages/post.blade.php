@@ -268,7 +268,7 @@
                             </div>    
                         @else
                         <div class="widget-author">
-                            <a href="" class="image">
+                            <a  class="image">
                                 <img src="{{asset('assets/img/person.png')}}" alt="">
                             
                                 <h6>
@@ -278,7 +278,7 @@
                             <ul class="widget-categories">
 
                                 <li>
-                                    <a href="#" class="categorie">There is not any channel of this user</a>
+                                    <a class="categorie">There is no channel of this user</a>
                                    
                                 </li>
                             </ul>

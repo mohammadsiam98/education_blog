@@ -222,7 +222,7 @@
                                 </ul>
                             </li>
 
-                            <li>
+                            {{--  <li>
                                 <a href="javascript: void(0);">
                                     <i class="fe-layout"></i>
                                     <span style="font-size: 20px;"> Subscribers </span>
@@ -231,7 +231,7 @@
                                 <ul class="nav-second-level" aria-expanded="false">
                                     <li><a href="{{route('admin.subscriber.list')}}">List</a></li>
                                 </ul>
-                            </li>
+                            </li>  --}}
 
                             <li>
                                 <a href="javascript: void(0);">
@@ -289,6 +289,16 @@
                                     <li><a href="{{route('admin.privacy.list')}}">List</a></li>
                                     
                                 </ul>
+                            </li>
+
+                            <li>
+                                <a href="{{ route('homepage') }}">
+                                    <i class="fe-box"></i>
+                                    <span style="font-size: 20px;">  Main Website  </span>
+                                    
+                                </a>
+
+                               
                             </li>
 
 

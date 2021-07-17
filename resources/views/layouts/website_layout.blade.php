@@ -152,9 +152,18 @@
                             
                             >Menu</a>
                             <ul class="dropdown-menu fade-up">
-                                <li >
-                                    <a class="dropdown-item" href="{{route('user.dashboard')}}"> Dashboard </a>
-                                </li>
+                                
+                                @if (Auth::user()->user_type == 'admin')
+                                    <li >
+                                        <a class="dropdown-item" href="{{route('admin.dashboard')}}"> Dashboard </a>
+                                    </li>
+                                @else
+                                    <li >
+                                        <a class="dropdown-item" href="{{route('user.dashboard')}}"> Dashboard </a>
+                                    </li>
+                                @endif
+                                
+                               
                                 <li>
                                     <a class="dropdown-item" href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" >Logout</a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST">
@@ -200,9 +209,11 @@
                 @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
-                        <a href="{{route('user.dashboard')}}" class="text-sm text-gray-700 underline"
+                        
+                    @if (Auth::user()->user_type == 'admin')
+                        <a href="{{route('admin.dashboard')}}" class="text-sm text-gray-700 underline"
                         style="
-                         background-color:#f67280;
+                        background-color:#f67280;
                                                 color:#ffffff !important;
                                                 padding: 13px 20px;
                                                 text-align:center;
@@ -211,6 +222,21 @@
                                                 font-weight:700 !important;
                                                 text-transform: capitalize;"
                         >Write Blogs in this website</a>
+                    @else
+                        <a href="{{route('user.dashboard')}}" class="text-sm text-gray-700 underline"
+                        style="
+                        background-color:#f67280;
+                                                color:#ffffff !important;
+                                                padding: 13px 20px;
+                                                text-align:center;
+                                                font-size:24px;
+                                                border-radius:20px;
+                                                font-weight:700 !important;
+                                                text-transform: capitalize;"
+                        >Write Blogs in this website</a>
+                    @endif
+                    
+                    
                     @else
                         <a href="{{ route('login') }}" class="text-sm text-gray-700 underline" 
                         style="
