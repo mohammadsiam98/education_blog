@@ -27,7 +27,10 @@ class TermsConditionsPagesController extends Controller
     public function create()
     {
         //
-        $TermsConditions = TermsConditions::all();
+        $TermsConditions = TermsConditions::first();
+
+
+        
         return view('pages.termsConditions.create',compact('TermsConditions'));
     }
 
@@ -97,7 +100,7 @@ class TermsConditionsPagesController extends Controller
         }
         $TermsConditions->save();
         
-        return redirect()->route('admin.TermsConditions.create')->with('success','TermsConditions details updated Successfully');
+        return redirect()->route('admin.termsConditions.list')->with('success','TermsConditions details updated Successfully');
 
     }
 

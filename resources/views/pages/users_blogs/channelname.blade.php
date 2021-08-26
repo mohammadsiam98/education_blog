@@ -40,14 +40,14 @@
                                     <div class="form-group row">
                                         <label class="col-md-2 col-form-label" for="simpleinput">Enter your Channel Name</label>
                                         <div class="col-md-10">
-                                            <input type="text" name="channel_name" id="simpleinput" class="form-control" placeholder="Write a catchy channel Name">
+                                            <input type="text" name="channel_name" id="simpleinput" class="form-control" placeholder="Write a catchy channel Name" required>
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label class="col-md-2 col-form-label" for="simpleinput">Enter your Channel Description</label>
                                         <div class="col-md-10">
-                                            <input type="text" name="channel_name_description" id="simpleinput" class="form-control" placeholder="Write a catchy channel Name">
+                                            <input type="text" name="channel_name_description" id="simpleinput" class="form-control" placeholder="Write description" required>
                                         </div>
                                     </div>
                                     
@@ -86,7 +86,7 @@
                                    
                                     <div class="form-group row">
                                         <p>Select an image</p>
-                                        <input type="file" class="filestyle" data-btnClass="btn-primary" id="image" name="image" placeholder="Enter an image">
+                                        <input type="file" class="filestyle" data-btnClass="btn-primary" id="image" name="image" placeholder="Enter an image" required>
                                     </div>
 
                                     

@@ -27,7 +27,7 @@ class PrivacyPolicyPagesController extends Controller
     public function create()
     {
         //
-        $PrivacyPolicy = PrivacyPolicy::all();
+        $PrivacyPolicy = PrivacyPolicy::first();
         return view('pages.privacy.create',compact('PrivacyPolicy'));
     }
 
@@ -97,7 +97,7 @@ class PrivacyPolicyPagesController extends Controller
         }
         $PrivacyPolicy->save();
         
-        return redirect()->route('admin.privacy.create')->with('success','Privacy Policy details updated Successfully');
+        return redirect()->route('admin.privacy.list')->with('success','Privacy Policy details updated Successfully');
 
     }
 

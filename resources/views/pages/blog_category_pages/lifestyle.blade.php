@@ -43,7 +43,11 @@
                                 </p>
                                 <div class="post-card-info">
                                     <ul class="list-inline">
-                                        <li><a href=""><img src="{{$user_information[$key]->image}}" alt=""></a></li>
+                                        @if (!empty($user_information[$key]->image))
+                                            <li><a href="#"><img src="{{$user_information[$key]->image}}" alt=""></a></li>
+                                        @else
+                                            <li><a href=""><img src="https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png" alt="IMG"></a></li>
+                                        @endif
                                         <li>
                                             <a href="">{{$lifestyle->name}}</a>
                                         </li>
@@ -172,47 +176,7 @@
                     </div>
                     <!--/-->
                     
-                    <!--widget-instagram-->
-                    <div class="widget">
-                        <div class="section-title">
-                            <h5>Instagram</h5>
-                        </div>
-                        <ul class="widget-instagram">
-                            <li>
-                                <a class="image" href="#">
-                                    <img src="assets/img/instagram/1.jpg" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a class="image" href="#">
-                                    <img src="assets/img/instagram/2.jpg" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a class="image" href="#">
-                                    <img src="assets/img/instagram/3.jpg" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a class="image" href="#">
-                                    <img src="assets/img/instagram/4.jpg" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a class="image" href="#">
-                                    <img src="assets/img/instagram/5.jpg" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a class="image" href="#">
-                                    <img src="assets/img/instagram/6.jpg" alt="">
-                                </a>
-                            </li>
-                        </ul>
-                    
-                    </div>
-                    <!--/-->
-                   
+                
                 </div>
             </div>
         </div>

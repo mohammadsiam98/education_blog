@@ -23,7 +23,7 @@
                     <th style="text-align: center;">Serial Number</th>
                     <th style="text-align: center;">Details</th>
                    
-                    <th style="text-align: center;">Image</th>
+              
                     <th style="text-align: center;">Action</th>
                     
                 </tr>
@@ -31,37 +31,35 @@
 
 
                 <tbody>
-            @if (count($about)>0)
+                  @if (count($about)>0)
             @foreach ($about as $aboutUs)
                 <tr>
                     <td>{{$aboutUs->id}}</td>
                     <td>{{$aboutUs->details}}</td>
-                  
-                    <td>
-                        <img style="height: 70px; width:auto;" src="{{url($aboutUs->image)}}" alt="image">
-                          
-                    </td>
+
+                    @if (empty($aboutUs->image))
+                      <td>No Image</td>
+                    @else
+                      <td>
+                          <img style="height: 70px; width:auto;" src="{{url($aboutUs->image)}}" alt="image">
+                            
+                      </td>
+                    @endif
+                    
 
                     <td>
                         <div class="row">
                           <div>
                             <a  href="{{route('admin.about.edit' , $aboutUs->id)}}" style="color: white;" class="btn btn-primary m-2"> Edit </a>
                           </div>
-                          <div >
-                            <form action="{{route('admin.about.destroy', $aboutUs->id)}}" method="POST">
-                              @csrf
-                              @method('Delete')
-                              <input type="submit" name="submit" value="Delete" class="btn btn-danger m-2">
-                            </form>
-                            
-                          </div>
+                          
                         </div>
                       </td>
                   
                 </tr>
 
             @endforeach                    
-            @endif
+          @endif
                
                 </tbody>
             </table>

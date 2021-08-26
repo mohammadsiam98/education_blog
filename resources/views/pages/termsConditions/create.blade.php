@@ -27,7 +27,7 @@
             </div>     
             <!-- end page title --> 
 
-                        @if($TermsConditions == NULL)
+                        @if(empty($TermsConditions->details))
                         <div class="row">
                             <div class="col-12">
                                 <div class="card-box">

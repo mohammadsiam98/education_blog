@@ -46,14 +46,7 @@
                           <div>
                             <a  href="{{route('admin.termsConditions.edit' , $TermsCondition->id)}}" style="color: white;" class="btn btn-primary m-2"> Edit </a>
                           </div>
-                          <div >
-                            <form action="{{route('admin.termsConditions.destroy', $TermsCondition->id)}}" method="POST">
-                              @csrf
-                              @method('Delete')
-                              <input type="submit" name="submit" value="Delete" class="btn btn-danger m-2">
-                            </form>
-                            
-                          </div>
+                         
                         </div>
                       </td>
                   

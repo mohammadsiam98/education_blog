@@ -26,7 +26,7 @@
                     <!--cards-->
                     <div class="card-columns">
                         <!--Post-Start-->
-                        @foreach($blogs_education as $education)
+                        @foreach($blogs_education as $key => $education)
 
                         <div class="card">
                             <div class="post-card">
@@ -42,7 +42,11 @@
                                 </p>
                                 <div class="post-card-info">
                                     <ul class="list-inline">
-                                        <li><a href=""><img src="{{$user_information[$key]->image}}" alt=""></a></li>
+                                        @if (!empty($user_information[$key]->image))
+                                            <li><a href="#"><img src="{{$user_information[$key]->image}}" alt=""></a></li>
+                                        @else
+                                            <li><a href=""><img src="https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png" alt="IMG"></a></li>
+                                        @endif
                                         <li>
                                             <a href="">{{$education->name}}</a>
                                         </li>
@@ -167,88 +171,7 @@
                     </div>
                     <!--/-->
                     
-                    <!--widget-instagram-->
-                    <div class="widget">
-                        <div class="section-title">
-                            <h5>Instagram</h5>
-                        </div>
-                        <ul class="widget-instagram">
-                            <li>
-                                <a class="image" href="#">
-                                    <img src="assets/img/instagram/1.jpg" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a class="image" href="#">
-                                    <img src="assets/img/instagram/2.jpg" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a class="image" href="#">
-                                    <img src="assets/img/instagram/3.jpg" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a class="image" href="#">
-                                    <img src="assets/img/instagram/4.jpg" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a class="image" href="#">
-                                    <img src="assets/img/instagram/5.jpg" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a class="image" href="#">
-                                    <img src="assets/img/instagram/6.jpg" alt="">
-                                </a>
-                            </li>
-                        </ul>
-                    
-                    </div>
-                    <!--/-->
-                    <!--widget-tags-->
-                    <div class="widget">
-                        <div class="section-title">
-                            <h5>Tags</h5>
-                        </div>
-                        <div class="widget-tags">
-                            <ul class="list-inline">
-                                <li>
-                                    <a href="blog-grid.html">Travel</a>
-                                </li>
-                                <li>
-                                    <a href="blog-grid.html">Nature</a>
-                                </li>
-                                <li>
-                                    <a href="blog-grid.html">tips</a>
-                                </li>
-                                <li>
-                                    <a href="blog-grid.html">forest</a>
-                                </li>
-                                <li>
-                                    <a href="blog-grid.html">beach</a>
-                                </li>
-                                <li>
-                                    <a href="blog-grid.html">fashion</a>
-                                </li>
-                                <li>
-                                    <a href="blog-grid.html">livestyle</a>
-                                </li>
-                                <li>
-                                    <a href="blog-grid.html">healty</a>
-                                </li>
-                                <li>
-                                    <a href="blog-grid.html">food</a>
-                                </li>
-                                <li>
-                                    <a href="blog-grid.html">breakfast</a>
-                                </li>
-                    
-                            </ul>
-                        </div>
-                    </div>
-                    <!--/-->
+                
                 </div>
             </div>
         </div>

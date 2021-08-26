@@ -211,7 +211,7 @@ class UsersBlogPagesController extends Controller
         $user->instagram = $req->instagram;
         $user->twitter = $req->twitter;
         $user->youtube = $req->youtube;
-
+        
         $image  = $req->file('image');
         Storage::putFile('public/img/',$image);
         $user->image ="storage/img/".$image->hashName();

@@ -16,6 +16,8 @@ class AboutUsPagesController extends Controller
     {
         //
         $about = AboutUs::all();
+
+
         return view ('pages.about.list',compact('about'));
     }
 
@@ -27,7 +29,7 @@ class AboutUsPagesController extends Controller
     public function create()
     {
         //
-        $about = AboutUs::all();
+        $about = AboutUs::first();
         return view('pages.about.create',compact('about'));
     }
 

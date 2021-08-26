@@ -57,7 +57,16 @@
                                                         <p>Select an image</p>
                                                        
                                                         <input type="file" class="filestyle" data-btnClass="btn-primary" id="image" name="image" placeholder="Enter an image">
-                                                        <img src="{{url($about->image)}}" class="img-thumbnail" style="height: 100px;width:auto;">
+                                                        @if (empty($about->image))
+                                                          No Image
+                                                        @else
+                                                           
+                                                            <img src="{{url($about->image)}}" class="img-thumbnail" style="height: 100px;width:auto;">
+                                                                
+                                                           
+                                                        @endif
+                                                        
+                                                        
                                                     </div>
 
 

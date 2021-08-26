@@ -46,14 +46,7 @@
                           <div>
                             <a  href="{{route('admin.privacy.edit' , $Privacy->id)}}" style="color: white;" class="btn btn-primary m-2"> Edit </a>
                           </div>
-                          <div >
-                            <form action="{{route('admin.privacy.destroy', $Privacy->id)}}" method="POST">
-                              @csrf
-                              @method('Delete')
-                              <input type="submit" name="submit" value="Delete" class="btn btn-danger m-2">
-                            </form>
-                            
-                          </div>
+                      
                         </div>
                       </td>
                   

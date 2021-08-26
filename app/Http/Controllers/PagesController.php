@@ -752,7 +752,7 @@ class PagesController extends Controller
               // Career Category Post Count
       
       
-              $user_information = DB::table('blogs')->join('users','blogs.user_id','users.id')->whereNull('deleted_at')->where('status', 1)->where('category','health')->orderBy('blogs.id', 'DESC')->get();
+              $user_information = DB::table('blogs')->join('users','blogs.user_id','users.id')->whereNull('deleted_at')->where('status', 1)->where('category','brandstories')->orderBy('blogs.id', 'DESC')->get();
       
               // Education Category Post Count
               $categoryeducationCount= Blog::where('category',"=","education")->where('status', 1)->get()->count(); 
@@ -839,8 +839,10 @@ class PagesController extends Controller
               // Career Category Post Count
       
       
-              $user_information = DB::table('blogs')->join('users','blogs.user_id','users.id')->whereNull('deleted_at')->where('status', 1)->where('category','health')->orderBy('blogs.id', 'DESC')->get();
-      
+              //$user_information = DB::table('blogs')->join('users','blogs.user_id','users.id')->whereNull('deleted_at')->where('status', 1)->where('category','food')->orderBy('blogs.id', 'DESC')->get();
+
+              $user_information = DB::table('blogs')->join('users','blogs.user_id','users.id')->whereNull('deleted_at')->where('status', 1)->where('category','brandstories')->orderBy('blogs.id', 'DESC')->get();
+
               // Education Category Post Count
               $categoryeducationCount= Blog::where('category',"=","education")->where('status', 1)->get()->count(); 
               // Education Category Post Count
@@ -850,6 +852,8 @@ class PagesController extends Controller
        return view('pages.blog_category_pages.food',compact('blogs_food','relatedposts','categorytravelCount','categoryhealthCount',
        'categorylawCount','categorylifestyleCount','categoryreviewCount','categoryhowtoCount','categorybrandstoriesCount','categoryfoodCount',
        'categorycareerCount','categoryeducationCount','categorystartupsCount','user_information'));
+
+
     }
 
 
