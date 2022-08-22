@@ -75,14 +75,14 @@ class UsersBlogPagesController extends Controller
         $user_all_data = Auth::user();
         $users_blogs->user_id = $user_id;
 
-        if($user_all_data->blog_access == 1)
-        {
-            $users_blogs->status = 1;     
-        }
-        else{
-            $users_blogs->status = 0; 
-        }
-
+        // if($user_all_data->blog_access == 1)
+        // {
+        //     $users_blogs->status = 1;     
+        // }
+        // else{
+        //     $users_blogs->status = 0; 
+        // }
+        $users_blogs->status = 1; 
 
 
         $users_blogs->save();
@@ -90,15 +90,15 @@ class UsersBlogPagesController extends Controller
         
         
         //Notification Part
-        $users = User::where('user_type','admin')->get();
-        Notification::send($users,new NewAuthorPost($user_all_data->name,$request->title));
+        // $users = User::where('user_type','admin')->get();
+        // Notification::send($users,new NewAuthorPost($user_all_data->name,$request->title));
 
-        $subscribers = Subscriber::all();
-        foreach($subscribers as $subscriber)
-        {
-            Notification::route('mail',$subscriber->email)
-                ->notify(new NewPostNotify($user_all_data));
-        }
+        // $subscribers = Subscriber::all();
+        // foreach($subscribers as $subscriber)
+        // {
+        //     Notification::route('mail',$subscriber->email)
+        //         ->notify(new NewPostNotify($user_all_data));
+        // }
         // Notification Part End 
 
 

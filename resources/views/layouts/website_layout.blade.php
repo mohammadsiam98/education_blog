@@ -45,6 +45,7 @@
             <a href="{{route('homepage')}}">
                 <img src="{{asset('assets/img/logo-dark.png')}}" alt="" class="logo-dark">
                 <img src="{{asset('assets/img/logo-white.png')}}" alt="" class="logo-white">
+                {{--  <h5>ThatCol.com</h5>  --}}
             </a>
         </div>
         <!--/-->
@@ -70,6 +71,30 @@
                     <a class="nav-link" href="{{route('contact')}}"> Contact </a>
                 </li>
 
+                {{--  <li class="nav-item">
+                    <a class="nav-link" href="{{route('howto')}}"> How To</a>
+                </li >
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('brandstories')}}">Brand Stories</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('food')}}"> Food </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('travel')}}"> Travel </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('career')}}"> Career </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('education')}}"> Education </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('health')}}"> Health & Wellness </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('law')}}"> Law </a>
+                </li>  --}}
                 <li class="nav-item dropdown">
                     <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown"> More Categories</a>
                     <ul class="dropdown-menu fade-up">
